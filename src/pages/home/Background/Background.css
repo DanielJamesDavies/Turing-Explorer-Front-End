@@ -1,0 +1,96 @@
+.home-background {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100dvw;
+	height: 100dvh;
+	filter: blur(1px);
+}
+
+.home-background-neural-network {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(10deg);
+	display: flex;
+	gap: 200px;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.5;
+}
+
+.home-background-neural-network-layer {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.home-background-neural-network-neuron-container {
+	position: relative;
+}
+
+.home-background-neural-network-neuron-circle {
+	--neuron_size: 40px;
+	position: relative;
+	z-index: 3;
+	display: block;
+	content: "";
+	border: solid 1px var(--colour-grey-70);
+	border-radius: 100%;
+
+	background: var(--colour-black);
+
+	box-sizing: border-box;
+	min-width: var(--neuron_size);
+	width: var(--neuron_size);
+	min-height: var(--neuron_size);
+	height: var(--neuron_size);
+
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.home-background-neural-network-neuron-container-hovering .home-background-neural-network-neuron-circle {
+	border-color: var(--colour-blue);
+}
+
+.home-background-neural-network-neuron-connections {
+	--neuron_line_opacity: 0.3;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: -2px;
+}
+
+.home-background-neural-network-neuron-connection {
+	--length: 230px;
+	--angle: 0deg;
+	--opacity: 0;
+	--background: var(--colour-grey-10);
+	--z-index: 1;
+	position: absolute;
+	z-index: var(--z-index);
+	display: block;
+	content: "";
+	background: var(--background);
+	width: var(--length);
+	height: 1px;
+	transform-origin: left;
+	transform: rotate(var(--angle));
+	transition: 1s;
+	opacity: var(--opacity);
+}
+
+.home-background-neural-network-layer-hovering .home-background-neural-network-neuron-connections,
+.home-background-neural-network-next-layer-hovering .home-background-neural-network-neuron-connections {
+	--neuron_line_opacity: 0;
+}
+
+.home-background-neural-network-neuron-container-hovering .home-background-neural-network-neuron-connections,
+.home-background-neural-network-neuron-connection-hovering {
+	z-index: 2;
+	--neuron_line_colour: var(--colour-white);
+	--neuron_line_opacity: 1;
+}
