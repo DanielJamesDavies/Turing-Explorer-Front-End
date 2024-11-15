@@ -26,7 +26,6 @@ export const Background = () => {
 						const neuron_index = Math.floor(Math.random() * 9);
 						const connection_offset = Math.floor(Math.random() * 5) - 2;
 						const connection_index = Math.min(6, Math.max(0, neuron_index + connection_offset));
-						console.log(i % 8, neuron_index, connection_index);
 						return JSON.stringify([i % 8, neuron_index, connection_index]);
 					})
 			);

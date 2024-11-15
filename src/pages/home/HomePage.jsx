@@ -20,6 +20,7 @@ export const HomePage = () => {
 			<Background />
 			<div className='home-hero'>
 				<div className='home-title'>Turing Explorer</div>
+				<div className='home-hero-text'>To understand the internals of a large language model.</div>
 				<div className='home-primary-buttons'>
 					<button>Download Turing-LLM Explorer</button>
 					<button>Read Technical Blog</button>
