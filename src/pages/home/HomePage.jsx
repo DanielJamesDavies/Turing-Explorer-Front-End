@@ -30,6 +30,32 @@ export const HomePage = () => {
 				</div>
 			</div>
 			<div className='home-section'>
+				<div className='home-subtitle'>Motivation & Hypothesis</div>
+				<div className='home-text'>
+					Hypothesis: Solving mechanistic interpretability could allow us to greatly increase human intelligence.
+					<br />
+					<br />
+					<span>Reasoning:</span>
+					<ul>
+						<li>
+							A model that can solve a problem better than any human must contain algorithms that are better for solving the problem
+							than those we have.
+						</li>
+						<li>With mechanistic interpretability, we could discover these more competent algorithms within deep learning models.</li>
+						<li>
+							Once we have acquired these algorithms, we could learn them (updating our software) or modify the brain to contain them
+							(updating our hardware).
+						</li>
+						<li>
+							Thus, interpretability can enable us to advance our own intelligence to keep up with the most intelligent models, not
+							through reliance on superintelligent models but through learning and modifying ourselves.
+						</li>
+					</ul>
+					<br />
+					Conclusion: This may be the best path to true ensured safety, not only through aligning models, but through coevolving together.
+				</div>
+			</div>
+			<div className='home-section'>
 				<div className='home-subtitle'>Progress</div>
 				<div className='home-progress-list'>
 					{[

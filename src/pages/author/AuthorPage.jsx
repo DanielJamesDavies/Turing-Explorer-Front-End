@@ -45,6 +45,9 @@ export const AuthorPage = () => {
 					I am a diligent and hardworking Machine Learning Engineer with a MSc in Artificial Intelligence and a passion for solving
 					complex real-world problems for both business and humanity. I am particularly interested in research and engineering in building
 					and/or understanding ML models.
+					<br />
+					<br />I am exceedingly interested in mechanistic interpretability and deeply believe it is the path to both AI safety and
+					increasing our intelligence.
 				</div>
 			</div>
 		</div>
