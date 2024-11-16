@@ -48,14 +48,21 @@ export const Background = () => {
 	useEffect(() => {
 		const getNewActivatedNeuronConnections = () => {
 			setActivatedNeuronConnections(
-				Array(8 * 32)
-					.fill(0)
-					.map((_, i) => {
-						const neuron_index = Math.floor(Math.random() * 9);
-						const connection_offset = Math.floor(Math.random() * 4) - 2;
-						const connection_index = Math.min(6, Math.max(0, neuron_index + connection_offset));
-						return JSON.stringify([i % 8, neuron_index, connection_index]);
-					})
+				Array(9)
+					?.fill(0)
+					?.map(() =>
+						Array(9)
+							?.fill(0)
+							?.map(() =>
+								Math.random() > 0.7
+									? Array(9)
+											?.fill(0)
+											?.map(() => false)
+									: Array(9)
+											?.fill(0)
+											?.map(() => Math.random() < 0.25)
+							)
+					)
 			);
 		};
 		getNewActivatedNeuronConnections();
@@ -82,14 +89,15 @@ export const Background = () => {
 											{Array(9)
 												?.fill(0)
 												?.map((_, connection_index) => {
+													const activatedNeuronConnection =
+														Math.abs(neuron_index - connection_index) < 3 &&
+														activatedNeuronConnections[layer_index][neuron_index][connection_index];
 													if (
-														Math.abs(neuron_index - connection_index) > 3 ||
-														!neuronConnectionsVisibility[layer_index][neuron_index][connection_index]
+														!activatedNeuronConnection &&
+														(Math.abs(neuron_index - connection_index) > 3 ||
+															!neuronConnectionsVisibility[layer_index][neuron_index][connection_index])
 													)
 														return null;
-													const activatedNeuronConnection = activatedNeuronConnections.find(
-														(e) => e === JSON.stringify([layer_index, neuron_index, connection_index])
-													);
 													return (
 														<div
 															key={connection_index}
@@ -140,14 +148,15 @@ export const Background = () => {
 											{Array(9)
 												?.fill(0)
 												?.map((_, connection_index) => {
+													const activatedNeuronConnection =
+														Math.abs(neuron_index - connection_index) < 3 &&
+														activatedNeuronConnections[layer_index][neuron_index][connection_index];
 													if (
-														Math.abs(neuron_index - connection_index) > 3 ||
-														!neuronConnectionsVisibility[layer_index][neuron_index][connection_index]
+														!activatedNeuronConnection &&
+														(Math.abs(neuron_index - connection_index) > 3 ||
+															!neuronConnectionsVisibility[layer_index][neuron_index][connection_index])
 													)
 														return null;
-													const activatedNeuronConnection = activatedNeuronConnections.find(
-														(e) => e === JSON.stringify([layer_index, neuron_index, connection_index])
-													);
 													return (
 														<div
 															key={connection_index}
