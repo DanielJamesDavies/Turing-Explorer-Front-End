@@ -1,5 +1,5 @@
 // Packages
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 // Components
 
@@ -10,11 +10,11 @@ import { useState, useEffect, useRef } from "react";
 // Services
 
 // Styles
-import "./Background.css";
+import "./NeuralNetBackground.css";
 
 // Assets
 
-export const Background = () => {
+export const NeuralNetBackground = () => {
 	const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 	const [windowInnerHeight, setWindowInnerHeight] = useState(window.innerHeight);
 	const [activatedNeuronConnections, setActivatedNeuronConnections] = useState([]);
@@ -85,19 +85,19 @@ export const Background = () => {
 
 	if (!neuronConnectionsVisibility) return null;
 	return (
-		<div className='home-background-container'>
-			<div className='home-background' style={{ "--scale": Math.max(windowInnerHeight / 1400, windowInnerWidth / 2300) }}>
-				<div className='home-background-neural-network'>
+		<div className='neural-net-background-container'>
+			<div className='neural-net-background' style={{ "--scale": Math.max(windowInnerHeight / 1400, windowInnerWidth / 2300) }}>
+				<div className='neural-net-background-neural-network'>
 					{Array(9)
 						?.fill(0)
 						?.map((_, layer_index) => (
-							<div key={layer_index} className='home-background-neural-network-layer'>
+							<div key={layer_index} className='neural-net-background-neural-network-layer'>
 								{Array(9)
 									?.fill(0)
 									?.map((_, neuron_index) => (
-										<div key={neuron_index} className='home-background-neural-network-neuron-container'>
-											<div className='home-background-neural-network-neuron-circle'></div>
-											<div className='home-background-neural-network-neuron-connections'>
+										<div key={neuron_index} className='neural-net-background-neural-network-neuron-container'>
+											<div className='neural-net-background-neural-network-neuron-circle'></div>
+											<div className='neural-net-background-neural-network-neuron-connections'>
 												{Array(9)
 													?.fill(0)
 													?.map((_, connection_index) => {
@@ -114,9 +114,9 @@ export const Background = () => {
 															<div
 																key={connection_index}
 																className={
-																	"home-background-neural-network-neuron-connection" +
+																	"neural-net-background-neural-network-neuron-connection" +
 																	(activatedNeuronConnection
-																		? " home-background-neural-network-neuron-connection-active"
+																		? " neural-net-background-neural-network-neuron-connection-active"
 																		: "")
 																}
 																style={{
@@ -146,17 +146,17 @@ export const Background = () => {
 							</div>
 						))}
 				</div>
-				<div className='home-background-neural-network'>
+				<div className='neural-net-background-neural-network'>
 					{Array(9)
 						?.fill(0)
 						?.map((_, layer_index) => (
-							<div key={layer_index} className='home-background-neural-network-layer'>
+							<div key={layer_index} className='neural-net-background-neural-network-layer'>
 								{Array(9)
 									?.fill(0)
 									?.map((_, neuron_index) => (
-										<div key={neuron_index} className='home-background-neural-network-neuron-container'>
-											<div className='home-background-neural-network-neuron-circle'></div>
-											<div className='home-background-neural-network-neuron-connections'>
+										<div key={neuron_index} className='neural-net-background-neural-network-neuron-container'>
+											<div className='neural-net-background-neural-network-neuron-circle'></div>
+											<div className='neural-net-background-neural-network-neuron-connections'>
 												{Array(9)
 													?.fill(0)
 													?.map((_, connection_index) => {
@@ -173,9 +173,9 @@ export const Background = () => {
 															<div
 																key={connection_index}
 																className={
-																	"home-background-neural-network-neuron-connection" +
+																	"neural-net-background-neural-network-neuron-connection" +
 																	(activatedNeuronConnection
-																		? " home-background-neural-network-neuron-connection-active"
+																		? " neural-net-background-neural-network-neuron-connection-active"
 																		: "")
 																}
 																style={{

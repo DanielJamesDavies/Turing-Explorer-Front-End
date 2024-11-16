@@ -1,0 +1,42 @@
+.author-page .page-content {
+	position: relative;
+	z-index: 1;
+}
+
+.author-page .neural-net-background-container {
+	opacity: 0.6;
+}
+
+.author-name {
+	margin: 16px 0;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(180deg, var(--colour-blue), #0af, #ddd 75%);
+	-webkit-background-clip: text;
+	color: var(--colour-white);
+	font-size: 2rem;
+	letter-spacing: 2px;
+	word-spacing: 4px;
+	font-weight: 600;
+	transition: 0.2s;
+}
+
+.author-subtitle {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin: 6px 0;
+	color: var(--colour-grey-80);
+	font-size: 1rem;
+	transition: 0.2s;
+}
+
+.author-subtitle span:nth-child(1) {
+	font-size: 24px;
+}
+
+.author-text {
+	margin: 32px 0;
+	color: var(--colour-grey-80);
+	font-size: 1rem;
+	transition: 0.2s;
+}

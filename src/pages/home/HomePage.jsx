@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 
 // Components
-import { Background } from "./Background/Background";
+import { NeuralNetBackground } from "../../components/neural-net-background/NeuralNetBackground";
 
 // Logic
 
@@ -20,7 +20,7 @@ export const HomePage = () => {
 
 	return (
 		<div className='page home-page'>
-			<Background />
+			<NeuralNetBackground />
 			<div className='home-hero'>
 				<div className='home-title'>Turing Explorer</div>
 				<div className='home-hero-text'>To understand the internals of a large language model.</div>

@@ -51,6 +51,17 @@ export const NavigationBar = () => {
 				>
 					Technical Reports
 				</button>
+				<button
+					className={
+						"navigation-bar-button" +
+						(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "author"
+							? " navigation-bar-button-active"
+							: "")
+					}
+					onClick={() => navigate("/author")}
+				>
+					Author
+				</button>
 			</div>
 		</div>
 	);

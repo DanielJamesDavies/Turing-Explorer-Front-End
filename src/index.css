@@ -11,6 +11,7 @@
 	--colour-grey-40: #6a6a6a;
 	--colour-grey-50: #808080;
 	--colour-grey-70: #a3a3a3;
+	--colour-grey-80: #c3c3c3;
 	--colour-grey-90: #e2e2e2;
 	--colour-blue: #0044ff;
 
@@ -29,4 +30,35 @@ body {
 	margin: 0;
 	padding: 0;
 	background: var(--colour-black);
+}
+
+.page {
+	padding-top: 80px;
+}
+
+.page-content {
+	margin: 0 auto;
+	padding-bottom: 128px;
+	width: calc(100dvw - 2 * 12px);
+	max-width: 1100px;
+}
+
+.page-title {
+	margin: 32px 0;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(180deg, #fff, #bbb);
+	-webkit-background-clip: text;
+	color: var(--colour-white);
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	word-spacing: 4px;
+	font-weight: 600;
+	transition: 0.2s;
+}
+
+@media (max-width: 1000px) {
+	.page-title {
+		margin: 16px 0;
+		font-size: 1.3rem;
+	}
 }
