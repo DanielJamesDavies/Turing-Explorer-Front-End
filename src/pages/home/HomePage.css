@@ -17,7 +17,7 @@
 	-webkit-text-fill-color: transparent;
 	background: linear-gradient(180deg, #4af 15%, #fff, #ccc);
 	background: linear-gradient(180deg, #ccc 35%, #555, #26f 200%);
-	background: linear-gradient(180deg, #eee, #444);
+	background: linear-gradient(180deg, #ccc 40%, #eee 50%, #222);
 	-webkit-background-clip: text;
 	color: var(--text-colour-primary);
 	font-size: 4rem;

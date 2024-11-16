@@ -39,7 +39,7 @@ export const NavigationBar = () => {
 					}
 					onClick={() => navigate("/download")}
 				>
-					Download Tool
+					Download
 				</button>
 				<button
 					className={
