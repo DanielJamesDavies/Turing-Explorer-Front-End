@@ -5,25 +5,33 @@
 	left: 0;
 	width: 100dvw;
 	height: 100dvh;
-	filter: blur(1px);
 }
 
 .home-background-neural-network {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%) rotate(10deg);
+	transform: translate(-50%, -50%) rotate(-5deg);
 	display: flex;
-	gap: 200px;
+	gap: 250px;
 	justify-content: center;
 	align-items: center;
-	opacity: 0.5;
+}
+
+.home-background-neural-network:nth-child(1) {
+	z-index: -1;
+	filter: blur(3px) brightness(110%);
+}
+
+.home-background-neural-network:nth-child(2) {
+	z-index: 1;
+	opacity: 0.7;
 }
 
 .home-background-neural-network-layer {
 	display: flex;
 	flex-direction: column;
-	gap: 100px;
+	gap: 120px;
 }
 
 .home-background-neural-network-neuron-container {
@@ -36,7 +44,7 @@
 	z-index: 3;
 	display: block;
 	content: "";
-	border: solid 1px var(--colour-grey-70);
+	border: solid 1px var(--colour-grey-20);
 	border-radius: 100%;
 
 	background: var(--colour-black);
@@ -59,26 +67,96 @@
 	--neuron_line_opacity: 0.3;
 	position: absolute;
 	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	right: 0;
+	transform: translateY(-50%);
 	margin-top: -2px;
 }
 
 .home-background-neural-network-neuron-connection {
 	--length: 230px;
 	--angle: 0deg;
-	--background: var(--colour-grey-10);
-	--z-index: 1;
 	position: absolute;
-	z-index: var(--z-index);
+	z-index: -1;
 	display: block;
 	content: "";
-	background: var(--background);
+	background: var(--colour-grey-10);
 	width: var(--length);
 	height: 1px;
 	transform-origin: left;
 	transform: rotate(var(--angle));
 	transition: 1s;
+}
+
+.home-background-neural-network-neuron-connection-active {
+	z-index: 3 !important;
+	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-white) 85%, var(--colour-white) 90%, var(--colour-grey-30) 91%);
+	background-size: 200%;
+	animation: home-background-neural-network-neuron-connection-gradient-flow 4s linear infinite;
+}
+
+.home-background-neural-network:nth-child(1) .home-background-neural-network-neuron-connection-active {
+	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-blue) 85%, var(--colour-blue) 90%, var(--colour-blue));
+	background-size: 200%;
+}
+
+.home-background-neural-network-layer:nth-child(1) .home-background-neural-network-neuron-connection-active {
+	animation-delay: 0s;
+}
+
+.home-background-neural-network-layer:nth-child(2) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 1);
+}
+
+.home-background-neural-network-layer:nth-child(3) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 2);
+}
+
+.home-background-neural-network-layer:nth-child(4) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 3);
+}
+
+.home-background-neural-network-layer:nth-child(5) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 4);
+}
+
+.home-background-neural-network-layer:nth-child(6) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 5);
+}
+
+.home-background-neural-network-layer:nth-child(7) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 6);
+}
+
+.home-background-neural-network-layer:nth-child(8) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 7);
+}
+
+.home-background-neural-network-layer:nth-child(9) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 8);
+}
+
+.home-background-neural-network-layer:nth-child(10) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 9);
+}
+
+.home-background-neural-network-layer:nth-child(11) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 10);
+}
+
+.home-background-neural-network-layer:nth-child(12) .home-background-neural-network-neuron-connection-active {
+	animation-delay: calc(0.34s * 11);
+}
+
+@keyframes home-background-neural-network-neuron-connection-gradient-flow {
+	0% {
+		background-position: 200%;
+	}
+	18% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 0%;
+	}
 }
 
 .home-background-neural-network-layer-hovering .home-background-neural-network-neuron-connections,
