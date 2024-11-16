@@ -40,7 +40,7 @@ body {
 .page-content {
 	margin: 0 auto;
 	padding-bottom: 128px;
-	width: calc(100dvw - 2 * 12px);
+	width: calc(100% - 2 * 12px);
 	max-width: 1100px;
 }
 

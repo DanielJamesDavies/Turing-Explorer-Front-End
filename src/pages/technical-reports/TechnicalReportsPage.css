@@ -1,0 +1,55 @@
+.technical-reports-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.technical-reports-list-item {
+	flex: 0 0 auto;
+	margin: 16px;
+	width: calc(100% / 3 - 2 * 16px);
+	cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+	.technical-reports-list-item {
+		width: calc(100% / 3 - 2 * 16px);
+	}
+}
+
+@media (max-width: 750px) {
+	.technical-reports-list-item {
+		width: calc(100% / 2 - 2 * 16px);
+	}
+}
+
+@media (max-width: 450px) {
+	.technical-reports-list-item {
+		width: calc(100% / 1 - 2 * 16px);
+	}
+}
+
+.technical-reports-list-item-image {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.technical-reports-list-item-image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	transform-origin: center;
+	transition: 0.2s;
+}
+
+.technical-reports-list-item:hover .technical-reports-list-item-image img {
+	scale: 1.03;
+}
+
+.technical-reports-list-item-title {
+	position: relative;
+	z-index: 1;
+	color: var(--colour-grey-80);
+	font-size: 15px;
+	word-break: keep-all;
+}
