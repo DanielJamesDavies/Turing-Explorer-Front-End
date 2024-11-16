@@ -16,8 +16,6 @@
 
 .home-title {
 	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, #4af 15%, #fff, #ccc);
-	background: linear-gradient(180deg, #ccc 35%, #555, #26f 200%);
 	background: linear-gradient(180deg, #ccc 40%, #eee 50%, #222);
 	-webkit-background-clip: text;
 	color: var(--text-colour-primary);
@@ -29,10 +27,22 @@
 	transition: 0.2s;
 }
 
+@media (max-width: 600px) {
+	.home-title {
+		font-size: 2.8rem;
+	}
+}
+
 .home-primary-buttons {
 	display: flex;
 	gap: 20px;
 	align-items: center;
+}
+
+@media (max-width: 600px) {
+	.home-primary-buttons {
+		flex-direction: column;
+	}
 }
 
 .home-primary-buttons button {
@@ -57,7 +67,6 @@
 .home-hero-text {
 	margin-top: -12px;
 	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, #aaa, #555);
 	background: linear-gradient(180deg, #eee, #444);
 	-webkit-background-clip: text;
 	color: var(--text-colour-primary);
@@ -67,16 +76,34 @@
 	transition: 0.2s;
 }
 
+@media (max-width: 600px) {
+	.home-hero-text {
+		background: linear-gradient(180deg, #ccc, #777);
+		-webkit-background-clip: text;
+		font-size: 15px;
+		max-width: 260px;
+	}
+}
+
 .home-section {
 	margin: 32px auto;
-	width: calc(100% - 12px);
+	width: calc(100% - 2 * 8px);
 	max-width: 1200px;
 }
 
 .home-subtitle {
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(180deg, #ccc 50%, #444);
+	-webkit-background-clip: text;
 	margin: 16px 0;
 	font-size: 2rem;
 	font-weight: 600;
+}
+
+@media (max-width: 600px) {
+	.home-subtitle {
+		font-size: 1.6rem;
+	}
 }
 
 .home-progress-list {
@@ -89,6 +116,7 @@
 	display: flex;
 	gap: 8px;
 	align-items: center;
+	font-size: 15px;
 }
 
 .home-progress-item .fa-circle-notch {
