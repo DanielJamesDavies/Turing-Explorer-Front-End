@@ -17,7 +17,6 @@ import "./AuthorPage.css";
 export const AuthorPage = () => {
 	return (
 		<div className='page author-page'>
-			<NeuralNetBackground />
 			<div className='page-content'>
 				<div className='page-title'>Author</div>
 				<div className='author-name'>Daniel J Davies</div>

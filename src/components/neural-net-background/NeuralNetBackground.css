@@ -7,7 +7,16 @@
 	width: 100dvw;
 	height: 100dvh;
 	scale: var(--scale);
+	opacity: 0.5;
 }
+
+.app-page-home .neural-net-background {
+	opacity: 1;
+}
+
+/* .app-page-technical-reports .neural-net-background {
+	display: none;
+} */
 
 .neural-net-background-neural-network {
 	position: absolute;

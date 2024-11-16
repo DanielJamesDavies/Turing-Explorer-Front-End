@@ -3,10 +3,6 @@
 	z-index: 1;
 }
 
-.author-page .neural-net-background-container {
-	opacity: 0.6;
-}
-
 .author-name {
 	margin: 16px 0;
 	-webkit-text-fill-color: transparent;

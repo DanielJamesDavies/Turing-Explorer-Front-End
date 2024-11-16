@@ -1,0 +1,139 @@
+.download-page .page-content {
+	position: relative;
+	z-index: 1;
+}
+
+.download-page .neural-net-background-container {
+	opacity: 0.5;
+}
+
+.download-list {
+	margin-top: 8px;
+	width: 100%;
+}
+
+.download-list-item-container {
+	margin-top: 16px;
+	width: 100%;
+}
+
+.download-list-item {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: var(--colour-grey-70);
+	transition: 0.2s;
+}
+
+.download-list-item:hover {
+	color: var(--colour-grey-90);
+}
+
+.download-list-item > div {
+	width: 100%;
+}
+
+.download-list-item > button:nth-child(1) {
+	border: 0;
+	width: 40px;
+	background: transparent;
+	color: var(--colour-grey-10);
+}
+
+.download-list-item-has-sub-items > button:nth-child(1) {
+	color: var(--colour-grey-80);
+	cursor: pointer;
+}
+
+.download-list-item > button:nth-child(1) i {
+	transition: 0.2s;
+}
+
+.download-list-item-displaying-sub-items > button:nth-child(1) i {
+	transform: rotate(90deg);
+}
+
+.download-list-item > div:nth-child(2) {
+	width: 40px;
+	color: var(--colour-grey-80);
+}
+
+.download-list-item > div:last-child {
+	width: 110px;
+	overflow: visible;
+}
+
+.download-list-item-download-btn {
+	position: relative;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 6px 12px;
+	border: 0;
+	border-radius: 5px;
+	background: transparent;
+	color: var(--colour-white);
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.download-list-item-download-btn::before {
+	position: absolute;
+	z-index: -1;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+	content: "";
+	border-radius: 5px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, var(--colour-blue-tint), var(--colour-blue));
+	transition: 0.2s;
+}
+
+.download-list-item:hover .download-list-item-download-btn::before {
+	filter: brightness(140%);
+}
+
+.download-list-item-download-btn i {
+	position: relative;
+	margin-top: -1px;
+}
+
+.download-list-item-download-btn i::after {
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+	content: "";
+	border-radius: 2px;
+	width: 12px;
+	height: 2px;
+	background: var(--colour-white);
+	background: var(--colour-grey-90);
+}
+
+.download-list-item-sub-items {
+	--max-height: 200px;
+	margin-left: 12px;
+	max-height: 0;
+	overflow: hidden;
+	transition: 0.2s ease-in-out;
+}
+
+.download-list-item-sub-items-displaying {
+	max-height: var(--max-height);
+}
+
+@media (max-width: 500px) {
+	.download-list-item-download-btn {
+		margin-left: auto;
+	}
+
+	.download-list-item-download-btn span {
+		display: none;
+	}
+}

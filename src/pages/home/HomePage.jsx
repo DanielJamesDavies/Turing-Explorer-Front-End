@@ -20,7 +20,6 @@ export const HomePage = () => {
 
 	return (
 		<div className='page home-page'>
-			<NeuralNetBackground />
 			<div className='home-hero'>
 				<div className='home-title'>Turing Explorer</div>
 				<div className='home-hero-text'>To understand the internals of a large language model.</div>
