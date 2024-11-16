@@ -12,7 +12,6 @@ import { HomePage } from "./pages/home/HomePage";
 // Services
 
 // Styles
-import "./App.css";
 
 // Assets
 

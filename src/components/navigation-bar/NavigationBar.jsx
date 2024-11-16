@@ -20,7 +20,6 @@ export const NavigationBar = () => {
 	return (
 		<div className='navigation-bar'>
 			<div className='navigation-bar-buttons'>
-				{console.log(window.location)}
 				<button
 					className={
 						"navigation-bar-button" +

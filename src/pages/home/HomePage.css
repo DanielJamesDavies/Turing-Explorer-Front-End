@@ -1,5 +1,6 @@
 .home-page {
 	position: relative;
+	padding-bottom: 256px;
 }
 
 .home-hero {
@@ -66,9 +67,40 @@
 	transition: 0.2s;
 }
 
-.home-description {
-	margin: 0 auto;
+.home-section {
+	margin: 32px auto;
 	width: calc(100% - 12px);
-	max-width: 1500px;
-	text-align: center;
+	max-width: 1200px;
+}
+
+.home-subtitle {
+	margin: 16px 0;
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.home-progress-list {
+	display: flex;
+	gap: 12px;
+	flex-direction: column;
+}
+
+.home-progress-item {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.home-progress-item .fa-circle-notch {
+	position: relative;
+	animation: home-progress-item-icon-spin 1.5s infinite linear;
+}
+
+@keyframes home-progress-item-icon-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
