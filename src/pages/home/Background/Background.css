@@ -67,7 +67,6 @@
 .home-background-neural-network-neuron-connection {
 	--length: 230px;
 	--angle: 0deg;
-	--opacity: 0;
 	--background: var(--colour-grey-10);
 	--z-index: 1;
 	position: absolute;
@@ -80,7 +79,6 @@
 	transform-origin: left;
 	transform: rotate(var(--angle));
 	transition: 1s;
-	opacity: var(--opacity);
 }
 
 .home-background-neural-network-layer-hovering .home-background-neural-network-neuron-connections,

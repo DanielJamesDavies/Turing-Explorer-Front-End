@@ -23,7 +23,7 @@ export const HomePage = () => {
 				<div className='home-hero-text'>To understand the internals of a large language model.</div>
 				<div className='home-primary-buttons'>
 					<button>Download Turing-LLM Explorer</button>
-					<button>Read Technical Blog</button>
+					<button>Read Technical Reports</button>
 				</div>
 			</div>
 		</div>

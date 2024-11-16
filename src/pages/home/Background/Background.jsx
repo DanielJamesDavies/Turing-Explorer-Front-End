@@ -20,7 +20,7 @@ export const Background = () => {
 	useEffect(() => {
 		const getNewActivatedNeuronConnections = () => {
 			setActivatedNeuronConnections(
-				Array(8 * 7)
+				Array(8 * 6)
 					.fill(0)
 					.map((_, i) => {
 						const neuron_index = Math.floor(Math.random() * 9);
@@ -31,7 +31,7 @@ export const Background = () => {
 			);
 		};
 		getNewActivatedNeuronConnections();
-		const interval = setInterval(() => getNewActivatedNeuronConnections(), 2000);
+		const interval = setInterval(() => getNewActivatedNeuronConnections(), 5000);
 		return () => {
 			clearInterval(interval);
 		};
@@ -52,44 +52,36 @@ export const Background = () => {
 										<div className='home-background-neural-network-neuron-connections'>
 											{Array(9)
 												?.fill(0)
-												?.map((_, connection_index) => (
-													<div
-														key={connection_index}
-														className='home-background-neural-network-neuron-connection'
-														style={{
-															"--z-index": activatedNeuronConnections?.includes(
-																JSON.stringify([layer_index, neuron_index, connection_index])
-															)
-																? 2
-																: 1,
-															"--background": activatedNeuronConnections?.includes(
-																JSON.stringify([layer_index, neuron_index, connection_index])
-															)
-																? "var(--colour-white)"
-																: "var(--colour-grey-10)",
-															"--opacity": activatedNeuronConnections?.includes([
-																layer_index,
-																neuron_index,
-																connection_index,
-															])
-																? 1
-																: Math.random() < 0.7
-																? 0
-																: Math.random() * 0.7,
-															"--angle":
-																Math.atan(
-																	(140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1) / 220
-																) *
-																	(180 / Math.PI) +
-																"deg",
-															"--length":
-																Math.hypot(
-																	140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1,
-																	220
-																) + "px",
-														}}
-													></div>
-												))}
+												?.map((_, connection_index) => {
+													if (Math.random() < 0.95) return null;
+													const activatedNeuronConnection = activatedNeuronConnections.find(
+														(e) => e === JSON.stringify([layer_index, neuron_index, connection_index])
+													);
+													return (
+														<div
+															key={connection_index}
+															className='home-background-neural-network-neuron-connection'
+															style={{
+																"--z-index": activatedNeuronConnection ? 2 : 1,
+																"--background": activatedNeuronConnection
+																	? "var(--colour-white)"
+																	: "var(--colour-grey-20)",
+																"--angle":
+																	Math.atan(
+																		(140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1) /
+																			220
+																	) *
+																		(180 / Math.PI) +
+																	"deg",
+																"--length":
+																	Math.hypot(
+																		140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1,
+																		220
+																	) + "px",
+															}}
+														></div>
+													);
+												})}
 										</div>
 									</div>
 								))}
