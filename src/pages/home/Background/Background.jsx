@@ -20,7 +20,7 @@ export const Background = () => {
 	useEffect(() => {
 		const getNewActivatedNeuronConnections = () => {
 			setActivatedNeuronConnections(
-				Array(8 * 6)
+				Array(8 * 10)
 					.fill(0)
 					.map((_, i) => {
 						const neuron_index = Math.floor(Math.random() * 9);
@@ -53,7 +53,7 @@ export const Background = () => {
 											{Array(9)
 												?.fill(0)
 												?.map((_, connection_index) => {
-													if (Math.random() < 0.95) return null;
+													if (Math.random() < 0.88 || Math.abs(neuron_index - connection_index) > 6) return null;
 													const activatedNeuronConnection = activatedNeuronConnections.find(
 														(e) => e === JSON.stringify([layer_index, neuron_index, connection_index])
 													);
@@ -68,14 +68,14 @@ export const Background = () => {
 																	: "var(--colour-grey-20)",
 																"--angle":
 																	Math.atan(
-																		(140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1) /
+																		(135 * connection_index - 135 * neuron_index - 135 * ((9 - 9) / 2) * -1) /
 																			220
 																	) *
 																		(180 / Math.PI) +
 																	"deg",
 																"--length":
 																	Math.hypot(
-																		140 * connection_index - 140 * neuron_index - 140 * ((9 - 9) / 2) * -1,
+																		135 * connection_index - 135 * neuron_index - 135 * ((9 - 9) / 2) * -1,
 																		220
 																	) + "px",
 															}}
