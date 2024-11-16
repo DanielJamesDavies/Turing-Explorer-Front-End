@@ -1,10 +1,12 @@
 .home-background {
+	--scale: 0.8;
 	position: fixed;
 	z-index: -1;
 	top: 0;
 	left: 0;
 	width: 100dvw;
 	height: 100dvh;
+	scale: var(--scale);
 }
 
 .home-background-neural-network {
@@ -44,7 +46,7 @@
 	z-index: 3;
 	display: block;
 	content: "";
-	border: solid 1px var(--colour-grey-20);
+	border: solid 1px var(--colour-grey-25);
 	border-radius: 100%;
 
 	background: var(--colour-black);
