@@ -15,11 +15,26 @@ import "./AuthorPage.css";
 // Assets
 
 export const AuthorPage = () => {
+	const navigate = (e, url) => {
+		if (e?.button === 1) return window.open(url, "_blank");
+		window.location.href = url;
+	};
+
 	return (
 		<div className='page author-page'>
 			<div className='page-content'>
 				<div className='page-title'>Author</div>
 				<div className='author-name'>Daniel J Davies</div>
+				<div className='author-links'>
+					{[
+						{ label: "Portfolio", url: "https://www.danieljdavies.com" },
+						{ label: "LinkedIn", url: "https://www.linkedin.com/in/daniel-james-davies/" },
+					]?.map((link, index) => (
+						<button key={index} onClick={(e) => navigate(e, link?.url)} onAuxClick={(e) => navigate(e, link?.url)}>
+							{link?.label}
+						</button>
+					))}
+				</div>
 				<div className='author-subtitle'>
 					<span>🥼</span>
 					<span>Independent Mechanistic Interpretability Researcher</span>

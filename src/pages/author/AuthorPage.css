@@ -4,12 +4,13 @@
 }
 
 .author-name {
-	margin: 16px 0;
+	margin: 0;
+	margin-top: 16px;
 	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, var(--colour-blue), #0af, #ddd 75%);
+	background: linear-gradient(180deg, var(--colour-blue), #0af, #bdf 75%);
 	-webkit-background-clip: text;
 	color: var(--colour-white);
-	font-size: 2rem;
+	font-size: 2.1rem;
 	letter-spacing: 2px;
 	word-spacing: 4px;
 	font-weight: 600;
@@ -35,4 +36,42 @@
 	color: var(--colour-grey-80);
 	font-size: 1rem;
 	transition: 0.2s;
+}
+
+.author-links {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0;
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+
+.author-links button {
+	position: relative;
+	padding: 5px 16px;
+	border: 0;
+	border-radius: 5px;
+	background: transparent;
+	color: var(--colour-white);
+	cursor: pointer;
+}
+
+.author-links button::before {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	display: block;
+	content: "";
+	border-radius: 32px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, var(--colour-blue-tint), var(--colour-blue));
+	transition: 0.2s;
+}
+
+.author-links button:hover::before {
+	filter: brightness(140%);
 }

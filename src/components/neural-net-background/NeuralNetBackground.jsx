@@ -1,5 +1,6 @@
 // Packages
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // Components
 
@@ -15,6 +16,7 @@ import "./NeuralNetBackground.css";
 // Assets
 
 export const NeuralNetBackground = () => {
+	const location = useLocation();
 	const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 	const [windowInnerHeight, setWindowInnerHeight] = useState(window.innerHeight);
 	const [activatedNeuronConnections, setActivatedNeuronConnections] = useState([]);
@@ -50,11 +52,10 @@ export const NeuralNetBackground = () => {
 			);
 		};
 		getNeuronConnectionsVisibility();
-		const interval = setInterval(() => getNeuronConnectionsVisibility(), 4000);
-		return () => {
-			clearInterval(interval);
-		};
-	}, [setNeuronConnectionsVisibility]);
+		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const interval = setInterval(() => getNeuronConnectionsVisibility(), intervalDuration);
+		return () => clearInterval(interval);
+	}, [setNeuronConnectionsVisibility, location]);
 
 	useEffect(() => {
 		const getNewActivatedNeuronConnections = () => {
@@ -77,15 +78,14 @@ export const NeuralNetBackground = () => {
 			);
 		};
 		getNewActivatedNeuronConnections();
-		const interval = setInterval(() => getNewActivatedNeuronConnections(), 4000);
-		return () => {
-			clearInterval(interval);
-		};
-	}, [setActivatedNeuronConnections]);
+		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const interval = setInterval(() => getNewActivatedNeuronConnections(), intervalDuration);
+		return () => clearInterval(interval);
+	}, [setActivatedNeuronConnections, location]);
 
 	if (!neuronConnectionsVisibility) return null;
 	return (
-		<div className='neural-net-background-container'>
+		<div className={"neural-net-background-container neural-net-background-container-running-animations"}>
 			<div className='neural-net-background' style={{ "--scale": Math.max(windowInnerHeight / 1400, windowInnerWidth / 2300) }}>
 				<div className='neural-net-background-neural-network'>
 					{Array(9)
@@ -103,11 +103,11 @@ export const NeuralNetBackground = () => {
 													?.map((_, connection_index) => {
 														const activatedNeuronConnection =
 															Math.abs(neuron_index - connection_index) < 3 &&
-															activatedNeuronConnections[layer_index][neuron_index][connection_index];
+															activatedNeuronConnections?.[layer_index]?.[neuron_index]?.[connection_index];
 														if (
 															!activatedNeuronConnection &&
 															(Math.abs(neuron_index - connection_index) > 3 ||
-																!neuronConnectionsVisibility[layer_index][neuron_index][connection_index])
+																!neuronConnectionsVisibility?.[layer_index]?.[neuron_index]?.[connection_index])
 														)
 															return null;
 														return (
@@ -162,11 +162,11 @@ export const NeuralNetBackground = () => {
 													?.map((_, connection_index) => {
 														const activatedNeuronConnection =
 															Math.abs(neuron_index - connection_index) < 3 &&
-															activatedNeuronConnections[layer_index][neuron_index][connection_index];
+															activatedNeuronConnections?.[layer_index]?.[neuron_index]?.[connection_index];
 														if (
 															!activatedNeuronConnection &&
 															(Math.abs(neuron_index - connection_index) > 3 ||
-																!neuronConnectionsVisibility[layer_index][neuron_index][connection_index])
+																!neuronConnectionsVisibility?.[layer_index]?.[neuron_index]?.[connection_index])
 														)
 															return null;
 														return (

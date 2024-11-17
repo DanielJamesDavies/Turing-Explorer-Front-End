@@ -1,0 +1,52 @@
+.technical-report-page {
+	--contentMaxWidth: 800px;
+}
+
+.technical-report-page .page-title {
+	--title-scale: 1;
+	margin: 96px auto;
+	max-width: var(--contentMaxWidth);
+	font-size: calc(2.2rem * var(--title-scale));
+	text-align: center;
+}
+
+.technical-report-page .page-content {
+	max-width: unset;
+}
+
+.technical-report-text {
+	margin: 0 auto;
+	max-width: var(--contentMaxWidth);
+	white-space: pre-wrap;
+	color: var(--colour-grey-80);
+}
+
+.technical-report-section-1 {
+	position: relative;
+	margin-bottom: 192px;
+}
+
+.technical-report-section-1::before {
+	position: absolute;
+	bottom: -96px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+	content: "";
+	width: 100%;
+	max-width: var(--contentMaxWidth);
+	height: 1px;
+	background: var(--colour-grey-30);
+}
+
+.technical-report-section-1:last-child:before {
+	display: none;
+}
+
+.technical-report-heading-1 {
+	margin: 0 auto;
+	max-width: var(--contentMaxWidth);
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--colour-grey-80);
+}

@@ -1,4 +1,5 @@
 // Packages
+import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 // Components
@@ -6,9 +7,9 @@ import { NavigationBar } from "./components/navigation-bar/NavigationBar";
 import { HomePage } from "./pages/home/HomePage";
 import { DownloadPage } from "./pages/download/DownloadPage";
 import { TechnicalReportsPage } from "./pages/technical-reports/TechnicalReportsPage";
+import { TechnicalReportPage } from "./pages/technical-report/TechnicalReportPage";
 import { AuthorPage } from "./pages/author/AuthorPage";
 import { NeuralNetBackground } from "./components/neural-net-background/NeuralNetBackground";
-import { useEffect, useState } from "react";
 
 // Logic
 
@@ -37,6 +38,7 @@ function App() {
 				<Route path='/' element={<HomePage />} />
 				<Route path='/download' element={<DownloadPage />} />
 				<Route path='/technical-reports' element={<TechnicalReportsPage />} />
+				<Route path='/technical-report/:id' element={<TechnicalReportPage />} />
 				<Route path='/author' element={<AuthorPage />} />
 				<Route path='*' element={<HomePage />} />
 			</Routes>

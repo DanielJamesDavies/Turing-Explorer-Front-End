@@ -1,0 +1,7 @@
+{
+	"technical-reports": [
+		{ "id": "latent-connections", "title": "Discovering Latent Connections" },
+		{ "id": "topk-sparse-autoencoders", "title": "Using TopK Sparse Autoencoders on Turing‑LLM‑1.0‑254M" },
+		{ "id": "turing-llm-1.0", "title": "Building Turing‑LLM‑1.0‑254M" }
+	]
+}

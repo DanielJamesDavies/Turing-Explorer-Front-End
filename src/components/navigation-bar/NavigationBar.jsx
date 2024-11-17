@@ -43,7 +43,8 @@ export const NavigationBar = () => {
 				<button
 					className={
 						"navigation-bar-button" +
-						(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "technical-reports"
+						(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "technical-reports" ||
+						window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "technical-report"
 							? " navigation-bar-button-active"
 							: "")
 					}
