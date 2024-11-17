@@ -26,6 +26,35 @@ export const TechnicalReportPage = () => {
 			.catch((e) => console.log("Error:", e));
 	}, [id]);
 
+	const processText = (text) => {
+		return text.split("<|references|")?.map((string, i) =>
+			i === 0 ? (
+				string
+			) : (
+				<span>
+					<span className='technical-report-intext-references'>
+						<span>[</span>
+						{string
+							.split("|>")[0]
+							?.split("|")
+							?.map((referenceId, index) => (
+								<span key={index} className='technical-report-intext-reference'>
+									{reportData?.references?.findIndex((e) => e?.id === referenceId) + 1 || "MISSING REFERENCE"}
+								</span>
+							))}
+						<span>]</span>
+					</span>
+					<span>
+						{string
+							.split("|>")
+							?.filter((_, i) => i !== 0)
+							?.join("|>")}
+					</span>
+				</span>
+			)
+		);
+	};
+
 	return (
 		<div className='page technical-report-page'>
 			{!reportData ? null : (
@@ -34,31 +63,14 @@ export const TechnicalReportPage = () => {
 						{reportData?.title}
 					</div>
 					<div className='technical-report-section-1'>
-						<div className='technical-report-text'>{reportData?.abstract}</div>
+						<div className='technical-report-text'>{processText(reportData?.abstract)}</div>
 					</div>
 					<div className='technical-report-section-1'>
 						<div className='technical-report-heading-1'>Introduction</div>
 						<div className='technical-report-text'>
-							<br />
-							Integer faucibus, dui ut tempor dapibus, turpis felis interdum ex, et consequat est dui a mi. Nam quis fringilla dui.
-							Maecenas in iaculis dolor, id consectetur enim. Integer eleifend blandit dolor. Pellentesque commodo gravida sem, eu
-							consequat augue ultricies sed. Aenean quis lacinia leo. Quisque eu auctor enim, eu sollicitudin dolor. Proin a nisl in
-							tellus consectetur tempor eget sit amet ante.
-							<br />
-							<br />
-							Nunc varius lectus enim, eu volutpat lectus blandit vitae. Integer non risus ut odio hendrerit pretium. Donec viverra
-							scelerisque velit at volutpat. Phasellus semper sapien id metus pretium tincidunt. Class aptent taciti sociosqu ad
-							litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et
-							malesuada fames ac turpis egestas. Ut eu velit lectus.
-							<br />
-							<br />
-							Nunc cursus, magna ac consectetur tincidunt, ex nisi tristique felis, eget blandit sem lorem nec orci. Etiam maximus
-							venenatis turpis, vel consectetur leo consequat ac. Aenean varius lorem erat, et pharetra arcu lobortis ac. Etiam eu
-							neque sed lectus tincidunt fringilla at sit amet ipsum. Nam aliquam id tortor ac tincidunt. Curabitur luctus ligula sit
-							amet enim vestibulum laoreet. Sed mollis dapibus iaculis. Nullam condimentum, eros sed ultricies fermentum, quam mauris
-							consectetur risus, ac vehicula nisl dolor sit amet dolor. Suspendisse id felis at est elementum ullamcorper. Proin in
-							arcu eros. Nam et varius sapien, sit amet condimentum tellus. Mauris tempus est sit amet mollis malesuada. Quisque
-							tincidunt gravida volutpat. In finibus molestie sem. Maecenas ac ultricies sapien.
+							{processText(
+								"\nInteger faucibus, dui ut tempor dapibus, turpis felis interdum ex, et consequat est dui a mi. Nam quis fringilla dui. Maecenas in iaculis dolor, id consectetur enim. Integer eleifend blandit dolor. Pellentesque commodo gravida sem, eu consequat augue ultricies sed. Aenean quis lacinia leo. Quisque eu auctor enim, eu sollicitudin dolor. Proin a nisl in tellus consectetur tempor eget sit amet ante. \n\n Nunc varius lectus enim, eu volutpat lectus blandit vitae. Integer non risus ut odio hendrerit pretium. Donec viverra scelerisque velit at volutpat. Phasellus semper sapien id metus pretium tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut eu velit lectus. \n\n Nunc cursus, magna ac consectetur tincidunt, ex nisi tristique felis, eget blandit sem lorem nec orci. Etiam maximus venenatis turpis, vel consectetur leo consequat ac. Aenean varius lorem erat, et pharetra arcu lobortis ac. Etiam eu neque sed lectus tincidunt fringilla at sit amet ipsum. Nam aliquam id tortor ac tincidunt. Curabitur luctus ligula sit amet enim vestibulum laoreet. Sed mollis dapibus iaculis. Nullam condimentum, eros sed ultricies fermentum, quam mauris consectetur risus, ac vehicula nisl dolor sit amet dolor. Suspendisse id felis at est elementum ullamcorper. Proin in arcu eros. Nam et varius sapien, sit amet condimentum tellus. Mauris tempus est sit amet mollis malesuada. Quisque tincidunt gravida volutpat. In finibus molestie sem. Maecenas ac ultricies sapien."
+							)}
 						</div>
 					</div>
 					<div className='technical-report-section-1'>
