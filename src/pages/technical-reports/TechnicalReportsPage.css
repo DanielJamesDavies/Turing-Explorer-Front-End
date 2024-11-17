@@ -29,6 +29,7 @@
 }
 
 .technical-reports-list-item-image {
+	position: relative;
 	width: 100%;
 	height: auto;
 	overflow: hidden;
@@ -40,6 +41,19 @@
 	object-fit: cover;
 	transform-origin: center;
 	transition: 0.2s;
+}
+
+.technical-reports-list-item-image img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	filter: brightness(0%);
+}
+
+.technical-reports-list-item-image img:nth-child(2) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 
 .technical-reports-list-item:hover .technical-reports-list-item-image img {

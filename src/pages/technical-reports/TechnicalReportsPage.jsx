@@ -26,6 +26,7 @@ export const TechnicalReportsPage = () => {
 					]?.map((technicalReportItem, index) => (
 						<div key={index} className='technical-reports-list-item'>
 							<div className='technical-reports-list-item-image'>
+								<img src='/images/preview-small.png' />
 								<img src={technicalReportItem?.image || "/images/preview.png"} />
 							</div>
 							<div className='technical-reports-list-item-title'>
