@@ -36,15 +36,6 @@ export const TechnicalReportsPage = () => {
 			<div className='page-content'>
 				<div className='page-title'>Technical Reports</div>
 				<div className='technical-reports-list'>
-					{/* [
-						{ id: "latent-connections", title: "Discovering Latent Connections", image: "images/Latent Connections/preview.png" },
-						{
-							id: "topk-sparse-autoencoders",
-							title: "Using TopK Sparse Autoencoders on Turing-LLM-1.0-254M",
-							image: "images/Sparse Autoencoders/preview.png",
-						},
-						{ id: "turing-llm-1.0", title: "Building Turing-LLM-1.0-254M", image: "images/Turing-LLM-1.0-254M/preview.png" },
-					] */}
 					{!technicalReports
 						? null
 						: technicalReports?.map((technicalReportItem, index) => (
