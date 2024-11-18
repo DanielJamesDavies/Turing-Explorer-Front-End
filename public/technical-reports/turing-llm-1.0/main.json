@@ -2,6 +2,69 @@
 	"id": "turing-llm-1.0",
 	"title": "Building Turing‑LLM‑1.0‑254M",
 	"abstract": "Introducing Turing‑LLM‑1.0‑254M, a novel large language model comprising approximately 254 million parameters, developed specifically for interpretability research purposes. Trained on a dataset of around 2 billion tokens, this model demonstrates a meaningful level of intelligence and general world knowledge. The Turing-LLM framework departs from traditional reliance on web-crawled datasets filled with obscure information, instead adopting a novel approach that utilizes more curated training data. This strategy aims to enhance the interpretability of the model's internal mechanisms, thereby contributing valuable insights to the field of mechanistic interpretability research.",
+	"content": [
+		[
+			{ "type": "text", "style": "heading-1", "text": "Introduction" },
+			{ "type": "text", "style": "body", "text": "" }
+		],
+		[
+			{ "type": "text", "style": "heading-1", "text": "Synthetic Dataset" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "The development of a Large Language Model (LLM) such as Turing-LLM-1.0-254M starts with the creation of a high-quality, high-volume text dataset. The decision to use a synthetic dataset was driven by the hypothesis that understanding the development of a model—including the composition and origin of its training dataset—can yield significant insights into its internal mechanisms. In contrast to traditional datasets, which predominantly consist of web-crawled data and are often too large to be examined in detail, a synthetic dataset offers a controlled and transparent data generation methodology. This transparency enhances the project's understanding of both the data and the model's behaviour\n\nThe use of a synthetic dataset also provides greater assurance regarding ethical standards and content relevance, ensuring alignment with the model's intended objectives and applications. Based on research in model distillation (Ba & Caruana, 2014; Hinton et al., 2015), it was hypothesized that training on synthetic outputs could enhance model performance and interpretability. Thus, the synthetic dataset not only provides the scale necessary for effective training but also a foundation to better explore the capabilities and emergent behaviours of Turing-LLM."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Generating High-Quality Tokens" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "The first system developed to create the synthetic dataset was the Phi-3 Text Generation System. This system generated the high-quality portion of the dataset. Quality and coherence are key drivers of model performance, so the project needed a sophisticated language model capable of producing high-quality, meaningful text to serve as the dataset's foundation. However, relying on a single model to generate an entire dataset was not computationally feasible. Therefore, Phi-3 was used to establish a high-quality core from which further expansion could be achieved.\n\nPhi-3 Mini (Abdin et al., 2024) was selected to generate the high-quality dataset due to its computational efficiency during inference, superior performance relative to its size, and the open accessibility provided by its MIT license. To develop a diverse and comprehensive dataset, a wide range of subjects was selected, including Physics, Mathematics, Art, Culinary Arts, Communication, and others, to enhance the generalizability of the trained LLM.\n\nThe Phi-3 Text Generation System used a recursive design to ensure in-depth coverage of each subject. It generated a list of topics within a subject, followed by detailed sub-topics under each topic. This hierarchical approach provided depth and consistency across different domains. The system also included user-definable parameters to control the depth of recursive generation, allowing flexibility in dataset creation.\n\nThe Phi-3 Text Generation System was implemented in Python, using the Hugging Face Transformers library for inference with Phi-3-mini-4k-instruct (Abdin et al., 2024). To maximize efficiency, the system used a batch size of 8 and employed bfloat16 precision, reducing computational load and time.\n\nThe system generated different types of content, including subject descriptions, public figures, short stories, and textbooks. The \"subjects\" subset formed the largest portion, with content generated through a structured process of drafting headings and elaborating on them to produce cohesive descriptions. This modular approach allowed the model to generate text that was both contextually rich and coherent."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Expanding the Dataset" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "To complement the high-quality dataset produced by Phi-3, the project needed an additional system to significantly expand the dataset’s volume. While the Phi-3 Text Generation System provided a high-quality basis, many state-of-the-art LLMs, including Phi-3 Mini, are trained on trillions of tokens (Abdin et al., 2024). The Data Augmentation System was developed to address the challenge of dataset scalability, ensuring a sufficiently large dataset was generated for effective LLM training. \n\n To efficiently generate a larger dataset, the project used a strategy of paraphrasing the high-quality Phi-3 dataset. This approach allowed us to expand the corpus without sacrificing too much quality. Several paraphrasing models were assessed, and \"chatgpt_paraphraser_on_T5_base\" (Vorobev & Kuznetsov, 2023) was selected for its superior paraphrasing quality. This model, a fine-tuned version of \"t5-base\" (Raffel et al., 2020), generated diverse and contextually accurate paraphrases. \n\n The system was designed to process each document generated by Phi-3, split it into manageable chunks, and produce multiple paraphrases for each chunk. This scalable approach expanded the dataset while maintaining semantic richness, helping bridge the gap between high-quality and high-quantity requirements. \n\n The Data Augmentation System was implemented in Python, aiming to maximize efficiency while retaining text quality. Multiple runs were conducted to optimize parameters, and ultimately, each text chunk was paraphrased 11 times for diversity. Techniques like beam search and \"no_repeat_ngram_size\" were used to minimize repetitive output and enhance linguistic variety. Texts were split based on line breaks with a minimum length of 500 characters to ensure coherent paraphrasing. \n\n The augmented dataset comprised batches of paraphrased documents, allowing for the creation of an expansive corpus without compromising the underlying meaning or quality of the content. For each original document, 11 paraphrased versions were generated, providing a large supply of tokens while retaining the core themes of the initial Phi-3 content."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Final Dataset Formation" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "**Case 1 - Turing-LLM Training Dataset:** The training dataset for Turing-LLM was created by tokenizing all text generated by the Phi-3 and Data Augmentation Systems using the Phi-3 Mini tokenizer. The Phi-3 Text Generation System dataset was split into training and validation subsets, while the augmented dataset was included for the first training epochs. Subsequent epochs focused solely on the high-quality Phi-3 dataset to fine-tune Turing-LLM. \n\n **Case 2 - Interpretability Dataset:** For interpretability research, the dataset was tokenized and split into segments of 64 tokens. These shorter sequences were used as inputs for Turing-LLM during inference, enabling the analysis of latent representations and training of sparse autoencoders. This setup enabled an analysis of how Turing-LLM processed different input features, contributing to ongoing interpretability research."
+			}
+		],
+		[
+			{ "type": "text", "style": "heading-1", "text": "Model Architecture" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "To advance the field of interpretability, it was crucial to have a language model that we could deeply investigate. Training Turing-LLM on a synthetic dataset ensured greater predictability of the capabilities of the model, compared to existing models trained on obscure  datasets. Developing a new model for this research provided the opportunity to tune the architecture for optimal efficiency, carefully taking into account the specific hardware constraints of this research. This deliberate design process ensured that the model could achieve peak performance under the limitations of available computational resources."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Model Architecture Overview" },
+			{ "type": "image", "filename": "architecture.png", "label": "Turing-LLM-1.0-254M Architecture Diagram" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "Turing-LLM-1.0-254M is a large language model designed with a decoder-only transformer architecture. The model consists of 12 block layers, each including Self-Attention and Multi-Layer Perceptron (MLP) components. The size of the model was chosen to strike a balance between computational resource limitations and the potential for developing intelligent behavior. Previous models of comparable scale, such as GPT-2 (Radford et al., 2019), have demonstrated remarkable capabilities, suggesting that a model with 254 million parameters could likewise exhibit interesting emergent features and serve as a fertile ground for interpretability studies.\n\nThe model was built with a block size of 1024 and a vocabulary size of 50,304 tokens. It consists of 12 layers, 16 attention heads, an embedding dimension size of 1024, and an MLP hidden dimension size of 4096. This combination allowed for an expansive and diverse representation of the training data while managing computational feasibility. The vocabulary size represents the number of unique tokens available for use in both inputs and outputs.\n\nTuring-LLM builds upon the foundational work of GPT-2 recreations by Karpathy (2024) and Radford et al. (2019), but diverges in several key aspects. Notable modifications include the use of SwiGLU as the activation function, RMS normalization, the Phi-3 Mini tokenizer, and a unique synthetic dataset. Training was conducted on a single GPU, demonstrating the efficiency of the design choices, even within the constraints of limited hardware resources."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Detailed Model Specifications" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "For the activation function in the MLP component, SwiGLU (Shazeer, 2020; Ramachandran et al., 2018) was employed. This choice was informed by the activation function's established effectiveness in models like the Llama series (Touvron et al., 2023). It contributes to more efficient representation learning, particularly in terms of balancing compute requirements with model performance.\n\nCurrent state-of-the-art models favor Root Mean Square Layer Normalization (RMS Norm) over traditional layer normalization, as it provides comparable performance with lower computational costs. Following this trend, Turing-LLM adopts RMS normalization to enhance efficiency without sacrificing model output quality.\n\nFor parameter optimization, the AdamW optimizer (Loshchilov & Hutter, 2019; Karpathy, 2024) was utilized. AdamW's adaptive learning rate mechanism made it well suited for handling the variability inherent in training a language model of this scale, ensuring that training was efficient and robust.\n\nA custom learning rate scheduler was used with a max learning rate of 6e-4 and a minimum learning rate of 6e-5. A batch size of 8 was used to maximise compute usage, while gradient accumulation with a total batch size of 524,288 was used to encourage generalisation (Karpathy, 2024) (Radford, et al., 2019)."
+			},
+			{ "type": "text", "style": "heading-2", "text": "Training Dataset and Tokenization" },
+			{
+				"type": "text",
+				"style": "body",
+				"text": "Turing-LLM was trained on the synthetic \"Turing-LLM Training Dataset\", which includes approximately 2 billion tokens. This dataset was carefully curated to ensure comprehensive coverage of linguistic structures relevant to the model's intended applications.\n\nTokenization was performed using the Phi-3 Mini tokenizer (Abdin et al., 2024), selected for its demonstrated effectiveness in generating the high-quality synthetic dataset and its compatibility with the architecture of this model. Employing the same tokenizer used during dataset creation was intended to ensure a more cohesive and precise alignment between input data and model comprehension."
+			}
+		],
+		[
+			{ "type": "text", "style": "heading-1", "text": "Evaluation" },
+			{ "type": "text", "style": "body", "text": "" }
+		]
+	],
 	"references": [
 		{
 			"id": "karpathy_gpt2_video",
