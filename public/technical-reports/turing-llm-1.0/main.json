@@ -1,7 +1,7 @@
 {
 	"id": "turing-llm-1.0",
 	"title": "Building Turing‑LLM‑1.0‑254M",
-	"abstract": "Introducing Turing‑LLM‑1.0‑254M, a novel large language model created for interpretability research purposes. The results presented in this technical report display that this model contains some non-trivial level of intelligence and a general knowledge of the world. The model was built with the help of many resources, including <|references|karpathy_gpt2_video|>.",
+	"abstract": "Introducing Turing‑LLM‑1.0‑254M, a novel large language model comprising approximately 254 million parameters, developed specifically for interpretability research purposes. Trained on a dataset of around 2 billion tokens, this model demonstrates a meaningful level of intelligence and general world knowledge. The Turing-LLM framework departs from traditional reliance on web-crawled datasets filled with obscure information, instead adopting a novel approach that utilizes more curated training data. This strategy aims to enhance the interpretability of the model's internal mechanisms, thereby contributing valuable insights to the field of mechanistic interpretability research.",
 	"references": [
 		{
 			"id": "karpathy_gpt2_video",
