@@ -34,6 +34,10 @@ body {
 	background: var(--colour-black);
 }
 
+button {
+	font-family: Inter, system-ui, sans-serif;
+}
+
 .page {
 	padding-top: 80px;
 }

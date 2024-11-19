@@ -55,7 +55,21 @@
 	border-radius: 5px;
 	background: transparent;
 	color: var(--colour-white);
+	font-weight: 500;
 	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+	.author-links button {
+		position: relative;
+		padding: 6px 20px;
+		border: 0;
+		border-radius: 5px;
+		font-size: 14px;
+		background: transparent;
+		color: var(--colour-white);
+		cursor: pointer;
+	}
 }
 
 .author-links button::before {
