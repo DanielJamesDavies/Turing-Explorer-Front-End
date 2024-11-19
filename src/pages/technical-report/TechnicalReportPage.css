@@ -135,6 +135,7 @@
 }
 
 .technical-report-image label {
+	margin: 0 auto;
 	margin-bottom: 9px;
 	max-width: min(var(--contentMaxWidth), 100%);
 	white-space: pre-wrap;
