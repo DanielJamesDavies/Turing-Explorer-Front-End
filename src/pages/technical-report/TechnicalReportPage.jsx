@@ -74,7 +74,15 @@ export const TechnicalReportPage = () => {
 								<div key={i} className='technical-report-section-1'>
 									{sectionData?.map((sectionContentData, j) =>
 										sectionContentData?.type === "image" ? (
-											<div key={j} className='technical-report-image'>
+											<div
+												key={j}
+												className={
+													"technical-report-image" +
+													(j !== 0 && !["heading-1"].includes(sectionData[j - 1]?.style)
+														? " technical-report-image-margin"
+														: "")
+												}
+											>
 												<img src={"/technical-reports/" + reportData?.id + "/images/" + sectionContentData?.filename} />
 												<label>
 													Figure{" "}
