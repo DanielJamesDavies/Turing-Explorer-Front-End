@@ -96,7 +96,7 @@
 	transform: rotate(var(--angle)) translate3d(0, 0, 0);
 	-webkit-transform: rotate(var(--angle)) translateZ(0);
 	-ms-transform: rotate(var(--angle)) translateZ(0);
-	transition: 1s;
+	transition: 0s;
 	will-change: background-position;
 }
 
@@ -106,73 +106,33 @@
 	transition: 0;
 }
 
-.neural-net-background-container-running-animations .neural-net-background-neural-network-neuron-connection-active {
+.neural-net-background-container-running-animations .neural-net-background-neural-network-neuron-connection-active-animating,
+.neural-net-background-container-running-animations .neural-net-background-neural-network-neuron-connection-active-animating-previous {
 	z-index: 3 !important;
 	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-white) 85%, var(--colour-white) 90%, var(--colour-grey-30) 91%);
 	background-size: 200%;
 	animation: neural-net-background-neural-network-neuron-connection-gradient-flow 4s linear infinite;
 	transition: 1s;
+	transition: 0s !important;
 }
 
 .neural-net-background-container-running-animations
 	.neural-net-background-neural-network:nth-child(1)
-	.neural-net-background-neural-network-neuron-connection-active {
+	.neural-net-background-neural-network-neuron-connection-active-animating,
+.neural-net-background-container-running-animations
+	.neural-net-background-neural-network:nth-child(1)
+	.neural-net-background-neural-network-neuron-connection-active-animating-previous {
 	height: 2px;
-	background: linear-gradient(90deg, var(--colour-grey-20) 50%, var(--colour-blue) 85%);
+	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-blue) 85%);
 	background-size: 200%;
+	transition: 0s !important;
 }
 
-.app-page-technical-report .neural-net-background-neural-network-neuron-connection-active {
+.app-page-technical-report .neural-net-background-neural-network-neuron-connection-active-animating,
+.app-page-technical-report .neural-net-background-neural-network-neuron-connection-active-animating-previous {
 	background: var(--colour-grey-30);
 	animation: none;
-}
-
-.neural-net-background-neural-network-layer:nth-child(1) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 0s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(2) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 0.34s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(3) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 0.68s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(4) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 1.02s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(5) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 1.36s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(6) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 1.7s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(7) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 2.04s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(8) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 2.38s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(9) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 2.72s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(10) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 3.06s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(11) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 3.4s;
-}
-
-.neural-net-background-neural-network-layer:nth-child(12) .neural-net-background-neural-network-neuron-connection-active {
-	animation-delay: 3.74s;
+	transition: 0s !important;
 }
 
 @keyframes neural-net-background-neural-network-neuron-connection-gradient-flow {

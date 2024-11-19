@@ -21,6 +21,7 @@ export const NeuralNetBackground = () => {
 	const [windowInnerHeight, setWindowInnerHeight] = useState(window.innerHeight);
 	const [activatedNeuronConnections, setActivatedNeuronConnections] = useState([]);
 	const [neuronConnectionsVisibility, setNeuronConnectionsVisibility] = useState(false);
+	const [layerAnimating, setLayerAnimating] = useState(-1);
 
 	useEffect(() => {
 		const onWindowResize = () => {
@@ -30,6 +31,12 @@ export const NeuralNetBackground = () => {
 		window.addEventListener("resize", onWindowResize);
 		return () => window.removeEventListener("resize", onWindowResize);
 	}, [setWindowInnerWidth]);
+
+	useEffect(() => {
+		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const interval = setInterval(() => setLayerAnimating((oldValue) => (oldValue >= 8 ? -1 : oldValue + 1)), intervalDuration / 10);
+		return () => clearInterval(interval);
+	}, [setLayerAnimating]);
 
 	useEffect(() => {
 		const getNeuronConnectionsVisibility = () => {
@@ -117,6 +124,12 @@ export const NeuralNetBackground = () => {
 																	"neural-net-background-neural-network-neuron-connection" +
 																	(activatedNeuronConnection
 																		? " neural-net-background-neural-network-neuron-connection-active"
+																		: "") +
+																	(activatedNeuronConnection && layerAnimating === layer_index
+																		? " neural-net-background-neural-network-neuron-connection-active-animating"
+																		: "") +
+																	(activatedNeuronConnection && layerAnimating + 1 === layer_index
+																		? " neural-net-background-neural-network-neuron-connection-active-animating-previous"
 																		: "")
 																}
 																style={{
@@ -176,6 +189,12 @@ export const NeuralNetBackground = () => {
 																	"neural-net-background-neural-network-neuron-connection" +
 																	(activatedNeuronConnection
 																		? " neural-net-background-neural-network-neuron-connection-active"
+																		: "") +
+																	(activatedNeuronConnection && layerAnimating === layer_index
+																		? " neural-net-background-neural-network-neuron-connection-active-animating"
+																		: "") +
+																	(activatedNeuronConnection && layerAnimating + 1 === layer_index
+																		? " neural-net-background-neural-network-neuron-connection-active-animating-previous"
 																		: "")
 																}
 																style={{
