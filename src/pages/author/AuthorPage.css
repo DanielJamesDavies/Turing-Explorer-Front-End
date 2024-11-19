@@ -44,8 +44,15 @@
 	flex-wrap: wrap;
 	gap: 8px;
 	margin: 0;
-	margin-top: 8px;
+	margin-top: 6px;
 	margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+	.author-links {
+		margin-top: 10px;
+		margin-bottom: 16px;
+	}
 }
 
 .author-links button {
