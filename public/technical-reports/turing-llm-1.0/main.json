@@ -5,7 +5,11 @@
 	"content": [
 		[
 			{ "type": "text", "style": "heading-1", "text": "Introduction" },
-			{ "type": "text", "style": "body", "text": "In-Progress" }
+			{
+				"type": "text",
+				"style": "body",
+				"text": "Deep learning has revolutionized AI, with large language models (LLMs) at the forefront, enabling systems to achieve previously unattainable tasks through advanced language understanding, reasoning, and creativity. It has been suggested by some researchers that these models exhibit \"sparks of artificial general intelligence\", generating both excitement for their potential to drive significant advancements, and concern over challenges related to understanding and aligning their behaviours.\n\nUnderstanding the internal mechanisms of LLMs is crucial for aligning these systems with human values and learning from the insights their 'thoughts' provide. However, understanding these models can be challenging due to their complex architecture, vast number of parameters, and the opaque nature of the training process. Mechanistic interpretability aims to understand the inner workings of models, providing insights into how individual components contribute to overall behavior and helping researchers identify and mitigate potential risks.\n\nA major challenge in interpretability is the nature of LLM training data, which often involves large, obscure web-crawled datasets. This ambiguity in training data further complicates efforts to decipher the model's internals. Improving transparency and understanding of training datasets is crucial not only for mitigating risks but also for aligning AI development with human safety and values.\n\nIn this research, we introduce Turing-LLM-1.0-254M, a language model trained on a novel synthetic dataset specifically designed for mechanistic interpretability. By focusing on a smaller-scale model with 254 million parameters, the goal of this research is to make meaningful progress in understanding the internal mechanisms of LLMs. The contributions described represent an incremental yet important step toward a comprehensive understanding of models, enabling safer and more effective integration of AI systems into real-world applications.\n\nIt is my sincere hope that this work may contribute, however modestly, to advancing research that enables us to explore, understand, and learn from digital superintelligence."
+			}
 		],
 		[
 			{ "type": "text", "style": "heading-1", "text": "Synthetic Dataset" },
