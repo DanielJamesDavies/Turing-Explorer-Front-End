@@ -72,11 +72,11 @@
 				"text": "After successfully constructing and training Turing-LLM, we now turn our attention to evaluating the model's performance. This evaluation aims to determine whether the model exhibits sufficient intelligence and knowledge to serve as a valuable tool for mechanistic interpretability research."
 			},
 			{ "type": "text", "style": "heading-2", "text": "Training and Validation Loss" },
-			{ "type": "image", "filename": "Loss Over Steps.png", "label": "Turing-LLM-1.0-254M Loss Curve over Training Steps" },
+			{ "type": "image", "filename": "Loss Curve over Training Steps.png", "label": "Turing-LLM-1.0-254M Loss Curve over Training Steps" },
 			{
 				"type": "text",
 				"style": "body",
-				"text": "Figure 2 illustrates that Turing-LLM-1.0-254M achieved a minimum training loss of approximately 1.62 and a validation loss of about 1.80. For comparison, GPT-2 (124M), a prior leading model of similar scale, as described by Karpathy (2024), achieved a training loss of approximately 3.29. This notable reduction in loss indicates that Turing-LLM-1.0-254M developed a more efficient representation of the training dataset.\n\nThe substantial decrease in loss during the later training stages corresponds with the model being trained exclusively on the synthetic \"Turing-LLM Training Dataset\". This suggests that Turing-LLM effectively learned the high-quality features of this dataset, whereas the initial exposure to a lower-quality dataset likely impeded early progress. These results indicate that Turing-LLM not only captured meaningful representations but also distinguished between different data qualities throughout its training process."
+				"text": "Figure 2 illustrates that Turing-LLM-1.0-254M achieved a minimum training loss of approximately **1.62** and a validation loss of about **1.80**. For comparison, GPT-2 (124M), a prior leading model of similar scale, as described by Karpathy (2024), achieved a training loss of approximately 3.29. This notable reduction in loss indicates that Turing-LLM-1.0-254M developed a more efficient representation of the training dataset.\n\nThe substantial decrease in loss during the later training stages corresponds with the model being trained exclusively on the synthetic \"Turing-LLM Training Dataset\". This suggests that Turing-LLM effectively learned the high-quality features of this dataset, whereas the initial exposure to a lower-quality dataset likely impeded early progress. These results indicate that Turing-LLM not only captured meaningful representations but also distinguished between different data qualities throughout its training process."
 			},
 			{ "type": "text", "style": "heading-2", "text": "Relevance for Interpretability" },
 			{
