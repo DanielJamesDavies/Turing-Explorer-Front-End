@@ -82,7 +82,7 @@
 			{
 				"type": "text",
 				"style": "body",
-				"text": "Instead of focusing exclusively on traditional benchmarks, the primary goal of this evaluation is to demonstrate that Turing-LLM has developed meaningful intelligence. Such intelligence suggests internal structures within the model that are useful for interpretability research. The presence of these qualities confirms that the model has successfully achieved its objectives."
+				"text": "Instead of focusing exclusively on traditional benchmarks, the primary goal of this evaluation is to demonstrate that Turing-LLM has developed meaningful intelligence. Such intelligence would suggest the existence of internal structures within the model that are useful for interpretability research. The presence of these qualities confirms that the model has successfully achieved its objectives."
 			},
 			{ "type": "text", "style": "heading-3", "text": "Qualitative Analysis" },
 			{ "type": "image", "filename": "Turing-LLM-1.0-254M Examples.png", "label": "Turing-LLM-1.0-254M Completion Examples" },
@@ -99,15 +99,15 @@
 			},
 			{
 				"type": "image",
-				"filename": "Average Grade per Subject for Topic Adherence.png",
-				"label": "Turing-LLM-1.0-254M Average Grade per Subject for Topic Adherence"
+				"filename": "Average Score per Subject for Topic Adherence.png",
+				"label": "Turing-LLM-1.0-254M Average Score per Subject for Topic Adherence"
 			},
 			{
 				"type": "image",
-				"filename": "Average Grade per Subject for English Quality.png",
-				"label": "Turing-LLM-1.0-254M Average Grade per Subject for English Quality"
+				"filename": "Average Score per Subject for English Quality.png",
+				"label": "Turing-LLM-1.0-254M Average Score per Subject for English Quality"
 			},
-			{ "type": "image", "filename": "Average Grade per Internal Benchmark.png", "label": "Turing-LLM-1.0-254M Architecture Diagram" },
+			{ "type": "image", "filename": "Average Score per Internal Benchmark.png", "label": "Turing-LLM-1.0-254M Architecture Diagram" },
 			{
 				"type": "text",
 				"style": "body",
