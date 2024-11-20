@@ -37,8 +37,8 @@ function App() {
 				<Route path='' element={<HomePage />} />
 				<Route path='/' element={<HomePage />} />
 				<Route path='/download' element={<DownloadPage />} />
-				<Route path='/technical-reports' element={<TechnicalReportsPage />} />
-				<Route path='/technical-report/:id' element={<TechnicalReportPage />} />
+				<Route path='/research/:id' element={<TechnicalReportPage />} />
+				<Route path='/research' element={<TechnicalReportsPage />} />
 				<Route path='/author' element={<AuthorPage />} />
 				<Route path='*' element={<HomePage />} />
 			</Routes>

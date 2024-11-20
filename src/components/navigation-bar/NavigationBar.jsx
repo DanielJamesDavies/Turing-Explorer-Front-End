@@ -43,14 +43,13 @@ export const NavigationBar = () => {
 				<button
 					className={
 						"navigation-bar-button" +
-						(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "technical-reports" ||
-						window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "technical-report"
+						(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] === "research"
 							? " navigation-bar-button-active"
 							: "")
 					}
-					onClick={() => navigate("/technical-reports")}
+					onClick={() => navigate("/research")}
 				>
-					Technical Reports
+					Research
 				</button>
 				<button
 					className={

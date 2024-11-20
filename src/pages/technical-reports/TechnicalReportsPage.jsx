@@ -27,14 +27,14 @@ export const TechnicalReportsPage = () => {
 	}, []);
 
 	const onClickReportItem = (e, id) => {
-		if (e?.button === 1) return window.open(window?.location?.origin + "/technical-report/" + id, "_blank");
-		navigate("/technical-report/" + id);
+		if (e?.button === 1) return window.open(window?.location?.origin + "/research/" + id, "_blank");
+		navigate("/research/" + id);
 	};
 
 	return (
 		<div className='page technical-reports-page'>
 			<div className='page-content'>
-				<div className='page-title'>Technical Reports</div>
+				<div className='page-title'>Research</div>
 				<div className='technical-reports-list'>
 					{!technicalReports
 						? null

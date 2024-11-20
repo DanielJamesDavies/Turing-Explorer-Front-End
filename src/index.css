@@ -55,7 +55,7 @@ button {
 	background: linear-gradient(180deg, #fff, #bbb);
 	-webkit-background-clip: text;
 	color: var(--colour-white);
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	letter-spacing: 2px;
 	word-spacing: 4px;
 	font-weight: 600;
