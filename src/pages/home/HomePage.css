@@ -4,6 +4,7 @@
 }
 
 .home-hero {
+	position: relative;
 	display: flex;
 	gap: 24px;
 	margin-bottom: -32px;
@@ -14,12 +15,13 @@
 	min-height: 450px;
 	height: calc(100dvh - 80px - 280px);
 	max-height: 650px;
+	overflow: hidden;
 }
 
 .home-title {
-	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, #ccc 40%, #eee 50%, #222);
-	-webkit-background-clip: text;
+	position: relative;
+	z-index: 2;
+	margin-left: 20px;
 	color: var(--colour-white);
 	font-size: 4rem;
 	letter-spacing: 2px;
@@ -29,9 +31,75 @@
 	transition: 0.2s;
 }
 
+.home-title span:nth-child(1) {
+	position: relative;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(180deg, #ccc 40%, #eee 50%, #222);
+	-webkit-background-clip: text;
+}
+
+.home-title span:nth-child(2) {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: max-content;
+	max-width: 100dvw;
+	-webkit-text-fill-color: #000;
+	text-shadow: #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px;
+}
+
+.home-title-turing {
+	position: absolute;
+	z-index: -2;
+	margin-top: -70px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 660px;
+	z-index: -1;
+	opacity: 0.8;
+	transition: 0.2s;
+}
+
+.home-title-turing img {
+	width: 120px;
+	transform: rotate(-10deg);
+}
+
+@media (max-width: 680px) {
+	.home-title-turing img {
+		width: 90px;
+	}
+}
+
+@media (max-width: 630px) {
+	.home-title-turing {
+		margin-left: -20px;
+	}
+}
+
 @media (max-width: 600px) {
 	.home-title {
+		margin-left: 0;
 		font-size: 2.8rem;
+	}
+
+	.home-title-turing {
+		margin-top: -120px;
+		width: 100%;
+		max-width: 470px;
+	}
+
+	.home-title-turing img {
+		width: 80px;
+	}
+}
+
+@media (max-width: 480px) {
+	.home-title-turing {
+		display: none;
 	}
 }
 

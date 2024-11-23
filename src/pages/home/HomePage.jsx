@@ -21,7 +21,13 @@ export const HomePage = () => {
 	return (
 		<div className='page home-page'>
 			<div className='home-hero'>
-				<div className='home-title'>Turing Explorer</div>
+				<div className='home-title'>
+					<span>Turing Explorer</span>
+					<span>Turing Explorer</span>
+				</div>
+				<div className='home-title-turing'>
+					<img src='/images/turing-with-background.png' />
+				</div>
 				<div className='home-hero-text'>
 					A mechanistic interpretability tool to understand the internals of Turing-LLM, a large language model.
 				</div>
