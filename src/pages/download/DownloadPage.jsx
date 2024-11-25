@@ -16,6 +16,12 @@ import "./DownloadPage.css";
 // Assets
 
 export const DownloadPage = () => {
+	const goToLink = (e, link) => {
+		if (!link) return false;
+		if (e?.button === 1) return window.open(link, "_blank");
+		window.location.replace(link);
+	};
+
 	return (
 		<div className='page download-page'>
 			<div className='page-content'>
@@ -24,12 +30,26 @@ export const DownloadPage = () => {
 					{[
 						{ name: "All Files" },
 						{ name: "Turing-LLM Explorer App" },
-						{ name: "Turing-LLM-1.0-254M Weights" },
-						{ name: "Sparse Autoencoder Weights (On All Layers of Turing-LLM-1.0-254M)" },
-						{ name: "Latent Top Sequences (For Each Turing-LLM-1.0 SAE Latent)" },
-						{ name: "Latent Frequencies (For Each Turing-LLM-1.0 SAE Latent)" },
+						{ name: "Turing-LLM-1.0-254M", link: "https://www.kaggle.com/models/danieljamesdavies/turing-llm-1.0-254m" },
+						{
+							name: "Sparse Autoencoders (On All Layers of Turing-LLM-1.0-254M)",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-sparse-autoencoders",
+						},
+						{
+							name: "Latent Top Sequences (For Each Turing-LLM-1.0 SAE Latent)",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-top-sequences",
+						},
+						{
+							name: "Latent Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-frequencies",
+						},
+						{
+							name: "Latent Unembedding Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-sequence-unembedding-frequencies",
+						},
 						{
 							name: "Latent Connections",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-other-latents",
 							subItems: [
 								{ name: "Latent Connections (Top Token, Adjusted)" },
 								{ name: "Latent Connections (Average Sequence, Adjusted)" },
@@ -61,7 +81,12 @@ export const DownloadPage = () => {
 									</div>
 									<div className='download-list-item-name'>{downloadItem?.name}</div>
 									<div>
-										<button className='download-list-item-download-btn'>
+										<button
+											className='download-list-item-download-btn'
+											onClick={(e) => goToLink(e, downloadItem?.link)}
+											onAuxClick={(e) => goToLink(e, downloadItem?.link)}
+											disabled={!downloadItem?.link}
+										>
 											<i className='fa-solid fa-arrow-down'></i>
 											<span>Download</span>
 										</button>
@@ -83,7 +108,12 @@ export const DownloadPage = () => {
 												</div>
 												<div className='download-list-item-name'>{downloadItem?.name}</div>
 												<div>
-													<button className='download-list-item-download-btn'>
+													<button
+														className='download-list-item-download-btn'
+														onClick={(e) => goToLink(e, downloadItem?.link)}
+														onAuxClick={(e) => goToLink(e, downloadItem?.link)}
+														disabled={!downloadItem?.link}
+													>
 														<i className='fa-solid fa-arrow-down'></i>
 														<span>Download</span>
 													</button>

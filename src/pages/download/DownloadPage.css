@@ -93,7 +93,11 @@
 	transition: 0.2s;
 }
 
-.download-list-item:hover .download-list-item-download-btn::before {
+.download-list-item-download-btn:disabled {
+	opacity: 0.5;
+}
+
+.download-list-item:not(:disabled):hover .download-list-item-download-btn::before {
 	filter: brightness(140%);
 }
 
