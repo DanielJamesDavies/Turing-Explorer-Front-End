@@ -1,6 +1,7 @@
 .download-page .page-content {
 	position: relative;
 	z-index: 1;
+	max-width: 750px;
 }
 
 .download-list {
