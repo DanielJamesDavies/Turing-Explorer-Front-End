@@ -28,12 +28,12 @@ export const DownloadPage = () => {
 						{ name: "Turing-LLM Explorer App", type: "app", link: "https://github.com/DanielJamesDavies/Turing-LLM-Explorer" },
 						{ name: "Turing-LLM-1.0-254M", type: "ai", link: "https://www.kaggle.com/models/danieljamesdavies/turing-llm-1.0-254m" },
 						{
-							name: "Sparse Autoencoders (On All Layers of Turing-LLM-1.0-254M)",
+							name: "Sparse Autoencoders",
 							type: "data",
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-sparse-autoencoders",
 						},
 						{
-							name: "Latent Top Sequences (For Each Turing-LLM-1.0 SAE Latent)",
+							name: "Latent Top Sequences",
 							type: "data",
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-top-sequences",
 						},
@@ -43,12 +43,12 @@ export const DownloadPage = () => {
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-decoded-sequences",
 						},
 						{
-							name: "Latent Non-Zero Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
+							name: "Latent Non-Zero Frequencies",
 							type: "data",
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-frequencies",
 						},
 						{
-							name: "Latent Unembedding Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
+							name: "Latent Unembedding Frequencies",
 							type: "data",
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-sequence-unembedding-frequencies",
 						},
