@@ -43,7 +43,7 @@ export const DownloadPage = () => {
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-decoded-sequences",
 						},
 						{
-							name: "Latent Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
+							name: "Latent Non-Zero Frequencies (For Each Turing-LLM-1.0 SAE Latent)",
 							type: "data",
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-frequencies",
 						},
