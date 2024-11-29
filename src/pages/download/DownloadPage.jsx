@@ -14,10 +14,9 @@ import "./DownloadPage.css";
 // Assets
 
 export const DownloadPage = () => {
-	const goToLink = (e, link) => {
+	const goToLink = (link) => {
 		if (!link) return false;
-		if (e?.button === 1) return window.open(link, "_blank");
-		window.location.replace(link);
+		return window.open(link, "_blank");
 	};
 
 	return (
@@ -70,8 +69,8 @@ export const DownloadPage = () => {
 								<div>
 									<button
 										className='download-list-item-download-btn'
-										onClick={(e) => goToLink(e, downloadItem?.link)}
-										onAuxClick={(e) => goToLink(e, downloadItem?.link)}
+										onClick={() => goToLink(downloadItem?.link)}
+										onAuxClick={() => goToLink(downloadItem?.link)}
 										disabled={!downloadItem?.link}
 									>
 										<i className='fa-solid fa-arrow-down'></i>
