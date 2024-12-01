@@ -33,30 +33,35 @@ export const DownloadPage = () => {
 							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-sparse-autoencoders",
 						},
 						{
-							name: "Latent Top Sequences",
+							name: "All Latent Data",
 							type: "data",
-							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-top-sequences",
+							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-explorer-latent-data",
 						},
-						{
-							name: "Latent Decoded Top Sequences",
-							type: "data",
-							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-decoded-sequences",
-						},
-						{
-							name: "Latent Non-Zero Frequencies",
-							type: "data",
-							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-frequencies",
-						},
-						{
-							name: "Latent Unembedding Frequencies",
-							type: "data",
-							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-sequence-unembedding-frequencies",
-						},
-						{
-							name: "Latent Connections",
-							type: "data",
-							link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-other-latents",
-						},
+						// {
+						// 	name: "Latent Top Sequences",
+						// 	type: "data",
+						// 	link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-top-sequences",
+						// },
+						// {
+						// 	name: "Latent Decoded Top Sequences",
+						// 	type: "data",
+						// 	link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-decoded-sequences",
+						// },
+						// {
+						// 	name: "Latent Non-Zero Frequencies",
+						// 	type: "data",
+						// 	link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-latent-frequencies",
+						// },
+						// {
+						// 	name: "Latent Unembedding Frequencies",
+						// 	type: "data",
+						// 	link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-sequence-unembedding-frequencies",
+						// },
+						// {
+						// 	name: "Latent Connections",
+						// 	type: "data",
+						// 	link: "https://www.kaggle.com/datasets/danieljamesdavies/turing-llm-top-other-latents",
+						// },
 					]?.map((downloadItem, index) => (
 						<div key={index} className='download-list-item-container'>
 							<div className='download-list-item'>
