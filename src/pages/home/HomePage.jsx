@@ -37,10 +37,18 @@ export const HomePage = () => {
 					A mechanistic interpretability tool to understand the internals of Turing-LLM, a large language model.
 				</div>
 				<div className='home-primary-buttons'>
-					<button onClick={(e) => onNavigate(e, "/download")} onAuxClick={(e) => onNavigate(e, "/download")}>
+					<button
+						onMouseDown={(e) => e?.preventDefault()}
+						onClick={(e) => onNavigate(e, "/download")}
+						onAuxClick={(e) => onNavigate(e, "/download")}
+					>
 						Download Turing-LLM Explorer
 					</button>
-					<button onClick={(e) => onNavigate(e, "/research")} onAuxClick={(e) => onNavigate(e, "/research")}>
+					<button
+						onMouseDown={(e) => e?.preventDefault()}
+						onClick={(e) => onNavigate(e, "/research")}
+						onAuxClick={(e) => onNavigate(e, "/research")}
+					>
 						Read Research Blog
 					</button>
 				</div>
