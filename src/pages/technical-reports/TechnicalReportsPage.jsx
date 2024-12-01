@@ -41,7 +41,10 @@ export const TechnicalReportsPage = () => {
 						: technicalReports?.map((technicalReportItem, index) => (
 								<div
 									key={index}
-									className='technical-reports-list-item'
+									className={
+										"technical-reports-list-item" +
+										(technicalReportItem?.uncomplete ? " technical-reports-list-item-uncomplete" : "")
+									}
 									onClick={(e) => onClickReportItem(e, technicalReportItem?.id)}
 									onAuxClick={(e) => onClickReportItem(e, technicalReportItem?.id)}
 								>

@@ -28,6 +28,10 @@
 	}
 }
 
+.technical-reports-list-item-uncomplete {
+	opacity: 0.5;
+}
+
 .technical-reports-list-item-image {
 	position: relative;
 	width: 100%;
