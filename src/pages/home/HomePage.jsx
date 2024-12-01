@@ -18,6 +18,11 @@ import "./HomePage.css";
 export const HomePage = () => {
 	const navigate = useNavigate();
 
+	const onNavigate = (e, path) => {
+		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
+		navigate(path);
+	};
+
 	return (
 		<div className='page home-page'>
 			<div className='home-hero'>
@@ -32,8 +37,12 @@ export const HomePage = () => {
 					A mechanistic interpretability tool to understand the internals of Turing-LLM, a large language model.
 				</div>
 				<div className='home-primary-buttons'>
-					<button onClick={() => navigate("/download")}>Download Turing-LLM Explorer</button>
-					<button onClick={() => navigate("/technical-reports")}>Read Technical Reports</button>
+					<button onClick={(e) => onNavigate(e, "/download")} onAuxClick={(e) => onNavigate(e, "/download")}>
+						Download Turing-LLM Explorer
+					</button>
+					<button onClick={(e) => onNavigate(e, "/research")} onAuxClick={(e) => onNavigate(e, "/research")}>
+						Read Research Blog
+					</button>
 				</div>
 			</div>
 			<div className='home-section'>
