@@ -113,3 +113,7 @@ button {
 		background-position: 0%;
 	}
 }
+
+.pointer {
+	cursor: pointer;
+}

@@ -111,10 +111,12 @@
 .explore-input-container-viewing-results label {
 	position: absolute;
 	bottom: 0;
+	opacity: 0;
 }
 
 .explore-input-container-viewing-results.explore-input-container-getting-results label {
 	bottom: -22px;
+	opacity: 1;
 }
 
 .explore-input {

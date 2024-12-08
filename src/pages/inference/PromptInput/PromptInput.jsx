@@ -52,6 +52,7 @@ export const PromptInput = () => {
 					<label>Generating...</label>
 				) : (
 					<label
+						className='pointer'
 						onClick={() => {
 							setInferenceTextBoxValue("Quantum Mechanics");
 							submitInferenceRequest("Quantum Mechanics");

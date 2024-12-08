@@ -52,6 +52,7 @@ export const SearchBar = () => {
 					<label></label>
 				) : (
 					<label
+						className='pointer'
 						onClick={() => {
 							setSearchBarValue("Relativity");
 							getSearchResults("Relativity");
