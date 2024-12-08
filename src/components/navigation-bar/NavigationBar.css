@@ -44,9 +44,12 @@
 	padding: 0;
 	border: 0;
 	background: transparent;
-	font-size: 17px;
-	font-weight: 600;
 	cursor: pointer;
+}
+
+.navigation-bar-title > span {
+	font-size: 17px;
+	font-weight: 500;
 }
 
 .navigation-bar-title img {
