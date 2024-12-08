@@ -103,3 +103,12 @@ button {
 	margin-top: -1px;
 	color: var(--colour-white);
 }
+
+@keyframes text-gradient-flow {
+	0% {
+		background-position: 400%;
+	}
+	100% {
+		background-position: 0%;
+	}
+}

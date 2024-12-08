@@ -1,12 +1,14 @@
 // Packages
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 // Components
+import { SearchBar } from "./SearchBar/SearchBar";
+import { SearchResults } from "./SearchResults/SearchResults";
 
 // Logic
 
 // Context
+import ExploreProvider from "./ExploreContext";
 
 // Services
 
@@ -16,28 +18,16 @@ import "./ExplorePage.css";
 // Assets
 
 export const ExplorePage = () => {
-	const navigate = useNavigate();
-
 	useEffect(() => {
 		document.title = "Explore | Turing Explorer";
 	}, []);
 
-	const onInferenceInputKeyDown = (e) => {
-		if (e?.key?.toLowerCase() === "enter") {
-			if (e?.target?.value?.trim()?.length === 0) return navigate("/explore");
-			navigate("/explore?input=" + encodeURI(e?.target?.value));
-		}
-	};
-
 	return (
-		<div className='page explore-page'>
-			<div className='explore-input-container'>
-				<div className='explore-input-title'>
-					<span>Explore Turing&#8209;LLM</span>
-				</div>
-				<input className='explore-input' placeholder='Search latents by typing keywords' onKeyDown={onInferenceInputKeyDown}></input>
-				<label>e.g. Relativity</label>
+		<ExploreProvider>
+			<div className='page explore-page'>
+				<SearchBar />
+				<SearchResults />
 			</div>
-		</div>
+		</ExploreProvider>
 	);
 };
