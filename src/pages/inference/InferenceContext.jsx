@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useState, useEffect, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
 
 export const InferenceContext = createContext();
@@ -13,6 +13,7 @@ const InferenceProvider = ({ children }) => {
 	const [isViewingInferenceResult, setIsViewingInferenceResult] = useState(false);
 	const [isGeneratingResult, setIsGeneratingResult] = useState(false);
 	const location = useLocation();
+	const [searchParams] = useSearchParams();
 
 	const submitInferenceRequest = useCallback(
 		async (newInferenceTextBoxValue) => {
@@ -46,6 +47,14 @@ const InferenceProvider = ({ children }) => {
 			setIsViewingInferenceResult(false);
 		}
 	}, [location]);
+
+	useEffect(() => {
+		const input = searchParams?.get("input");
+		if (input && input?.trim()?.length !== 0) {
+			setInferenceTextBoxValue(input);
+			submitInferenceRequest(input);
+		}
+	}, [searchParams]);
 
 	return (
 		<InferenceContext.Provider

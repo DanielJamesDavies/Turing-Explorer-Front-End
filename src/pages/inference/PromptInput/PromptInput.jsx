@@ -51,7 +51,14 @@ export const PromptInput = () => {
 				{isGettingInferenceResults ? (
 					<label>Generating...</label>
 				) : (
-					<label onClick={() => submitInferenceRequest("Quantum Mechanics")}>e.g. Quantum Mechanics</label>
+					<label
+						onClick={() => {
+							setInferenceTextBoxValue("Quantum Mechanics");
+							submitInferenceRequest("Quantum Mechanics");
+						}}
+					>
+						e.g. Quantum Mechanics
+					</label>
 				)}
 			</div>
 		</div>
