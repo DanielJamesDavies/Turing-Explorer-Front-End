@@ -48,7 +48,11 @@ export const PromptInput = () => {
 					onKeyDown={onInferenceInputKeyDown}
 					disabled={isGettingInferenceResults}
 				></input>
-				<label onClick={() => submitInferenceRequest("Quantum Mechanics")}>e.g. Quantum Mechanics</label>
+				{isGettingInferenceResults ? (
+					<label>Generating...</label>
+				) : (
+					<label onClick={() => submitInferenceRequest("Quantum Mechanics")}>e.g. Quantum Mechanics</label>
+				)}
 			</div>
 		</div>
 	);

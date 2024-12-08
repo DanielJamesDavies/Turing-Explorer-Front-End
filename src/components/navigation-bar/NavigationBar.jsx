@@ -1,5 +1,5 @@
 // Packages
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Components
 
@@ -16,10 +16,15 @@ import "./NavigationBar.css";
 
 export const NavigationBar = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const navigateToPage = (e, path) => {
 		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
 		navigate(path);
+		if (location?.pathname === path) {
+			navigate("/blank");
+			setTimeout(() => navigate(path), 1);
+		}
 	};
 
 	return (

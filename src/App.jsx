@@ -43,6 +43,7 @@ function App() {
 			<Routes>
 				<Route path='' element={<HomePage />} />
 				<Route path='/' element={<HomePage />} />
+				<Route path='/blank' element={null} />
 				<Route path='/explore' element={<ExplorePage />} />
 				<Route path='/inference' element={<InferencePage />} />
 				<Route path='/download' element={<DownloadPage />} />
