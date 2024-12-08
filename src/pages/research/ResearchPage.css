@@ -1,9 +1,9 @@
-.technical-reports-list {
+.research-papers-list {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.technical-reports-list-item {
+.research-papers-list-item {
 	position: relative;
 	flex: 0 0 auto;
 	padding: 8px;
@@ -12,46 +12,46 @@
 	cursor: pointer;
 }
 
-.technical-reports-list:hover .technical-reports-list-item {
+.research-papers-list:hover .research-papers-list-item {
 	opacity: 0.7;
 	scale: 0.95;
 }
 
-.technical-reports-list-item:not(.technical-reports-list-item-uncomplete):hover {
+.research-papers-list-item:not(.research-papers-list-item-uncomplete):hover {
 	scale: 1.02;
 	opacity: 1;
 }
 
 @media (max-width: 1100px) {
-	.technical-reports-list-item {
+	.research-papers-list-item {
 		width: calc(100% / 3 - 2 * 8px);
 	}
 }
 
 @media (max-width: 750px) {
-	.technical-reports-list-item {
+	.research-papers-list-item {
 		width: calc(100% / 2 - 2 * 8px);
 	}
 }
 
 @media (max-width: 450px) {
-	.technical-reports-list-item {
+	.research-papers-list-item {
 		width: calc(100% / 1 - 2 * 8px);
 	}
 }
 
-.technical-reports-list-item-uncomplete {
+.research-papers-list-item-uncomplete {
 	scale: 0.95;
 	opacity: 0.3;
 	cursor: auto;
 }
 
-.technical-reports-list:hover .technical-reports-list-item-uncomplete {
+.research-papers-list:hover .research-papers-list-item-uncomplete {
 	scale: 0.9;
 	opacity: 0.2;
 }
 
-.technical-reports-list-item-image {
+.research-papers-list-item-image {
 	position: relative;
 	border-radius: 5px;
 	width: 100%;
@@ -60,7 +60,7 @@
 	aspect-ratio: 1 / 1.25;
 }
 
-.technical-reports-list-item-image img {
+.research-papers-list-item-image img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -68,7 +68,7 @@
 	transition: 0.2s;
 }
 
-.technical-reports-list-item-image img:nth-child(2) {
+.research-papers-list-item-image img:nth-child(2) {
 	position: absolute;
 	z-index: 3;
 	top: 50%;
@@ -81,7 +81,7 @@
 	transition: 0.2s;
 }
 
-.technical-reports-list-item-image img:nth-child(3) {
+.research-papers-list-item-image img:nth-child(3) {
 	position: absolute;
 	z-index: 2;
 	top: 50%;
@@ -95,12 +95,12 @@
 	opacity: 0.4;
 }
 
-.technical-reports-list-item-turing-llm-1-0 .technical-reports-list-item-image img:nth-child(2) {
+.research-papers-list-item-turing-llm-1-0 .research-papers-list-item-image img:nth-child(2) {
 	max-width: 280px;
 	filter: brightness(0) invert(1);
 }
 
-.technical-reports-list-item-title {
+.research-papers-list-item-title {
 	position: absolute;
 	z-index: 4;
 	bottom: 0;
@@ -108,7 +108,7 @@
 	transition: 0.2s;
 }
 
-.technical-reports-list-item-title span {
+.research-papers-list-item-title span {
 	color: var(--colour-white);
 	font-size: 17px;
 	font-weight: 500;

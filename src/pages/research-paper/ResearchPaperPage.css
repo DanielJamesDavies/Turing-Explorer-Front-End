@@ -1,8 +1,8 @@
-.technical-report-page {
+.research-paper-page {
 	--contentMaxWidth: 800px;
 }
 
-.technical-report-page .page-title {
+.research-paper-page .page-title {
 	margin: 96px auto;
 	display: flex;
 	flex-direction: column;
@@ -11,20 +11,20 @@
 	text-align: center;
 }
 
-.technical-report-page .page-title > span {
+.research-paper-page .page-title > span {
 	--title-scale: 1;
 	font-size: calc(2.5rem * var(--title-scale));
 	text-align: center;
 }
 
 @media (max-width: 480px) {
-	.technical-report-page .page-title > span {
+	.research-paper-page .page-title > span {
 		font-size: calc(1.8rem * var(--title-scale));
 	}
 }
 
 @media (max-width: 360px) {
-	.technical-report-page .page-title > span {
+	.research-paper-page .page-title > span {
 		font-size: calc(1.4rem * var(--title-scale));
 	}
 }
@@ -34,16 +34,16 @@
 	align-items: center;
 }
 
-.technical-report-page .page-content {
+.research-paper-page .page-content {
 	max-width: unset;
 }
 
-.technical-report-section-1 {
+.research-paper-section-1 {
 	position: relative;
 	margin-bottom: 192px;
 }
 
-.technical-report-section-1::before {
+.research-paper-section-1::before {
 	position: absolute;
 	bottom: -96px;
 	left: 50%;
@@ -56,11 +56,11 @@
 	background: var(--colour-grey-80);
 }
 
-.technical-report-section-1:last-child:before {
+.research-paper-section-1:last-child:before {
 	display: none;
 }
 
-.technical-report-text {
+.research-paper-text {
 	margin: 16px auto;
 	max-width: var(--contentMaxWidth);
 	white-space: pre-wrap;
@@ -68,7 +68,7 @@
 	color: var(--colour-black);
 }
 
-.technical-report-heading-1 {
+.research-paper-heading-1 {
 	margin: 0 auto;
 	max-width: var(--contentMaxWidth);
 	font-size: 1.7rem;
@@ -76,7 +76,7 @@
 	color: var(--colour-black);
 }
 
-.technical-report-heading-2 {
+.research-paper-heading-2 {
 	margin: 0 auto;
 	margin-top: 48px;
 	max-width: var(--contentMaxWidth);
@@ -85,7 +85,7 @@
 	color: var(--colour-black);
 }
 
-.technical-report-heading-3 {
+.research-paper-heading-3 {
 	margin: 0 auto;
 	margin-top: 2rem;
 	max-width: var(--contentMaxWidth);
@@ -94,41 +94,41 @@
 	color: var(--colour-black);
 }
 
-.technical-report-page p {
+.research-paper-page p {
 	margin: 0;
 }
 
-.technical-report-body p {
+.research-paper-body p {
 	margin: 0;
 	font-weight: 300;
 }
 
-.technical-report-body ol,
-.technical-report-body ul {
+.research-paper-body ol,
+.research-paper-body ul {
 	margin: 0;
 	margin-top: -34px;
 	margin-bottom: -30px;
 }
 
-.technical-report-body li {
+.research-paper-body li {
 	margin: -8px 0;
 }
 
-.technical-report-intext-references {
+.research-paper-intext-references {
 	color: var(--colour-grey-20);
 	transition: 0.2s;
 	cursor: pointer;
 }
 
-.technical-report-intext-references:hover {
+.research-paper-intext-references:hover {
 	color: var(--colour-white);
 }
 
-.technical-report-intext-reference {
+.research-paper-intext-reference {
 	padding: 0 2px;
 }
 
-.technical-report-image {
+.research-paper-image {
 	display: flex;
 	gap: 8px;
 	flex-direction: column;
@@ -136,17 +136,17 @@
 	width: fit-content;
 }
 
-.technical-report-image-margin {
+.research-paper-image-margin {
 	margin: 24px auto;
 }
 
-.technical-report-image img {
+.research-paper-image img {
 	margin: 0 auto;
 	max-width: min(var(--contentMaxWidth), 100%);
 	max-height: 65dvh;
 }
 
-.technical-report-image label {
+.research-paper-image label {
 	margin: 0 auto;
 	margin-bottom: 9px;
 	max-width: min(var(--contentMaxWidth), 100%);

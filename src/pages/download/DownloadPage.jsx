@@ -1,4 +1,5 @@
 // Packages
+import { useEffect } from "react";
 
 // Components
 
@@ -18,6 +19,10 @@ export const DownloadPage = () => {
 		if (!link) return false;
 		return window.open(link, "_blank");
 	};
+
+	useEffect(() => {
+		document.title = "Download | Turing Explorer";
+	}, []);
 
 	return (
 		<div className='page download-page'>

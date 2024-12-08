@@ -1,4 +1,5 @@
 // Packages
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
@@ -23,6 +24,10 @@ export const ExplorePage = () => {
 			navigate("/explore?input=" + encodeURI(e?.target?.value));
 		}
 	};
+
+	useEffect(() => {
+		document.title = "Explore | Turing Explorer";
+	}, []);
 
 	return (
 		<div className='page explore-page'>

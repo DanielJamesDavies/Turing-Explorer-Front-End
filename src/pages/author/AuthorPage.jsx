@@ -1,7 +1,7 @@
 // Packages
+import { useEffect } from "react";
 
 // Components
-import { NeuralNetBackground } from "../../components/neural-net-background/NeuralNetBackground";
 
 // Logic
 
@@ -19,6 +19,10 @@ export const AuthorPage = () => {
 		if (e?.button === 1) return window.open(url, "_blank");
 		window.location.href = url;
 	};
+
+	useEffect(() => {
+		document.title = "Author | Turing Explorer";
+	}, []);
 
 	return (
 		<div className='page author-page'>

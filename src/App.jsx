@@ -8,8 +8,8 @@ import { HomePage } from "./pages/home/HomePage";
 import { ExplorePage } from "./pages/explore/ExplorePage";
 import { InferencePage } from "./pages/inference/InferencePage";
 import { DownloadPage } from "./pages/download/DownloadPage";
-import { TechnicalReportsPage } from "./pages/technical-reports/TechnicalReportsPage";
-import { TechnicalReportPage } from "./pages/technical-report/TechnicalReportPage";
+import { ResearchPage } from "./pages/research/ResearchPage";
+import { ResearchPaperPage } from "./pages/research-paper/ResearchPaperPage";
 import { AuthorPage } from "./pages/author/AuthorPage";
 import { NeuralNetBackground } from "./components/neural-net-background/NeuralNetBackground";
 
@@ -46,8 +46,8 @@ function App() {
 				<Route path='/explore' element={<ExplorePage />} />
 				<Route path='/inference' element={<InferencePage />} />
 				<Route path='/download' element={<DownloadPage />} />
-				<Route path='/research/:id' element={<TechnicalReportPage />} />
-				<Route path='/research' element={<TechnicalReportsPage />} />
+				<Route path='/research/:id' element={<ResearchPaperPage />} />
+				<Route path='/research' element={<ResearchPage />} />
 				<Route path='/author' element={<AuthorPage />} />
 				<Route path='*' element={<HomePage />} />
 			</Routes>
