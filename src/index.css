@@ -12,6 +12,7 @@
 	--colour-grey-50: #808080;
 	--colour-grey-60: #949494;
 	--colour-grey-70: #a3a3a3;
+	--colour-grey-75: #b3b3b3;
 	--colour-grey-80: #c3c3c3;
 	--colour-grey-90: #e2e2e2;
 	--colour-grey-95: #f0f0f0;
@@ -23,7 +24,6 @@
 	font-family: Inter, system-ui, sans-serif;
 	line-height: 1.5;
 	font-weight: 300;
-	color: var(--colour-black);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
