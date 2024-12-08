@@ -1,0 +1,154 @@
+.loading-circle-container-centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading-circle-container:not(.loading-circle-container-centered) {
+	position: relative;
+}
+
+.loading-circles {
+	position: relative;
+	width: 48px;
+	height: 48px;
+}
+
+.loading-circle-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.loading-circle {
+	position: relative;
+	width: 48px;
+	height: 48px;
+	vertical-align: middle;
+	animation: loading-circle-spin infinite 1s linear;
+}
+
+@keyframes loading-circle-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.loading-circle-small-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.loading-circle-small {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	animation: loading-circle-small-spin infinite 0.8s linear;
+}
+
+@keyframes loading-circle-small-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(-180deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+.loading-circle-circle {
+	border: 3px solid var(--colour-grey-50);
+	border-bottom: 0;
+	border-radius: 32px 32px 0 0;
+
+	width: 100%;
+	height: 50%;
+	box-sizing: border-box;
+
+	background: transparent;
+}
+
+/* Sizes */
+
+.loading-circle-container-xs .loading-circles {
+	width: 22px;
+	height: 22px;
+}
+
+.loading-circle-container-xs .loading-circle-circle {
+	border-width: 1px;
+}
+
+.loading-circle-container-s .loading-circle-circle {
+	border-width: 2px;
+}
+
+.loading-circle-container-l .loading-circle-circle {
+	border-width: 4px;
+}
+
+.loading-circle-container-xs .loading-circle {
+	width: 20px;
+	height: 20px;
+}
+
+.loading-circle-container-s .loading-circle {
+	width: 30px;
+	height: 30px;
+}
+
+.loading-circle-container-xs .loading-circle-small {
+	width: 8px;
+	height: 8px;
+}
+
+.loading-circle-container-s .loading-circle-small {
+	width: 14px;
+	height: 14px;
+}
+
+.loading-circle-container-l .loading-circle {
+	width: 64px;
+	height: 64px;
+}
+
+.loading-circle-container-l .loading-circle-small {
+	width: 30px;
+	height: 30px;
+}
+
+/* Label */
+
+.loading-circle-label {
+	position: absolute;
+	top: 68px;
+	width: max-content;
+	max-width: 100vw;
+	text-align: center;
+	opacity: 0.5;
+	color: var(--colour-grey-90);
+	background: linear-gradient(90deg, var(--colour-grey-75) 86%, var(--colour-white) 92%, var(--colour-grey-75) 94%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 400%;
+	animation: title-colour-gradient-flow 12s linear infinite;
+	text-align: center;
+	overflow: hidden;
+	transition: 0.2s;
+}

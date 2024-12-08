@@ -1,0 +1,49 @@
+.latent-display {
+	display: flex;
+	gap: 28px;
+	align-items: center;
+	padding: 48px 32px;
+}
+
+.latent-display-latent {
+	display: block;
+	content: "";
+	border: 4px solid var(--colour-blue);
+	border-radius: 100%;
+	width: 75px;
+	height: 75px;
+	background: radial-gradient(#0044ff00 55%, #0044ff44);
+	box-shadow: 0px 0px 24px #0044ff44;
+}
+
+.latent-display-latent-info-container {
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+}
+
+.latent-display-latent-info-location {
+	display: flex;
+	gap: 16px;
+}
+
+.latent-display-latent-info-location span {
+	padding: 4px 12px;
+	border-radius: 32px;
+	font-size: 15px;
+	font-weight: 300;
+	background: var(--colour-grey-90);
+	color: var(--colour-black);
+	transition: 0.2s;
+}
+
+.latent-display-latent-info-frequency {
+	padding: 0 2px;
+	font-size: 14px;
+}
+
+.latent-display-latent-info-frequency .loading-circle-container {
+	display: inline-block;
+	margin-bottom: -6px;
+	padding: 0 2px;
+}

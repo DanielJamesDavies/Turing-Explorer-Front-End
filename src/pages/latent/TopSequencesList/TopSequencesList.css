@@ -1,0 +1,496 @@
+.latent-top-sequences-list-container {
+	margin-top: 8px;
+	padding: 0 32px;
+	box-sizing: border-box;
+}
+
+.latent-top-sequences-list-title {
+	position: relative;
+	width: fit-content;
+}
+
+.latent-top-sequences-list-title span {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.latent-top-sequences-list-title i {
+	position: absolute;
+	top: -1px;
+	right: -22px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--colour-black);
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.latent-top-sequences-list-title-info {
+	position: absolute;
+	z-index: 1;
+	top: 30px;
+	padding: 12px 20px;
+	border: 1px solid var(--colour-grey-90);
+	border-radius: 8px;
+	width: max-content;
+	max-width: min(450px, 100dvw);
+	background: var(--colour-white);
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-list-title i:hover + .latent-top-sequences-list-title-info {
+	opacity: 1;
+}
+
+.latent-top-sequences-list {
+	display: flex;
+	flex-direction: column;
+	margin: 8px 0;
+}
+
+.latent-top-sequences-list-loading-circle-container {
+	position: relative;
+	height: 75px;
+}
+
+.latent-top-sequences-item {
+	display: flex;
+	gap: 12px;
+	flex-direction: column;
+	margin: 8px 0;
+	padding: 16px 16px;
+	padding-bottom: 20px;
+	border: 1px solid var(--colour-grey-90);
+	border-radius: 5px;
+	width: 100%;
+	box-sizing: border-box;
+	background: var(--colour-white);
+}
+
+.latent-top-sequences-item-info {
+	display: flex;
+	gap: 32px;
+	align-items: center;
+	width: 100%;
+}
+
+.latent-top-sequences-item-info-avg-act {
+	font-size: 14px;
+	color: var(--colour-grey-40);
+}
+
+.latent-top-sequences-item-view-top-other-latents-btn {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-left: auto;
+	padding: 0 16px;
+	border: 0;
+	border-radius: 32px;
+	background: var(--colour-grey-90);
+	color: var(--colour-grey-20);
+	height: 28px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-view-top-other-latents-btn:hover {
+	scale: 1.04;
+}
+
+.latent-top-sequences-item-view-top-other-latents-btn span {
+	font-size: 13px;
+}
+
+.latent-top-sequences-item-tokens {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px 0;
+}
+
+.latent-top-sequences-item-token-item {
+	position: relative;
+}
+
+.latent-top-sequences-item-token-item-token {
+	position: relative;
+	z-index: 1;
+	white-space: pre-wrap;
+	min-height: 20px;
+	font-size: 14px;
+	cursor: default;
+	color: var(--colour-grey-10);
+}
+
+.latent-top-sequences-item-token-item:nth-child(even) .latent-top-sequences-item-token-item-token {
+	color: var(--colour-black);
+}
+
+.latent-top-sequences-item-token-item-token::before {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: var(--colour-grey-90);
+	opacity: 0.65;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-token-item:nth-child(even) .latent-top-sequences-item-token-item-token::before {
+	background: var(--colour-grey-95);
+}
+
+.latent-top-sequences-item-token-item:hover .latent-top-sequences-item-token-item-token::before {
+	opacity: 0.4;
+}
+
+.latent-top-sequences-item-token-item-value {
+	position: absolute;
+	bottom: 44px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	padding: 1px 6px;
+	border: 1px solid var(--colour-grey-90);
+	border-radius: 2px;
+
+	background: var(--colour-white);
+	color: var(--colour-blue);
+	font-weight: 400;
+	font-size: 13px;
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-token-item:hover .latent-top-sequences-item-token-item-value {
+	opacity: 1;
+}
+
+.latent-top-sequences-list-header {
+	display: flex;
+	align-items: center;
+	margin-top: 24px;
+	margin-bottom: -8px;
+	padding: 0 8px;
+}
+
+.latent-top-sequences-list-header div:nth-child(1) {
+	width: 36px;
+	padding-right: 20px;
+}
+
+.latent-top-sequences-item-token-item-value-graph {
+	--token-value-fraction: 0;
+	position: relative;
+	display: block;
+	margin: 3px auto;
+	width: 7px;
+	height: 16px;
+	background: var(--colour-grey-90);
+}
+
+.latent-top-sequences-item-token-item-value-graph::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: var(--colour-white);
+	opacity: 0.1;
+}
+
+.latent-top-sequences-item-token-item-value-graph-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	content: "";
+	width: 100%;
+	height: calc(100% * var(--token-value-fraction));
+	background: var(--colour-blue);
+}
+
+.latent-top-sequences-item-view-top-other-latent-btn {
+	padding: 8px;
+	border-radius: 100%;
+	background: var(--colour-black);
+	color: var(--colour-white);
+	font-size: 16px;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-view-top-other-latent-btn:hover {
+	background: var(--colour-white);
+	color: var(--colour-black);
+}
+
+.latent-top-sequences-list-toggle-show-all-btn-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.latent-top-sequences-list-toggle-show-all-btn {
+	padding: 10px 20px;
+	border: 2px solid var(--colour-white);
+	border-radius: 32px;
+	background: var(--colour-black);
+	color: var(--colour-white);
+	font-size: 13px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.latent-top-sequences-list-toggle-show-all-btn:hover {
+	scale: 1.04;
+}
+
+.latent-top-sequences-item-other-latents-container {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: 0.2s ease-in;
+	pointer-events: none;
+}
+
+.latent-top-sequences-item-other-latents-container-show {
+	padding-bottom: 80px;
+	height: 100%;
+	opacity: 1;
+	pointer-events: all;
+	transition: opacity 0.2s ease-out;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-container {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 24px;
+	color: var(--colour-grey-75);
+}
+
+.latent-top-sequences-item-other-latents-collection-type-title {
+	margin-right: 12px;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-value {
+	width: 221px;
+	text-align: center;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-switch-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1px;
+	border-radius: 100%;
+
+	width: 32px;
+	height: 32px;
+
+	color: var(--colour-white);
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-switch-btn:hover {
+	background: var(--colour-white);
+	color: var(--colour-black);
+}
+
+.latent-top-sequences-item-other-latents-layer {
+	position: relative;
+	display: flex;
+	gap: 64px;
+	align-items: center;
+	margin-bottom: 32px;
+	z-index: calc(12 - var(--layer-index));
+}
+
+.latent-top-sequences-item-other-latents-layer:hover {
+	z-index: 20;
+}
+
+.latent-top-sequences-item-other-latents-layer-title {
+	flex-shrink: 0;
+	margin-top: 10px;
+	width: 76px;
+	text-transform: uppercase;
+	color: var(--colour-grey-50);
+	letter-spacing: 2px;
+	word-spacing: 4px;
+	font-size: 12px;
+	text-align: right;
+}
+
+.latent-top-sequences-item-other-latents-layer-sequences {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	align-items: center;
+}
+
+.inference-result-latents-latent-container button {
+	border-color: var(--colour-grey-40) !important;
+}
+
+.inference-result-latents-latent-container:hover button {
+	border-color: var(--colour-grey-70) !important;
+}
+
+.inference-result-latents-latent button span {
+	top: 50% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	color: var(--colour-grey-65) !important;
+	text-shadow: 0 0 8px #000, 0 0 8px #000, 0 0 8px #000, 0 0 8px #000;
+	transition: 0.2s;
+}
+
+.inference-result-latents-latent-container:hover button span {
+	color: var(--colour-grey-90) !important;
+}
+
+@media (min-width: 1400px) {
+	.latent-top-sequences-item-other-latents-layer {
+		margin-bottom: 20px;
+	}
+
+	.latent-top-sequences-item-other-latents-layer-sequences {
+		gap: 24px 34px;
+	}
+
+	.latent-top-sequences-item-other-latents-layer-title {
+		margin-top: 0px;
+	}
+
+	.inference-result-latents-latent button span {
+		top: 50% !important;
+		left: 6.5px !important;
+		transform: translateY(-50%) !important;
+		text-shadow: 0 0 8px #000, 0 0 8px #000, 0 0 8px #000, 0 0 8px #000;
+	}
+}
+
+.latent-top-sequences-item-other-latents-layer-sequence {
+	position: relative;
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+	align-items: center;
+	width: 590px;
+}
+
+.latent-top-sequences-item-other-latents-btn {
+	border: 1px solid var(--colour-white);
+	border-radius: 5px;
+	width: 64px;
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-other-latents-btn:hover {
+	background: var(--colour-white);
+	color: var(--colour-black);
+}
+
+.latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-label {
+	margin-left: 32px;
+	margin-right: 12px;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents {
+	position: relative;
+	border-radius: 32px;
+	width: 54px;
+	height: 28px;
+	border: 2px solid var(--colour-grey-50);
+	background: var(--colour-grey-0);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-active {
+	border-color: var(--colour-white);
+}
+
+.latent-top-sequences-item-other-latents-layer .inference-result-latents-latent-preview {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.latent-top-sequences-item-other-latents-layer:hover
+	.latent-top-sequences-item-other-latent-container:hover
+	.inference-result-latents-latent-preview {
+	opacity: 1;
+	pointer-events: none;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents::before {
+	position: absolute;
+	top: 50%;
+	left: 4px;
+	transform: translateY(-50%);
+	display: block;
+	content: "";
+	border-radius: 100%;
+	width: 20px;
+	height: 20px;
+	background: var(--colour-grey-50);
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-active::before {
+	left: 26px;
+	background: var(--colour-white);
+}
+
+.latent-top-sequences-item-other-latents-layer .inference-result-latents-latent-preview {
+	z-index: 2;
+	left: -64px !important;
+	right: unset !important;
+}
+
+.latent-top-sequences-item-other-latents-layer-use-higher-preview .inference-result-latents-latent-preview {
+	top: unset !important;
+	bottom: 32px !important;
+}
+
+.latent-top-sequences-item-other-latents-label {
+	position: absolute;
+	bottom: 46px;
+	left: 140px;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	color: var(--colour-grey-40);
+	transition: 0.2s;
+}
+
+.latent-top-sequences-item-other-latents-label:hover {
+	scale: 1.1;
+	color: var(--colour-grey-60);
+}
+
+.latent-top-sequences-item-other-latents-label span {
+	font-size: 14px;
+}

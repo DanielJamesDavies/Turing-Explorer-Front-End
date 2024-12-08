@@ -6,14 +6,14 @@ export const InferenceContext = createContext();
 
 const InferenceProvider = ({ children }) => {
 	const { APIRequest } = useContext(APIContext);
+	const location = useLocation();
+	const [searchParams] = useSearchParams();
 	const [inferenceTextBoxValue, setInferenceTextBoxValue] = useState("");
 	const [isGettingInferenceResults, setIsGettingInferenceResults] = useState(false);
 	const [inferenceResults, setInferenceResults] = useState(false);
 	const [viewingInferenceResultId, setViewingInferenceResultId] = useState(false);
 	const [isViewingInferenceResult, setIsViewingInferenceResult] = useState(false);
 	const [isGeneratingResult, setIsGeneratingResult] = useState(false);
-	const location = useLocation();
-	const [searchParams] = useSearchParams();
 
 	const submitInferenceRequest = useCallback(
 		async (newInferenceTextBoxValue) => {

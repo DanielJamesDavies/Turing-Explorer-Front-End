@@ -6,6 +6,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { NavigationBar } from "./components/navigation-bar/NavigationBar";
 import { HomePage } from "./pages/home/HomePage";
 import { ExplorePage } from "./pages/explore/ExplorePage";
+import { LatentPage } from "./pages/latent/LatentPage";
 import { InferencePage } from "./pages/inference/InferencePage";
 import { DownloadPage } from "./pages/download/DownloadPage";
 import { ResearchPage } from "./pages/research/ResearchPage";
@@ -45,6 +46,7 @@ function App() {
 				<Route path='/' element={<HomePage />} />
 				<Route path='/blank' element={null} />
 				<Route path='/explore' element={<ExplorePage />} />
+				<Route path='/latent' element={<LatentPage />} />
 				<Route path='/inference' element={<InferencePage />} />
 				<Route path='/download' element={<DownloadPage />} />
 				<Route path='/research/:id' element={<ResearchPaperPage />} />

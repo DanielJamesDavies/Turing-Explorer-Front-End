@@ -1,0 +1,108 @@
+.latent-search-bar-container {
+	display: flex;
+	gap: 48px;
+	justify-content: space-between;
+	align-items: center;
+	margin: 32px 24px;
+	margin-bottom: 0;
+	width: 100%;
+	transition: 0.2s;
+}
+
+.latent-search-bar {
+	position: relative;
+	z-index: 2;
+	padding: 0 24px;
+	border: 2px solid var(--colour-white);
+	border-radius: 32px;
+	width: calc(100% - 2 * 12px);
+	max-width: 750px;
+	height: 42px;
+	box-sizing: border-box;
+	font-size: 16px;
+	transition: 0.2s;
+	box-shadow: 0px 0px 12px var(--colour-grey-90), 0px 0px 6px var(--colour-grey-90);
+}
+
+.latent-search-bar:focus {
+	outline: none;
+	scale: 1.05;
+}
+
+.latent-search-bar::placeholder {
+	width: calc(100% + 24px);
+	scale: 0.9;
+	transform-origin: left;
+	transition: 0.2s;
+}
+
+.latent-search-bar:focus::placeholder {
+	opacity: 0.45;
+}
+
+.latent-search-bar-container-getting-results .latent-search-bar {
+	opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+	.latent-search-bar {
+		font-size: 16px;
+	}
+}
+
+.latent-search-navigation-container {
+	flex-shrink: 0;
+	display: flex;
+	gap: 24px;
+	align-items: center;
+}
+
+.latent-search-navigation-item {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.latent-search-navigation-item label {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	font-size: 15px;
+	color: var(--colour-grey-30);
+}
+
+.latent-search-navigation-item input {
+	position: relative;
+	z-index: 2;
+	padding: 0 16px;
+	border: 2px solid var(--colour-white);
+	border-radius: 32px;
+	width: calc(100% - 2 * 12px);
+	max-width: 84px;
+	height: 35px;
+	box-sizing: border-box;
+	font-size: 15px;
+	transition: 0.2s;
+	box-shadow: 0px 0px 12px var(--colour-grey-90), 0px 0px 6px var(--colour-grey-90);
+}
+
+.latent-search-navigation-item input:focus {
+	outline: none;
+	scale: 1.05;
+}
+
+.latent-search-navigation-item input::placeholder {
+	width: calc(100% + 24px);
+	scale: 0.9;
+	transform-origin: left;
+	transition: 0.2s;
+}
+
+.latent-search-navigation-item input:focus::placeholder {
+	opacity: 0.45;
+}
+
+.latent-search-navigation-go-to-latent-btn {
+	padding: 0 16px;
+	height: 35px;
+}
