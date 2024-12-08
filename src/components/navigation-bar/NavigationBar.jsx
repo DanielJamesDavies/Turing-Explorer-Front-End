@@ -30,6 +30,9 @@ export const NavigationBar = () => {
 					<span>Turing Explorer</span>
 				</button>
 				<div className='navigation-bar-buttons'>
+					<button className='navigation-bar-title' onMouseDown={(e) => e?.preventDefault()} onClick={(e) => navigateToPage(e, "")}>
+						<img src='images/turing.png' />
+					</button>
 					<button
 						className={
 							"navigation-bar-button" +

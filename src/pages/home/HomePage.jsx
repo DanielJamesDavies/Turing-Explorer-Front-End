@@ -32,8 +32,11 @@ export const HomePage = () => {
 	return (
 		<div className='page home-page'>
 			<div className='home-hero'>
-				<div className='home-hero-text'>
-					<span>An interpretability tool for understanding the internals of Turing&#8209;LLM, a large language model</span>
+				<div className='home-hero-title'>
+					<span>
+						An interpretability tool for understanding
+						<br /> the internal mechanisms of Turing&#8209;LLM
+					</span>
 					<span>An interpretability tool for understanding Turing&#8209;LLM</span>
 				</div>
 				<input
