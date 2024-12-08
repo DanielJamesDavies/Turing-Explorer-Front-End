@@ -15,14 +15,14 @@ import "./DownloadPage.css";
 // Assets
 
 export const DownloadPage = () => {
+	useEffect(() => {
+		document.title = "Download | Turing Explorer";
+	}, []);
+
 	const goToLink = (link) => {
 		if (!link) return false;
 		return window.open(link, "_blank");
 	};
-
-	useEffect(() => {
-		document.title = "Download | Turing Explorer";
-	}, []);
 
 	return (
 		<div className='page download-page'>

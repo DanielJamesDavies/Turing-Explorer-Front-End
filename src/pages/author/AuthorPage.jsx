@@ -15,14 +15,14 @@ import "./AuthorPage.css";
 // Assets
 
 export const AuthorPage = () => {
+	useEffect(() => {
+		document.title = "Author | Turing Explorer";
+	}, []);
+
 	const navigate = (e, url) => {
 		if (e?.button === 1) return window.open(url, "_blank");
 		window.location.href = url;
 	};
-
-	useEffect(() => {
-		document.title = "Author | Turing Explorer";
-	}, []);
 
 	return (
 		<div className='page author-page'>

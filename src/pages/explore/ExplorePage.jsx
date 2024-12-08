@@ -18,16 +18,16 @@ import "./ExplorePage.css";
 export const ExplorePage = () => {
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		document.title = "Explore | Turing Explorer";
+	}, []);
+
 	const onInferenceInputKeyDown = (e) => {
 		if (e?.key?.toLowerCase() === "enter") {
 			if (e?.target?.value?.trim()?.length === 0) return navigate("/explore");
 			navigate("/explore?input=" + encodeURI(e?.target?.value));
 		}
 	};
-
-	useEffect(() => {
-		document.title = "Explore | Turing Explorer";
-	}, []);
 
 	return (
 		<div className='page explore-page'>

@@ -18,6 +18,10 @@ import "./HomePage.css";
 export const HomePage = () => {
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		document.title = "Turing Explorer";
+	}, []);
+
 	const navigateToPage = (e, path) => {
 		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
 		navigate(path);
@@ -29,10 +33,6 @@ export const HomePage = () => {
 			navigate("/inference?input=" + encodeURI(e?.target?.value));
 		}
 	};
-
-	useEffect(() => {
-		document.title = "Turing Explorer";
-	}, []);
 
 	return (
 		<div className='page home-page'>

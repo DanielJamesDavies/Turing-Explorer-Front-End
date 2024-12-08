@@ -1,4 +1,5 @@
 // Packages
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
@@ -16,6 +17,10 @@ import "./InferencePage.css";
 
 export const InferencePage = () => {
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		document.title = "Explore | Turing Explorer";
+	}, []);
 
 	const onInferenceInputKeyDown = (e) => {
 		if (e?.key?.toLowerCase() === "enter") {

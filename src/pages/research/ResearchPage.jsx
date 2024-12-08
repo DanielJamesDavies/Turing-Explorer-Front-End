@@ -20,6 +20,10 @@ export const ResearchPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		document.title = "Research | Turing Explorer";
+	}, []);
+
+	useEffect(() => {
 		fetch(`/research-papers/research-papers.json`)
 			.then((res) => res?.json())
 			.then((res) => setResearchPapers(res?.["research-papers"]))
@@ -30,10 +34,6 @@ export const ResearchPage = () => {
 		if (e?.button === 1) return window.open(window?.location?.origin + "/research/" + id, "_blank");
 		navigate("/research/" + id);
 	};
-
-	useEffect(() => {
-		document.title = "Research | Turing Explorer";
-	}, []);
 
 	return (
 		<div className='page research-papers-page'>
