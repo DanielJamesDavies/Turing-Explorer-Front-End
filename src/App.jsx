@@ -5,6 +5,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 // Components
 import { NavigationBar } from "./components/navigation-bar/NavigationBar";
 import { HomePage } from "./pages/home/HomePage";
+import { ExplorePage } from "./pages/explore/ExplorePage";
+import { InferencePage } from "./pages/inference/InferencePage";
 import { DownloadPage } from "./pages/download/DownloadPage";
 import { TechnicalReportsPage } from "./pages/technical-reports/TechnicalReportsPage";
 import { TechnicalReportPage } from "./pages/technical-report/TechnicalReportPage";
@@ -23,7 +25,12 @@ import { NeuralNetBackground } from "./components/neural-net-background/NeuralNe
 
 function App() {
 	const location = useLocation();
+	const { pathname } = useLocation();
 	const [pageName, setPageName] = useState(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 
 	useEffect(() => {
 		setPageName(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
@@ -36,6 +43,8 @@ function App() {
 			<Routes>
 				<Route path='' element={<HomePage />} />
 				<Route path='/' element={<HomePage />} />
+				<Route path='/explore' element={<ExplorePage />} />
+				<Route path='/inference' element={<InferencePage />} />
 				<Route path='/download' element={<DownloadPage />} />
 				<Route path='/research/:id' element={<TechnicalReportPage />} />
 				<Route path='/research' element={<TechnicalReportsPage />} />

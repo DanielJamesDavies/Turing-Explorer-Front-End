@@ -4,75 +4,113 @@
 }
 
 .technical-reports-list-item {
+	position: relative;
 	flex: 0 0 auto;
-	margin: 16px;
-	width: calc(100% / 3 - 2 * 16px);
+	padding: 8px;
+	width: calc(100% / 3 - 2 * 8px);
+	transition: 0.4s;
 	cursor: pointer;
+}
+
+.technical-reports-list:hover .technical-reports-list-item {
+	opacity: 0.7;
+	scale: 0.95;
+}
+
+.technical-reports-list-item:not(.technical-reports-list-item-uncomplete):hover {
+	scale: 1.02;
+	opacity: 1;
 }
 
 @media (max-width: 1100px) {
 	.technical-reports-list-item {
-		width: calc(100% / 3 - 2 * 16px);
+		width: calc(100% / 3 - 2 * 8px);
 	}
 }
 
 @media (max-width: 750px) {
 	.technical-reports-list-item {
-		width: calc(100% / 2 - 2 * 16px);
+		width: calc(100% / 2 - 2 * 8px);
 	}
 }
 
 @media (max-width: 450px) {
 	.technical-reports-list-item {
-		width: calc(100% / 1 - 2 * 16px);
+		width: calc(100% / 1 - 2 * 8px);
 	}
 }
 
 .technical-reports-list-item-uncomplete {
-	opacity: 0.5;
+	scale: 0.95;
+	opacity: 0.3;
+	cursor: auto;
+}
+
+.technical-reports-list:hover .technical-reports-list-item-uncomplete {
+	scale: 0.9;
+	opacity: 0.2;
 }
 
 .technical-reports-list-item-image {
 	position: relative;
+	border-radius: 5px;
 	width: 100%;
 	height: auto;
 	overflow: hidden;
-	aspect-ratio: 1 / 1;
+	aspect-ratio: 1 / 1.25;
 }
 
 .technical-reports-list-item-image img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	object-fit: cover;
 	transform-origin: center;
 	transition: 0.2s;
 }
 
-.technical-reports-list-item-image img:nth-child(1) {
-	position: relative;
-	z-index: -1;
-	filter: brightness(0%);
-}
-
 .technical-reports-list-item-image img:nth-child(2) {
 	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}
-
-.technical-reports-list-item:hover .technical-reports-list-item-image img {
-	scale: 1.03;
-}
-
-.technical-reports-list-item-title {
-	position: relative;
-	z-index: 1;
-	color: var(--colour-grey-80);
-	font-size: 15px;
+	z-index: 3;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% - 160px);
+	height: calc(100% - 180px);
+	object-fit: contain;
+	transform-origin: center;
 	transition: 0.2s;
 }
 
-.technical-reports-list-item:hover .technical-reports-list-item-title {
-	color: var(--colour-grey-90);
+.technical-reports-list-item-image img:nth-child(3) {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% - 150px);
+	height: calc(100% - 120px);
+	object-fit: contain;
+	transform-origin: center;
+	transition: 0.2s;
+	opacity: 0.4;
+}
+
+.technical-reports-list-item-turing-llm-1-0 .technical-reports-list-item-image img:nth-child(2) {
+	max-width: 280px;
+	filter: brightness(0) invert(1);
+}
+
+.technical-reports-list-item-title {
+	position: absolute;
+	z-index: 4;
+	bottom: 0;
+	padding: 18px 16px;
+	transition: 0.2s;
+}
+
+.technical-reports-list-item-title span {
+	color: var(--colour-white);
+	font-size: 17px;
+	font-weight: 500;
+	white-space: pre-wrap;
 }

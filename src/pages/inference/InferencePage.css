@@ -1,0 +1,103 @@
+.inference-page {
+	position: relative;
+	padding-bottom: 256px;
+}
+
+.inference-input-container {
+	position: relative;
+	display: flex;
+	gap: 40px;
+	margin-bottom: -32px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 450px;
+	height: calc(100dvh - 80px - 190px);
+	max-height: 650px;
+	overflow: hidden;
+}
+
+@media (max-width: 600px) {
+	.inference-input-container {
+		height: unset;
+	}
+}
+
+.inference-input-title {
+	margin-top: -22px;
+	margin-bottom: -8px;
+	max-width: min(calc(100% - 2 * 12px), 950px);
+	text-align: center;
+}
+
+.inference-input-title > span {
+	color: var(--colour-black);
+	-webkit-text-fill-color: transparent;
+	/* background: linear-gradient(190deg, #555 20%, #000); */
+	background: linear-gradient(180deg, #555 20%, #000);
+	-webkit-background-clip: text;
+	font-size: 2.5rem;
+	font-weight: 600;
+	line-height: 3.5rem;
+	text-align: center;
+	transition: 0.2s;
+}
+
+@media (max-width: 600px) {
+	.inference-input-title {
+		margin-top: 24px;
+		max-width: calc(100% - 2 * 12px);
+	}
+
+	.inference-input-title > span {
+		font-size: 1.8rem;
+		line-height: 2.2rem;
+	}
+}
+
+.inference-input-container label {
+	margin-top: -30px;
+	padding: 0 30px;
+	box-sizing: border-box;
+	width: calc(100% - 2 * 12px);
+	max-width: 600px;
+	text-align: left;
+	font-size: 14px;
+	color: var(--colour-grey-70);
+}
+
+.inference-input {
+	padding: 0 24px;
+	border: 2px solid var(--colour-white);
+	border-radius: 32px;
+	width: calc(100% - 2 * 12px);
+	max-width: 600px;
+	height: 42px;
+	box-sizing: border-box;
+	font-size: 16px;
+	transition: 0.2s;
+	box-shadow: 0px 0px 12px var(--colour-grey-90), 0px 0px 6px var(--colour-grey-90);
+}
+
+.inference-input:focus {
+	outline: none;
+	scale: 1.05;
+}
+
+.inference-input::placeholder {
+	width: calc(100% + 24px);
+	scale: 0.9;
+	transform-origin: left;
+	transition: 0.2s;
+}
+
+.inference-input:focus::placeholder {
+	opacity: 0.45;
+}
+
+@media (max-width: 600px) {
+	.inference-input {
+		font-size: 16px;
+	}
+}

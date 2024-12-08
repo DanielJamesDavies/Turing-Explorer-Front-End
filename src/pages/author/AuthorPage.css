@@ -5,9 +5,9 @@
 
 .author-name {
 	margin: 0;
-	margin-top: 16px;
+	margin-top: -12px;
 	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, var(--colour-blue), #0af, #bdf 75%);
+	background: linear-gradient(180deg, var(--colour-blue), #4cf, #04f 75%);
 	-webkit-background-clip: text;
 	color: var(--colour-white);
 	font-size: 2.1rem;
@@ -17,35 +17,12 @@
 	transition: 0.2s;
 }
 
-.author-subtitle {
-	display: flex;
-	gap: 8px;
-	align-items: center;
-	margin: 6px 0;
-	color: var(--colour-grey-80);
-	font-size: 1rem;
-	transition: 0.2s;
-}
-
-.author-subtitle span:nth-child(1) {
-	font-size: 24px;
-}
-
-.author-text {
-	margin: 32px 0;
-	color: var(--colour-grey-80);
-	font-size: 1rem;
-	transition: 0.2s;
-}
-
 .author-links {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 8px;
-	margin: 0;
-	margin-top: 6px;
-	margin-bottom: 12px;
+	gap: 12px;
+	margin: 12px 0;
 }
 
 @media (max-width: 600px) {
@@ -56,43 +33,33 @@
 }
 
 .author-links button {
-	position: relative;
-	padding: 5px 16px;
-	border: 0;
-	border-radius: 5px;
-	background: transparent;
-	color: var(--colour-white);
-	font-weight: 500;
-	cursor: pointer;
+	height: 33px;
 }
 
-@media (max-width: 600px) {
-	.author-links button {
-		position: relative;
-		padding: 6px 20px;
-		border: 0;
-		border-radius: 5px;
-		font-size: 14px;
-		background: transparent;
-		color: var(--colour-white);
-		cursor: pointer;
-	}
+.author-subtitles {
+	margin-top: 38px;
 }
 
-.author-links button::before {
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	display: block;
-	content: "";
-	border-radius: 32px;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(180deg, var(--colour-blue-tint), var(--colour-blue));
+.author-subtitle {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 8px 0;
+	color: var(--colour-grey-20);
+	font-size: 1rem;
+	font-weight: 300;
 	transition: 0.2s;
 }
 
-.author-links button:hover::before {
-	filter: brightness(140%);
+.author-subtitle span:nth-child(1) {
+	font-size: 22px;
+}
+
+.author-text {
+	margin: 32px 0;
+	line-height: 1.8rem;
+	color: var(--colour-grey-20);
+	font-size: 17px;
+	font-weight: 300;
+	transition: 0.2s;
 }

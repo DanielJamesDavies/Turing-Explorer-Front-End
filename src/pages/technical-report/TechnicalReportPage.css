@@ -3,23 +3,35 @@
 }
 
 .technical-report-page .page-title {
-	--title-scale: 1;
 	margin: 96px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-width: var(--contentMaxWidth);
-	font-size: calc(2.2rem * var(--title-scale));
+	text-align: center;
+}
+
+.technical-report-page .page-title > span {
+	--title-scale: 1;
+	font-size: calc(2.5rem * var(--title-scale));
 	text-align: center;
 }
 
 @media (max-width: 480px) {
-	.technical-report-page .page-title {
+	.technical-report-page .page-title > span {
 		font-size: calc(1.8rem * var(--title-scale));
 	}
 }
 
 @media (max-width: 360px) {
-	.technical-report-page .page-title {
+	.technical-report-page .page-title > span {
 		font-size: calc(1.4rem * var(--title-scale));
 	}
+}
+
+.page-title-buttons {
+	display: flex;
+	align-items: center;
 }
 
 .technical-report-page .page-content {
@@ -41,7 +53,7 @@
 	width: 100%;
 	max-width: var(--contentMaxWidth);
 	height: 1px;
-	background: var(--colour-grey-30);
+	background: var(--colour-grey-80);
 }
 
 .technical-report-section-1:last-child:before {
@@ -53,7 +65,7 @@
 	max-width: var(--contentMaxWidth);
 	white-space: pre-wrap;
 	line-height: 1.9rem;
-	color: var(--colour-grey-90);
+	color: var(--colour-black);
 }
 
 .technical-report-heading-1 {
@@ -61,7 +73,7 @@
 	max-width: var(--contentMaxWidth);
 	font-size: 1.7rem;
 	font-weight: 600;
-	color: var(--colour-grey-90);
+	color: var(--colour-black);
 }
 
 .technical-report-heading-2 {
@@ -70,7 +82,7 @@
 	max-width: var(--contentMaxWidth);
 	font-size: 1.3rem;
 	font-weight: 600;
-	color: var(--colour-grey-90);
+	color: var(--colour-black);
 }
 
 .technical-report-heading-3 {
@@ -79,7 +91,7 @@
 	max-width: var(--contentMaxWidth);
 	font-size: 1.15rem;
 	font-weight: 600;
-	color: var(--colour-grey-90);
+	color: var(--colour-black);
 }
 
 .technical-report-page p {
@@ -103,7 +115,7 @@
 }
 
 .technical-report-intext-references {
-	color: var(--colour-grey-90);
+	color: var(--colour-grey-20);
 	transition: 0.2s;
 	cursor: pointer;
 }
@@ -140,7 +152,7 @@
 	max-width: min(var(--contentMaxWidth), 100%);
 	white-space: pre-wrap;
 	line-height: 1.9rem;
-	color: var(--colour-grey-90);
+	color: var(--colour-grey-20);
 	letter-spacing: 1px;
 	font-size: 0.85rem;
 	text-align: center;

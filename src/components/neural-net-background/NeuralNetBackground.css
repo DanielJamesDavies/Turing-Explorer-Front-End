@@ -8,15 +8,12 @@
 	height: 100dvh;
 	scale: var(--scale);
 	opacity: 0.5;
+	/* filter: brightness(75%) sepia(1) hue-rotate(190deg) saturate(5) brightness(1.3); */
 }
 
 .app-page-home .neural-net-background {
 	opacity: 1;
 }
-
-/* .app-page-technical-reports .neural-net-background {
-	display: none;
-} */
 
 .neural-net-background-neural-network {
 	position: absolute;
@@ -54,10 +51,10 @@
 	z-index: 3;
 	display: block;
 	content: "";
-	border: solid 1px var(--colour-grey-25);
+	border: solid 1px var(--colour-grey-90);
 	border-radius: 100%;
 
-	background: var(--colour-black);
+	background: transparent;
 
 	box-sizing: border-box;
 	min-width: var(--neuron_size);
@@ -67,6 +64,7 @@
 
 	transition: 0.2s;
 	cursor: pointer;
+	opacity: 0.6;
 }
 
 .neural-net-background-neural-network-neuron-container-hovering .neural-net-background-neural-network-neuron-circle {
@@ -83,13 +81,15 @@
 }
 
 .neural-net-background-neural-network-neuron-connection {
+	--colour-one: #aaaaff28;
+	--colour-two: #7777ff28;
 	--length: 230px;
 	--angle: 0deg;
 	position: absolute;
 	z-index: -1;
 	display: block;
 	content: "";
-	background: var(--colour-grey-10);
+	background: var(--colour-one);
 	width: var(--length);
 	height: 1px;
 	transform-origin: left;
@@ -98,21 +98,22 @@
 	-ms-transform: rotate(var(--angle)) translateZ(0);
 	transition: 0s;
 	will-change: background-position;
+	opacity: 0.8;
 }
 
 .neural-net-background-neural-network-neuron-connection-active {
 	height: 2px;
-	background: var(--colour-grey-30);
-	transition: 0;
+	background: var(--colour-one);
+	transition: 0s;
+	opacity: 0.5;
 }
 
 .neural-net-background-container-running-animations .neural-net-background-neural-network-neuron-connection-active-animating,
 .neural-net-background-container-running-animations .neural-net-background-neural-network-neuron-connection-active-animating-previous {
 	z-index: 3 !important;
-	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-white) 85%, var(--colour-white) 90%, var(--colour-grey-30) 91%);
+	background: linear-gradient(90deg, var(--colour-one) 50%, var(--colour-white) 85%, var(--colour-white) 90%, var(--colour-one) 91%);
 	background-size: 200%;
-	animation: neural-net-background-neural-network-neuron-connection-gradient-flow 4s linear infinite;
-	transition: 1s;
+	animation: neural-net-background-neural-network-neuron-connection-gradient-flow 6s linear infinite;
 	transition: 0s !important;
 }
 
@@ -123,14 +124,15 @@
 	.neural-net-background-neural-network:nth-child(1)
 	.neural-net-background-neural-network-neuron-connection-active-animating-previous {
 	height: 2px;
-	background: linear-gradient(90deg, var(--colour-grey-30) 50%, var(--colour-blue) 85%);
+	background: linear-gradient(90deg, var(--colour-two) 50%, var(--colour-blue) 85%);
 	background-size: 200%;
 	transition: 0s !important;
+	opacity: 0.2;
 }
 
 .app-page-technical-report .neural-net-background-neural-network-neuron-connection-active-animating,
 .app-page-technical-report .neural-net-background-neural-network-neuron-connection-active-animating-previous {
-	background: var(--colour-grey-30);
+	background: var(--colour-two);
 	animation: none;
 	transition: 0s !important;
 }

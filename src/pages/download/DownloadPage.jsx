@@ -22,7 +22,9 @@ export const DownloadPage = () => {
 	return (
 		<div className='page download-page'>
 			<div className='page-content'>
-				<div className='page-title'>Download Turing-LLM Explorer</div>
+				<div className='page-title'>
+					<span>Download Turing-LLM Explorer</span>
+				</div>
 				<div className='download-list'>
 					{[
 						{ name: "Turing-LLM Explorer App", type: "app", link: "https://github.com/DanielJamesDavies/Turing-LLM-Explorer" },
@@ -73,7 +75,7 @@ export const DownloadPage = () => {
 								<div className='download-list-item-name'>{downloadItem?.name}</div>
 								<div>
 									<button
-										className='download-list-item-download-btn'
+										className='download-list-item-download-btn button'
 										onClick={() => goToLink(downloadItem?.link)}
 										onAuxClick={() => goToLink(downloadItem?.link)}
 										disabled={!downloadItem?.link}

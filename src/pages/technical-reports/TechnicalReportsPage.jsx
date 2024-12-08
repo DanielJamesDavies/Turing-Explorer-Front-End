@@ -26,15 +26,21 @@ export const TechnicalReportsPage = () => {
 			.catch((e) => console.log("Error:", e));
 	}, []);
 
-	const onClickReportItem = (e, id) => {
+	const navigateToPage = (e, id) => {
 		if (e?.button === 1) return window.open(window?.location?.origin + "/research/" + id, "_blank");
 		navigate("/research/" + id);
 	};
 
+	useEffect(() => {
+		document.title = "Research | Turing Explorer";
+	}, []);
+
 	return (
 		<div className='page technical-reports-page'>
 			<div className='page-content'>
-				<div className='page-title'>Research</div>
+				<div className='page-title'>
+					<span>Research</span>
+				</div>
 				<div className='technical-reports-list'>
 					{!technicalReports
 						? null
@@ -43,14 +49,29 @@ export const TechnicalReportsPage = () => {
 									key={index}
 									className={
 										"technical-reports-list-item" +
+										(" technical-reports-list-item-" + technicalReportItem?.id?.replaceAll(".", "-")) +
 										(technicalReportItem?.uncomplete ? " technical-reports-list-item-uncomplete" : "")
 									}
-									onClick={(e) => onClickReportItem(e, technicalReportItem?.id)}
-									onAuxClick={(e) => onClickReportItem(e, technicalReportItem?.id)}
+									onMouseDown={(e) => e?.preventDefault()}
+									onClick={(e) => (technicalReportItem?.uncomplete ? () => {} : navigateToPage(e, technicalReportItem?.id))}
+									onAuxClick={(e) => (technicalReportItem?.uncomplete ? () => {} : navigateToPage(e, technicalReportItem?.id))}
 								>
 									<div className='technical-reports-list-item-image'>
-										<img src='/images/preview-small.png' />
-										<img src={"/technical-reports/" + technicalReportItem?.id + "/preview.png" || "/images/preview.png"} />
+										<img
+											src={"/technical-reports/" + technicalReportItem?.id + "/cover/bg.png"}
+											alt=''
+											onError={(e) => (e?.target ? (e.target.style = "display: none") : null)}
+										/>
+										<img
+											src={"/technical-reports/" + technicalReportItem?.id + "/cover/img1.png"}
+											alt=''
+											onError={(e) => (e?.target ? (e.target.style = "display: none") : null)}
+										/>
+										<img
+											src={"/technical-reports/" + technicalReportItem?.id + "/cover/img2.png"}
+											alt=''
+											onError={(e) => (e?.target ? (e.target.style = "display: none") : null)}
+										/>
 									</div>
 									<div className='technical-reports-list-item-title'>
 										{technicalReportItem?.title?.split("-")?.map((str, i) => (

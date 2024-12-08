@@ -1,15 +1,16 @@
-.navigation-bar {
+.navigation-bar-container {
 	position: fixed;
 	z-index: 10;
 	top: 0;
 	left: 0;
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	width: 100dvw;
-	height: 80px;
+	width: 100%;
+	height: 56px;
 }
 
-.navigation-bar::before {
+.navigation-bar-container::before {
 	position: absolute;
 	top: -4px;
 	left: 50%;
@@ -19,61 +20,90 @@
 	min-width: 1000px;
 	width: 100%;
 	height: calc(100% + 4px);
-	mask: linear-gradient(90deg, #0000, #000c, #000c, #0000);
-	background: #000;
+	/* mask: linear-gradient(90deg, #fff0, #fff5, #fff5, #fff0); */
+	background: #fff;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
+}
+
+.navigation-bar {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: calc(100% - 2 * 16px);
+	max-width: 1308px;
+}
+
+.navigation-bar-title {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	font-size: 17px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.navigation-bar-title img {
+	margin-top: -2px;
+	height: 38px;
+	filter: brightness(0);
 }
 
 .navigation-bar-buttons {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 auto;
 	width: calc(100% - 2 * 12px);
-	max-width: 440px;
+	max-width: 400px;
 }
 
 .navigation-bar-button {
 	position: relative;
 	border: 0;
 	background: transparent;
-	color: var(--colour-grey-70);
-	font-size: 15px;
-	font-weight: 700;
+	color: var(--colour-black);
+	color: var(--colour-black);
+	font-size: 14px;
+	font-weight: 400;
 	transition: 0.2s;
 	cursor: pointer;
 }
 
 .navigation-bar-button:hover {
-	color: var(--colour-grey-90);
+	color: var(--colour-grey-40);
 }
 
 .navigation-bar-button::after {
 	position: absolute;
-	bottom: -7px;
+	bottom: -3px;
 	left: 50%;
 	transform: translateX(-50%);
 	display: block;
 	content: "";
-	border-radius: 5px;
-	width: calc(100% - 32px);
-	height: 3px;
+	border-radius: 0px;
+	width: calc(100% - 24px);
+	width: 24px;
+	height: 1px;
 	background: var(--colour-grey-70);
 	opacity: 0;
 	transition: 0.2s;
 }
 
-.navigation-bar-button:hover::after {
+/* .navigation-bar-button:hover::after {
 	opacity: 0.4;
 }
 
 .navigation-bar-button-active {
-	color: var(--colour-grey-90);
+	color: var(--colour-black);
 }
 
 .navigation-bar-button-active::after {
-	bottom: -7px;
 	opacity: 1 !important;
-	background: var(--colour-blue) !important;
-}
+	background: var(--colour-grey-40) !important;
+} */

@@ -33,7 +33,7 @@ export const NeuralNetBackground = () => {
 	}, [setWindowInnerWidth]);
 
 	useEffect(() => {
-		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const intervalDuration = ["research"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 6000;
 		const interval = setInterval(() => setLayerAnimating((oldValue) => (oldValue >= 8 ? -1 : oldValue + 1)), intervalDuration / 10);
 		return () => clearInterval(interval);
 	}, [setLayerAnimating]);
@@ -59,7 +59,7 @@ export const NeuralNetBackground = () => {
 			);
 		};
 		getNeuronConnectionsVisibility();
-		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const intervalDuration = ["research"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 6000;
 		const interval = setInterval(() => getNeuronConnectionsVisibility(), intervalDuration);
 		return () => clearInterval(interval);
 	}, [setNeuronConnectionsVisibility, location]);
@@ -85,7 +85,7 @@ export const NeuralNetBackground = () => {
 			);
 		};
 		getNewActivatedNeuronConnections();
-		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 4000;
+		const intervalDuration = ["technical-report"].includes(location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0]) ? 16000 : 6000;
 		const interval = setInterval(() => getNewActivatedNeuronConnections(), intervalDuration);
 		return () => clearInterval(interval);
 	}, [setActivatedNeuronConnections, location]);

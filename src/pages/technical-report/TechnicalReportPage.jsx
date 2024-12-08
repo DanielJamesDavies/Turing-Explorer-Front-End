@@ -1,6 +1,6 @@
 // Packages
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
 // Components
@@ -18,6 +18,7 @@ import "./TechnicalReportPage.css";
 
 export const TechnicalReportPage = () => {
 	const { id } = useParams();
+	const navigate = useNavigate();
 	const [reportData, setReportData] = useState(false);
 
 	useEffect(() => {
@@ -26,6 +27,13 @@ export const TechnicalReportPage = () => {
 			.then((res) => setReportData(res))
 			.catch((e) => console.log("Error:", e));
 	}, [id]);
+
+	useEffect(() => {
+		document.title = "Research | Turing Explorer";
+		if (reportData?.short_title) {
+			document.title = reportData?.short_title + " | Research | Turing Explorer";
+		}
+	}, [id, reportData]);
 
 	const processText = (text) => {
 		return text.split("<|references|")?.map((string, i) =>
@@ -58,12 +66,29 @@ export const TechnicalReportPage = () => {
 		);
 	};
 
+	const navigateToPage = (e, path) => {
+		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
+		navigate(path);
+	};
+
 	return (
 		<div className='page technical-report-page'>
 			{!reportData ? null : (
 				<div className='page-content'>
 					<div className='page-title' style={{ "--title-scale": reportData?.titleScale || 1 }}>
-						{reportData?.title}
+						<span>{reportData?.title}</span>
+						{reportData?.id === "turing-llm-1.0" ? (
+							<div className='page-title-buttons'>
+								<button
+									className='button'
+									onMouseDown={(e) => e?.preventDefault()}
+									onClick={(e) => navigateToPage(e, "/inference")}
+									onAuxClick={(e) => navigateToPage(e, "/inference")}
+								>
+									<span>Try Turing-LLM</span>
+								</button>
+							</div>
+						) : null}
 					</div>
 					<div className='technical-report-section-1'>
 						<div className='technical-report-text'>{processText(reportData?.abstract)}</div>

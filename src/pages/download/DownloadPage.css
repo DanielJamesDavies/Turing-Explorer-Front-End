@@ -33,9 +33,10 @@
 .download-list-item > div:nth-child(1) {
 	display: flex;
 	justify-content: center;
-	width: 24px;
+	width: 32px;
 	margin-right: 20px;
 	color: var(--colour-grey-80);
+	font-size: 18px;
 }
 
 .download-list-item > div:last-child {
@@ -48,28 +49,10 @@
 	display: flex;
 	gap: 8px;
 	align-items: center;
-	padding: 6px 12px;
-	border: 0;
-	border-radius: 5px;
-	background: transparent;
 	color: var(--colour-white);
 	font-weight: 600;
 	cursor: pointer;
-	transition: 0.2s;
-}
-
-.download-list-item-download-btn::before {
-	position: absolute;
-	z-index: -1;
-	bottom: -1px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: block;
-	content: "";
-	border-radius: 5px;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(180deg, var(--colour-blue-tint), var(--colour-blue));
+	height: 37px;
 	transition: 0.2s;
 }
 
@@ -83,7 +66,8 @@
 
 .download-list-item-download-btn i {
 	position: relative;
-	margin-top: -1px;
+	margin-top: -1.9px;
+	color: var(--colour-white);
 }
 
 .download-list-item-download-btn i::after {
@@ -95,7 +79,7 @@
 	content: "";
 	border-radius: 2px;
 	width: 12px;
-	height: 2px;
+	height: 1.9px;
 	background: var(--colour-white);
 	background: var(--colour-grey-90);
 }

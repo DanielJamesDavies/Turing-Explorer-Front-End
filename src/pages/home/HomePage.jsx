@@ -2,7 +2,6 @@
 import { useNavigate } from "react-router-dom";
 
 // Components
-import { NeuralNetBackground } from "../../components/neural-net-background/NeuralNetBackground";
 
 // Logic
 
@@ -18,47 +17,71 @@ import "./HomePage.css";
 export const HomePage = () => {
 	const navigate = useNavigate();
 
-	const onNavigate = (e, path) => {
+	const navigateToPage = (e, path) => {
 		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
 		navigate(path);
+	};
+
+	const onInferenceInputKeyDown = (e) => {
+		if (e?.key?.toLowerCase() === "enter") {
+			if (e?.target?.value?.trim()?.length === 0) return navigate("/inference");
+			navigate("/inference?input=" + encodeURI(e?.target?.value));
+		}
 	};
 
 	return (
 		<div className='page home-page'>
 			<div className='home-hero'>
-				<div className='home-title'>
-					<span>Turing Explorer</span>
-					<span>Turing Explorer</span>
-				</div>
-				<div className='home-title-turing'>
-					<img src='/images/turing-with-background.png' />
-				</div>
 				<div className='home-hero-text'>
-					A mechanistic interpretability tool to understand the internals of Turing-LLM, a large language model.
+					<span>An interpretability tool for understanding the internals of Turing&#8209;LLM, a large language model</span>
+					<span>An interpretability tool for understanding Turing&#8209;LLM</span>
 				</div>
+				<input
+					className='home-hero-inference-input'
+					placeholder='Type a prompt for Turing-LLM to complete'
+					onKeyDown={onInferenceInputKeyDown}
+				></input>
 				<div className='home-primary-buttons'>
 					<button
+						className='button'
 						onMouseDown={(e) => e?.preventDefault()}
-						onClick={(e) => onNavigate(e, "/download")}
-						onAuxClick={(e) => onNavigate(e, "/download")}
+						onClick={(e) => navigateToPage(e, "/explore")}
+						onAuxClick={(e) => navigateToPage(e, "/explore")}
 					>
-						Download Turing-LLM Explorer
+						<span>Explore Latents</span>
 					</button>
 					<button
+						className='button'
 						onMouseDown={(e) => e?.preventDefault()}
-						onClick={(e) => onNavigate(e, "/research")}
-						onAuxClick={(e) => onNavigate(e, "/research")}
+						onClick={(e) => navigateToPage(e, "/research")}
+						onAuxClick={(e) => navigateToPage(e, "/research")}
 					>
-						Read Research Blog
+						<span>Read Research Blog</span>
 					</button>
 				</div>
 			</div>
-			<div className='home-section'>
-				<div className='home-text'>
-					Welcome to Turing Explorer, a cutting-edge research tool designed to advance the study and understanding of the inner mechanisms
-					of large language models. At its core is Turing-LLM, a novel large language model crafted to simplify and enhance humanity's
-					comprehension of how these models operate. Join us in exploring the future of AI and unlock the secrets behind language models
-					with Turing Explorer.
+			<div className='home-section home-cards'>
+				<div className='home-card home-card-turing-explorer'>
+					<div className='home-card-image'>
+						<i className='fa-solid fa-magnifying-glass'></i>
+					</div>
+					<div className='home-card-title'>Turing Explorer</div>
+					<div className='home-card-text'>Designed to advance the study and understanding of inner mechanisms in LLMs</div>
+				</div>
+				<div className='home-card home-card-turing-llm'>
+					<div className='home-card-image'></div>
+					<div className='home-card-title'>Turing-LLM</div>
+					<div className='home-card-text'>
+						Build to simplify and enhance
+						<br /> comprehension of how LLMs operate
+					</div>
+				</div>
+				<div className='home-card home-card-research'>
+					<div className='home-card-image'>
+						<i className='fa-solid fa-book-bookmark'></i>
+					</div>
+					<div className='home-card-title'>Research</div>
+					<div className='home-card-text'>Focused on careful, step-by-step inquiry to broaden our understanding of LLMs</div>
 				</div>
 			</div>
 			<div className='home-section'>
@@ -96,10 +119,10 @@ export const HomePage = () => {
 			<div className='home-section'>
 				<div className='home-subtitle'>Motivation & Hypothesis</div>
 				<div className='home-text'>
-					Hypothesis: Solving mechanistic interpretability could allow us to greatly increase human intelligence.
+					<b>Hypothesis:</b> Solving mechanistic interpretability could allow us to greatly increase human intelligence.
 					<br />
 					<br />
-					<span>Reasoning:</span>
+					<b>Reasoning:</b>
 					<ul>
 						<li>
 							A model that can solve a problem better than any human must contain algorithms that are better for solving the problem
@@ -116,7 +139,8 @@ export const HomePage = () => {
 						</li>
 					</ul>
 					<br />
-					Conclusion: This may be the best path to true ensured safety, not only through aligning models, but through coevolving together.
+					<b>Conclusion:</b> This may be the best path to true ensured safety, not only through aligning models, but through coevolving
+					together.
 				</div>
 			</div>
 		</div>
