@@ -1,5 +1,5 @@
 # Turing Explorer
 
-To understand the internals of a large language model.
+An interpretability tool for understanding the internal mechanisms of Turing‑LLM.
 
 Live on: https://turingexplorer.com/
