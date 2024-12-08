@@ -304,8 +304,8 @@
 .home-card-turing-llm .home-card-image {
 	width: 100%;
 	background: linear-gradient(180deg, #444 50%, #000);
-	-webkit-mask-image: url("assets/images/turing.png");
-	mask-image: url("assets/images/turing.png");
+	-webkit-mask-image: url("/images/turing.png");
+	mask-image: url("/images/turing.png");
 	mask-size: contain;
 	mask-repeat: no-repeat;
 	mask-position: center;

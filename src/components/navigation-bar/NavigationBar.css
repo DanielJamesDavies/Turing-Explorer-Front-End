@@ -97,16 +97,3 @@
 	opacity: 0;
 	transition: 0.2s;
 }
-
-/* .navigation-bar-button:hover::after {
-	opacity: 0.4;
-}
-
-.navigation-bar-button-active {
-	color: var(--colour-black);
-}
-
-.navigation-bar-button-active::after {
-	opacity: 1 !important;
-	background: var(--colour-grey-40) !important;
-} */
