@@ -37,8 +37,6 @@ const LatentProvider = ({ children }) => {
 			setViewingLatentTopLayerUnembedTokenFrequencies([]);
 			setViewingLatentTopOtherLatents([]);
 
-			if (location?.pathname !== "/latent") return false;
-
 			APIRequest("/latent?layer=" + viewingLayerIndex + "&latent=" + viewingLatentIndex, "GET", undefined, (res) => {
 				if (JSON.stringify(latentPositionLastChangedTime.current) !== JSON.stringify(thisLatentPositionLastChangedTime)) return false;
 

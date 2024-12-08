@@ -14,7 +14,7 @@ const APIProvider = ({ children }) => {
 		if (body) data.body = JSON.stringify(body);
 
 		try {
-			const API_URL = import.meta.env.VITE_API_ENDPOINT.replace("http://", "https://") || `http://${window.location?.hostname}:5000/api`;
+			const API_URL = import.meta.env.VITE_API_ENDPOINT?.replace("http://", "https://") || `http://${window.location?.hostname}:5000/api`;
 
 			if (stream_function !== undefined) {
 				fetch(API_URL + path, data)
