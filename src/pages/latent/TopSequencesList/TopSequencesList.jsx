@@ -175,10 +175,10 @@ export const TopSequencesList = () => {
 													{viewingLatentTopOtherLatentsLayerIndex + 1}
 												</div>
 												<div className='latent-top-sequences-item-other-latents-layer-sequences'>
-													{viewingLatentTopOtherLatentsLayer[index]?.slice(0, 24)?.map((otherLatent, index2) => (
+													{viewingLatentTopOtherLatentsLayer[index]?.slice(0, 16)?.map((otherLatent, index2) => (
 														<div key={index2} className='latent-top-sequences-item-other-latent-container'>
 															<div
-																className='inference-result-latents-latent-container'
+																className='latent-top-sequences-latents-latent-container'
 																onMouseDown={(e) => e?.preventDefault()}
 																onClick={(e) =>
 																	goToLatent(e, viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
@@ -187,23 +187,23 @@ export const TopSequencesList = () => {
 																	goToLatent(e, viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
 																}
 															>
-																<div className='inference-result-latents-latent'>
+																<div className='latent-top-sequences-latents-latent'>
 																	<button>
 																		<span>{otherLatent?.latent + 1}</span>
 																	</button>
-																	<div className='inference-result-latents-latent-preview'>
-																		<div className='inference-result-latents-latent-preview-location'>
+																	<div className='latent-top-sequences-latent-preview'>
+																		<div className='latent-top-sequences-latent-preview-location'>
 																			<span>Layer {viewingLatentTopOtherLatentsLayerIndex + 1}</span>
 																			<span>Latent {otherLatent?.latent + 1}</span>
 																		</div>
-																		<div className='inference-result-latents-latent-preview-label'>
+																		<div className='latent-top-sequences-latent-preview-label'>
 																			Top Sequences
 																		</div>
-																		<div className='inference-result-latents-latent-preview-top-sequences'>
+																		<div className='latent-top-sequences-latent-preview-top-sequences'>
 																			{otherLatent?.topSequences?.map((topSequence, topSequenceIndex) => (
 																				<div
 																					key={topSequenceIndex}
-																					className='inference-result-latents-latent-preview-top-sequence'
+																					className='latent-top-sequences-latent-preview-top-sequence'
 																				>
 																					{topSequence}
 																				</div>
