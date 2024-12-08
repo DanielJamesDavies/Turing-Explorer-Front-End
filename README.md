@@ -1,5 +1,9 @@
 # Turing Explorer
 
-An interpretability tool for understanding the internal mechanisms of Turing‑LLM.
+Welcome to Turing Explorer! 😄
 
-Live on: https://turingexplorer.com/
+A mechanistic interpretability tool to understand the internals of Turing-LLM, a large language model.
+
+Please feel free to contact me using my email for any queries or for a chat 🙂: danieljamesdavies12@gmail.com
+
+Live on: https://turingexplorer.com
