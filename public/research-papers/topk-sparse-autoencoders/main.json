@@ -1,6 +1,7 @@
 {
 	"id": "topk-sparse-autoencoders",
 	"title": "Using TopK Sparse Autoencoders on Turing‑LLM‑1.0‑254M",
+	"short_title": "TopK SAEs",
 	"titleScale": 0.8,
 	"abstract": "In-Progress",
 	"uncomplete": true

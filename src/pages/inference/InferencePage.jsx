@@ -19,7 +19,7 @@ export const InferencePage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		document.title = "Explore | Turing Explorer";
+		document.title = "Inference | Turing Explorer";
 	}, []);
 
 	const onInferenceInputKeyDown = (e) => {
