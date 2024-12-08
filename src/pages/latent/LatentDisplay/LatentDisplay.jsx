@@ -34,6 +34,8 @@ export const LatentDisplay = () => {
 					<span>
 						{isNaN(viewingLatentFrequency / latentFrequencyTokensCount) ? (
 							<LoadingCircle size='xs' />
+						) : Number(((viewingLatentFrequency / latentFrequencyTokensCount) * 100).toFixed(2)) < 0.01 ? (
+							"0.01"
 						) : (
 							((viewingLatentFrequency / latentFrequencyTokensCount) * 100).toFixed(2)
 						)}
