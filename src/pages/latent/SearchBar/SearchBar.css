@@ -3,8 +3,10 @@
 	gap: 48px;
 	justify-content: space-between;
 	align-items: center;
-	margin: 32px 24px;
+	margin: 32px 0;
 	margin-bottom: 0;
+	padding: 0 24px;
+	box-sizing: border-box;
 	width: 100%;
 	transition: 0.2s;
 }

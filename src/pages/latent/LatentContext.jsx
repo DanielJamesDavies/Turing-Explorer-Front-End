@@ -19,6 +19,7 @@ const LatentProvider = ({ children }) => {
 	const [viewingLatentTopOutputTokenFrequencies, setViewingLatentTopOutputTokenFrequencies] = useState([]);
 	const [viewingLatentTopLayerUnembedTokenFrequencies, setViewingLatentTopLayerUnembedTokenFrequencies] = useState([]);
 	const [viewingLatentTopOtherLatents, setViewingLatentTopOtherLatents] = useState([]);
+	const [viewingLatentTopOtherLatentPreviews, setViewingLatentTopOtherLatentPreviews] = useState([]);
 
 	useEffect(() => {
 		setViewingLayerIndex((searchParams?.get("layer") || 1) - 1);
@@ -36,6 +37,7 @@ const LatentProvider = ({ children }) => {
 			setViewingLatentTopOutputTokenFrequencies([]);
 			setViewingLatentTopLayerUnembedTokenFrequencies([]);
 			setViewingLatentTopOtherLatents([]);
+			setViewingLatentTopOtherLatentPreviews([]);
 
 			APIRequest("/latent?layer=" + viewingLayerIndex + "&latent=" + viewingLatentIndex, "GET", undefined, (res) => {
 				if (JSON.stringify(latentPositionLastChangedTime.current) !== JSON.stringify(thisLatentPositionLastChangedTime)) return false;
@@ -52,6 +54,9 @@ const LatentProvider = ({ children }) => {
 
 				if (res?.postFromSequenceLatentData?.topOtherLatents)
 					setViewingLatentTopOtherLatents(res?.postFromSequenceLatentData?.topOtherLatents);
+
+				if (res?.postFromSequenceLatentData?.topOtherLatentPreviews)
+					setViewingLatentTopOtherLatentPreviews(res?.postFromSequenceLatentData?.topOtherLatentPreviews);
 			});
 		};
 
@@ -88,6 +93,8 @@ const LatentProvider = ({ children }) => {
 				viewingLatentTopOutputTokenFrequencies,
 				viewingLatentTopLayerUnembedTokenFrequencies,
 				viewingLatentTopOtherLatents,
+				viewingLatentTopOtherLatentPreviews,
+				setViewingLatentTopOtherLatentPreviews,
 			}}
 		>
 			{children}

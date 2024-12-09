@@ -23,6 +23,7 @@ export const TopSequencesListLogic = () => {
 		latentTopSequencesCount,
 		viewingLatentTopSequencesList,
 		viewingLatentTopOtherLatents,
+		viewingLatentTopOtherLatentPreviews,
 	} = useContext(LatentContext);
 	const [isShowingAll, setIsShowingAll] = useState(false);
 	const [sequenceIsShowingOtherLatents, setSequenceIsShowingOtherLatents] = useState(-1);
@@ -79,5 +80,6 @@ export const TopSequencesListLogic = () => {
 		incrementOtherLatentsType,
 		isHidingCommonOtherLatents,
 		toggleIsHidingCommonOtherLatents,
+		viewingLatentTopOtherLatentPreviews,
 	};
 };

@@ -33,6 +33,7 @@ export const TopSequencesList = () => {
 		incrementOtherLatentsType,
 		isHidingCommonOtherLatents,
 		toggleIsHidingCommonOtherLatents,
+		viewingLatentTopOtherLatentPreviews,
 	} = TopSequencesListLogic();
 
 	return (
@@ -191,23 +192,43 @@ export const TopSequencesList = () => {
 																	<button>
 																		<span>{otherLatent?.latent + 1}</span>
 																	</button>
-																	<div className='latent-top-sequences-latent-preview'>
+																	<div
+																		ref={(el) => {
+																			if (el) {
+																				if (
+																					el?.getBoundingClientRect()?.right >
+																					window?.innerWidth * 0.76
+																				) {
+																					el.style.left = "unset";
+																					el.style.right = "-24px";
+																				} else {
+																					el.style.left = "-24px";
+																					el.style.right = "unset";
+																				}
+																			}
+																		}}
+																		className='latent-top-sequences-latent-preview'
+																	>
 																		<div className='latent-top-sequences-latent-preview-location'>
 																			<span>Layer {viewingLatentTopOtherLatentsLayerIndex + 1}</span>
 																			<span>Latent {otherLatent?.latent + 1}</span>
 																		</div>
-																		<div className='latent-top-sequences-latent-preview-label'>
+																		<div className='latent-top-sequences-latent-preview-top-sequences-label'>
 																			Top Sequences
 																		</div>
 																		<div className='latent-top-sequences-latent-preview-top-sequences'>
-																			{otherLatent?.topSequences?.map((topSequence, topSequenceIndex) => (
-																				<div
-																					key={topSequenceIndex}
-																					className='latent-top-sequences-latent-preview-top-sequence'
-																				>
-																					{topSequence}
-																				</div>
-																			))}
+																			{viewingLatentTopOtherLatentPreviews?.[
+																				viewingLatentTopOtherLatentsLayerIndex
+																			]
+																				?.find((e) => e?.latent === otherLatent?.latent)
+																				?.topSequences?.map((topSequence, topSequenceIndex) => (
+																					<div
+																						key={topSequenceIndex}
+																						className='latent-top-sequences-latent-preview-top-sequence'
+																					>
+																						{topSequence}
+																					</div>
+																				))}
 																		</div>
 																	</div>
 																</div>
