@@ -30,12 +30,22 @@ export const NavigationBar = () => {
 	return (
 		<div className='navigation-bar-container'>
 			<div className='navigation-bar'>
-				<button className='navigation-bar-title' onMouseDown={(e) => e?.preventDefault()} onClick={(e) => navigateToPage(e, "")}>
+				<button
+					className='navigation-bar-title'
+					onMouseDown={(e) => e?.preventDefault()}
+					onClick={(e) => navigateToPage(e, "")}
+					onAuxClick={(e) => navigateToPage(e, "")}
+				>
 					<img src='images/turing.png' />
 					<span>Turing Explorer</span>
 				</button>
 				<div className='navigation-bar-buttons'>
-					<button className='navigation-bar-title' onMouseDown={(e) => e?.preventDefault()} onClick={(e) => navigateToPage(e, "")}>
+					<button
+						className='navigation-bar-title'
+						onMouseDown={(e) => e?.preventDefault()}
+						onClick={(e) => navigateToPage(e, "")}
+						onAuxClick={(e) => navigateToPage(e, "")}
+					>
 						<img src='images/turing.png' />
 					</button>
 					<button
