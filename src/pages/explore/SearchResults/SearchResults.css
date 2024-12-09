@@ -25,6 +25,13 @@
 	width: 100%;
 }
 
+@media (max-width: 600px) {
+	.search-results {
+		padding: 0 4px;
+		box-sizing: border-box;
+	}
+}
+
 .search-results-item {
 	position: relative;
 	display: flex;
@@ -101,4 +108,8 @@
 .search-results-item-top-sequence-preview {
 	color: var(--colour-black);
 	transition: 0.2s;
+}
+
+.search-results-item-top-sequence-preview:nth-child(3) {
+	display: none;
 }

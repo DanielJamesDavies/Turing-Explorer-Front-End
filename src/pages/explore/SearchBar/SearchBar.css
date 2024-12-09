@@ -46,6 +46,13 @@
 	height: 50px;
 }
 
+@media (max-width: 600px) {
+	.explore-input-container-viewing-results .explore-input-wrapper {
+		margin-top: -20px;
+		height: 64px;
+	}
+}
+
 .explore-input-title {
 	position: relative;
 	z-index: -1;
@@ -137,6 +144,12 @@
 .explore-input:focus {
 	outline: none;
 	scale: 1.05;
+}
+
+@media (max-width: 600px) {
+	.explore-input:focus {
+		scale: 1.03;
+	}
 }
 
 .explore-input::placeholder {
