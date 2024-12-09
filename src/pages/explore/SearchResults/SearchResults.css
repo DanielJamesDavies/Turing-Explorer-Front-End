@@ -25,7 +25,7 @@
 	width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 	.search-results {
 		padding: 0 4px;
 		box-sizing: border-box;
