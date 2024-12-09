@@ -110,6 +110,8 @@
 	transition: 0.2s;
 }
 
-.search-results-item-top-sequence-preview:nth-child(3) {
-	display: none;
+@media (max-width: 800) {
+	.search-results-item-top-sequence-preview:nth-child(4) {
+		display: none;
+	}
 }
