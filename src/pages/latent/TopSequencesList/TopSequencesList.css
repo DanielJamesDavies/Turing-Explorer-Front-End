@@ -57,6 +57,7 @@
 .latent-top-sequences-list-loading-circle-container {
 	position: relative;
 	height: 75px;
+	margin-bottom: 32px;
 }
 
 .latent-top-sequences-item {
@@ -540,11 +541,6 @@
 	align-items: center;
 	color: var(--colour-grey-40);
 	transition: 0.2s;
-}
-
-.latent-top-sequences-item-other-latents-label:hover {
-	scale: 1.1;
-	color: var(--colour-grey-60);
 }
 
 .latent-top-sequences-item-other-latents-label span {
