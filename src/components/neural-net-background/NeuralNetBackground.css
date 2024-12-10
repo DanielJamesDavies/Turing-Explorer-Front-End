@@ -43,6 +43,8 @@
 
 .neural-net-background-neural-network-neuron-container {
 	position: relative;
+	--colour-one: #bbbbee48;
+	--colour-two: #7777ff40;
 }
 
 .neural-net-background-neural-network-neuron-circle {
@@ -51,7 +53,7 @@
 	z-index: 3;
 	display: block;
 	content: "";
-	border: solid 1px var(--colour-grey-90);
+	border: solid 1px var(--colour-two);
 	border-radius: 100%;
 
 	background: transparent;
@@ -81,8 +83,6 @@
 }
 
 .neural-net-background-neural-network-neuron-connection {
-	--colour-one: #aaaaff28;
-	--colour-two: #7777ff28;
 	--length: 230px;
 	--angle: 0deg;
 	position: absolute;
