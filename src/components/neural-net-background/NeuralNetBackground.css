@@ -7,12 +7,11 @@
 	width: 100dvw;
 	height: 100dvh;
 	scale: var(--scale);
-	opacity: 0.5;
-	/* filter: brightness(75%) sepia(1) hue-rotate(190deg) saturate(5) brightness(1.3); */
+	opacity: 1;
 }
 
-.app-page-home .neural-net-background {
-	opacity: 1;
+.app-page-research-subpage .neural-net-background {
+	opacity: 0.9;
 }
 
 .neural-net-background-neural-network {

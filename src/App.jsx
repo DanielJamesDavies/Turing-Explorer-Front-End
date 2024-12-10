@@ -34,11 +34,15 @@ function App() {
 	}, [pathname]);
 
 	useEffect(() => {
-		setPageName(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
+		let newPageName = "app-page-" + (window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
+		if (window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.length > 1) {
+			newPageName += " " + newPageName + "-subpage";
+		}
+		setPageName(newPageName);
 	}, [location]);
 
 	return (
-		<div className={"app app-page-" + pageName}>
+		<div className={"app " + pageName}>
 			<NeuralNetBackground />
 			<NavigationBar />
 			<Routes>
