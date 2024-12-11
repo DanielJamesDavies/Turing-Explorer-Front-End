@@ -39,7 +39,12 @@ body {
 }
 
 button {
+	border: 0;
 	font-family: Inter, system-ui, sans-serif;
+}
+
+button:focus {
+	outline: none;
 }
 
 .page {

@@ -37,7 +37,15 @@ const InferenceProvider = ({ children }) => {
 						.concat([{ inference_id: res?.inference_id, tokenIds: res?.response_tokens, tokens: res?.response_tokens_decoded }])
 				);
 			};
-			APIRequest("/inference", "POST", { prompt: newInferenceTextBoxValue }, handleStreamResponse);
+			APIRequest(
+				"/inference",
+				"POST",
+				{
+					prompt: newInferenceTextBoxValue,
+					viewingInferenceResultId: viewingInferenceResultId || undefined,
+				},
+				handleStreamResponse
+			);
 		},
 		[inferenceTextBoxValue, isGettingInferenceResults]
 	);

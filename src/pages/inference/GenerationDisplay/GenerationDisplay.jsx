@@ -16,7 +16,8 @@ import "./GenerationDisplay.css";
 // Assets
 
 export const GenerationDisplay = () => {
-	const { inferenceResults, viewingInferenceResultId, sequenceOfThoughtsTokenIndex, isGeneratingResult } = useContext(InferenceContext);
+	const { inferenceResults, viewingInferenceResultId, sequenceOfThoughtsTokenIndex, isGeneratingResult, submitInferenceRequest } =
+		useContext(InferenceContext);
 
 	return (
 		<div
@@ -47,6 +48,20 @@ export const GenerationDisplay = () => {
 									<span>{token}</span>
 								</span>
 							))}
+				{!inferenceResults || inferenceResults?.find((e) => e?.inference_id === viewingInferenceResultId)?.tokens?.length >= 768 ? null : (
+					<button
+						className={
+							"infererence-generation-display-generate-more-btn" +
+							(isGeneratingResult ? " infererence-generation-display-generate-more-btn-hide" : "")
+						}
+						onClick={() =>
+							submitInferenceRequest(inferenceResults?.find((e) => e?.inference_id === viewingInferenceResultId)?.tokens?.join(""))
+						}
+					>
+						<i className='fa-solid fa-chevron-down'></i>
+						<span>Generate More</span>
+					</button>
+				)}
 			</div>
 		</div>
 	);
