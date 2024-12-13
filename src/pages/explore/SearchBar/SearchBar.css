@@ -108,7 +108,7 @@
 }
 
 .explore-input-container-getting-results label {
-	background: linear-gradient(90deg, var(--colour-grey-20) 56%, var(--colour-grey-80) 84%, var(--colour-grey-20) 94%);
+	background: linear-gradient(90deg, var(--colour-grey-60) 70%, var(--colour-blue) 80%, var(--colour-grey-60) 88%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-size: 400%;
