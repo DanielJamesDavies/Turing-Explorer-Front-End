@@ -14,6 +14,12 @@ const InferenceProvider = ({ children }) => {
 	const [viewingInferenceResultId, setViewingInferenceResultId] = useState(false);
 	const [isViewingInferenceResult, setIsViewingInferenceResult] = useState(false);
 	const [isGeneratingResult, setIsGeneratingResult] = useState(false);
+	const [isGettingLatentConnectionsResults, setIsGettingLatentConnectionsResults] = useState(false);
+	const [latentPreviews, setLatentPreviews] = useState(
+		Array(12)
+			.fill(0)
+			.map(() => [])
+	);
 
 	const submitInferenceRequest = useCallback(
 		async (newInferenceTextBoxValue) => {
@@ -64,6 +70,35 @@ const InferenceProvider = ({ children }) => {
 		}
 	}, [searchParams]);
 
+	const submitLatentConnectionsRequest = useCallback(
+		async (inferenceId, tokenIndex) => {
+			if (inferenceId === undefined || tokenIndex === undefined) return false;
+			setInferenceResults((oldValue) => {
+				let newValue = JSON.parse(JSON.stringify(oldValue));
+				const index = newValue?.findIndex((e) => e?.inference_id === inferenceId);
+				delete newValue[index].topLatents;
+				delete newValue[index].latentConnections;
+				newValue[index].tokenFocused = tokenIndex;
+				return newValue;
+			});
+			setIsGettingLatentConnectionsResults(true);
+			const res = await APIRequest("/get-latent-connections", "POST", {
+				tokenIds: inferenceResults?.find((e) => e?.inference_id === inferenceId)?.tokenIds,
+				tokenIndex,
+			});
+			setIsGettingLatentConnectionsResults(false);
+			setInferenceResults((oldValue) => {
+				let newValue = JSON.parse(JSON.stringify(oldValue));
+				const index = newValue?.findIndex((e) => e?.inference_id === inferenceId);
+				newValue[index].topLatents = res?.topLatents;
+				newValue[index].latentConnections = res?.latentConections;
+				newValue[index].tokenFocused = tokenIndex;
+				return newValue;
+			});
+		},
+		[APIRequest, inferenceResults, setInferenceResults, setIsGettingLatentConnectionsResults]
+	);
+
 	return (
 		<InferenceContext.Provider
 			value={{
@@ -80,6 +115,10 @@ const InferenceProvider = ({ children }) => {
 				setIsViewingInferenceResult,
 				isGeneratingResult,
 				setIsGeneratingResult,
+				isGettingLatentConnectionsResults,
+				submitLatentConnectionsRequest,
+				latentPreviews,
+				setLatentPreviews,
 			}}
 		>
 			{children}

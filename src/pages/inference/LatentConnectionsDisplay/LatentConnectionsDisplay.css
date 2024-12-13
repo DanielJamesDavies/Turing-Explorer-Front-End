@@ -1,0 +1,262 @@
+.inference-latent-connections-display-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 48px;
+}
+
+.inference-latent-connections-display-container {
+	margin: 32px auto;
+	padding: 24px 32px;
+	border: 1px solid var(--colour-grey-90);
+	border-radius: 8px;
+	box-sizing: border-box;
+	max-width: 1260px;
+	background: var(--colour-white);
+	transition: 0.2s;
+}
+
+.inference-latent-connections-display-title {
+	margin-bottom: 16px;
+	font-size: 22px;
+}
+
+/* Loading */
+
+.inference-latent-connections-display-loading-circle-container {
+	position: relative;
+	min-height: 250px;
+	opacity: 0;
+	animation: fade-in 0.8s;
+	animation-fill-mode: forwards;
+}
+
+.inference-latent-connections-display-loading-circle-container .loading-circle-container {
+	--colour: #0044ff99;
+	--label-colour: linear-gradient(90deg, var(--colour-grey-60) 65%, var(--colour-blue) 88%, var(--colour-grey-60) 95%);
+}
+
+.inference-latent-connections-display-loading-circle-container .loading-circle-label {
+	animation-duration: 7s;
+}
+
+/* Layer */
+
+.inference-latent-connections-display-layer {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	margin-bottom: 160px;
+	align-items: center;
+}
+
+.inference-latent-connections-display-layer:hover {
+	z-index: 2;
+}
+
+.inference-latent-connections-display-layer-label {
+	flex-shrink: 0;
+	margin-top: 12px;
+	width: 76px;
+	text-transform: uppercase;
+	color: var(--colour-grey-50);
+	letter-spacing: 2px;
+	word-spacing: 4px;
+	font-size: 12px;
+	text-align: right;
+}
+
+.inference-latent-connections-display-layer-latents {
+	display: flex;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1000px;
+}
+
+/* Latent */
+
+.inference-latent-connections-display-latent-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20%;
+	height: 30px;
+}
+
+.inference-latent-connections-display-latent {
+	flex-shrink: 0;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+}
+
+.inference-latent-connections-display-latent button {
+	flex-shrink: 0;
+	position: relative;
+	margin: 0 auto;
+	padding: 0 8px;
+	border: 1px solid var(--colour-grey-75);
+	border-radius: 100%;
+	width: 22px;
+	height: 22px;
+	background: var(--colour-white);
+	color: var(--colour-grey-50);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.inference-latent-connections-display-latent:hover button {
+	border-color: var(--colour-blue);
+}
+
+.inference-latent-connections-display-latent button span {
+	position: absolute;
+	z-index: 2;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 12px;
+}
+
+.inference-latent-connections-display-latent-container:hover {
+	z-index: 1;
+}
+
+/* Latent Conneciton */
+
+.inference-latent-connections-display-latent-connection-container {
+	position: absolute;
+	z-index: -1;
+	top: 43px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.inference-latent-connections-display-latent-connection {
+	--length: 160px;
+	position: absolute;
+	top: 0;
+	display: block;
+	content: "";
+	width: 1px;
+	height: var(--length);
+	background: var(--colour-grey-40);
+	transform-origin: top left;
+	transform: rotate(var(--angle));
+	pointer-events: none;
+	opacity: calc(max(0.3, var(--intensity)) * 0.25);
+	transition: 0.2s;
+}
+
+.inference-latent-connections-display-latent-container:hover .inference-latent-connections-display-latent-connection,
+.inference-latent-connections-display-latent-connection-container-active .inference-latent-connections-display-latent-connection {
+	opacity: 1;
+	opacity: calc(max(0.3, var(--intensity)) * 0.4);
+}
+
+.inference-latent-connections-display-latent-connection-container-inactive .inference-latent-connections-display-latent-connection {
+	opacity: 0.07;
+}
+
+.inference-latent-connections-display-latent-connection-frequency {
+	position: absolute;
+	z-index: 1;
+	top: 100px;
+	left: calc(var(--left));
+	padding: 4px;
+	text-align: left;
+	opacity: 0;
+	transition: 0.2s;
+	text-shadow: var(--colour-white) 0px 0 10px, var(--colour-white) 0px 0 10px, var(--colour-white) 0px 0 10px, var(--colour-white) 0px 0 10px;
+	pointer-events: none;
+	font-size: 13px;
+}
+
+.inference-latent-connections-display-latent-connection-frequency-before {
+	top: 10px;
+}
+
+.inference-latent-connections-display-latent-container:hover .inference-latent-connections-display-latent-connection-frequency-after,
+.inference-latent-connections-display-latent-connection-container-active .inference-latent-connections-display-latent-connection-frequency-before {
+	opacity: 1;
+	opacity: max(0.6, var(--intensity));
+}
+
+/* Latent Preview */
+
+.inference-latent-connections-display-latent-preview {
+	position: absolute;
+	z-index: 2;
+	top: 46px;
+	left: -24px;
+	padding: 12px;
+	border: 1px solid var(--colour-grey-85);
+	border-radius: 5px;
+	width: 450px;
+	min-height: 160px;
+	background: var(--colour-white);
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.4s;
+	transition-delay: 0s;
+}
+
+.inference-latent-connections-display-layer .inference-latent-connections-display-latent-preview {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.inference-latent-connections-display-layer:hover
+	.inference-latent-connections-display-latent-container:not(.inference-latent-connections-display-latent-container-loading)
+	.inference-latent-connections-display-latent:hover
+	.inference-latent-connections-display-latent-preview {
+	opacity: 1;
+	pointer-events: none;
+}
+
+.inference-latent-connections-display-layer-use-higher-preview .inference-latent-connections-display-latent-preview {
+	top: unset !important;
+	bottom: 36px !important;
+}
+
+.inference-latent-connections-display-latent-preview-location {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.inference-latent-connections-display-latent-preview-location span {
+	padding: 4px 12px;
+	border-radius: 32px;
+	font-size: 15px;
+	font-weight: 300;
+	background: var(--colour-grey-90);
+	color: var(--colour-black);
+	transition: 0.2s;
+}
+
+.inference-latent-connections-display-latent-preview-top-sequences-label {
+	margin: 8px 2px;
+	margin-top: 13px;
+	flex-shrink: 0;
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--colour-black);
+	transition: 0.2s;
+}
+
+.inference-latent-connections-display-latent-preview-top-sequences {
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+}
+
+.inference-latent-connections-display-latent-preview-top-sequence {
+	margin: 0 2px;
+	font-size: 14px;
+}

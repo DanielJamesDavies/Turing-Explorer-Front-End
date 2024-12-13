@@ -4,6 +4,7 @@ import { useEffect } from "react";
 // Components
 import { PromptInput } from "./PromptInput/PromptInput";
 import { GenerationDisplay } from "./GenerationDisplay/GenerationDisplay";
+import { LatentConnectionsDisplay } from "./LatentConnectionsDisplay/LatentConnectionsDisplay";
 
 // Logic
 
@@ -27,6 +28,7 @@ export const InferencePage = () => {
 			<div className='page inference-page'>
 				<PromptInput />
 				<GenerationDisplay />
+				<LatentConnectionsDisplay />
 			</div>
 		</InferenceProvider>
 	);

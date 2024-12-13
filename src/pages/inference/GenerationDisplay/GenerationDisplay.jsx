@@ -16,7 +16,7 @@ import "./GenerationDisplay.css";
 // Assets
 
 export const GenerationDisplay = () => {
-	const { inferenceResults, viewingInferenceResultId, sequenceOfThoughtsTokenIndex, isGeneratingResult, submitInferenceRequest } =
+	const { inferenceResults, viewingInferenceResultId, isGeneratingResult, submitInferenceRequest, submitLatentConnectionsRequest } =
 		useContext(InferenceContext);
 
 	return (
@@ -40,9 +40,11 @@ export const GenerationDisplay = () => {
 							?.tokens?.map((token, tokenIndex) => (
 								<span
 									key={tokenIndex}
-									onClick={() => onClickToken(tokenIndex)}
+									onClick={() => submitLatentConnectionsRequest(viewingInferenceResultId, tokenIndex)}
 									className={
-										sequenceOfThoughtsTokenIndex === tokenIndex ? " inference-generation-display-tokens-token-active" : ""
+										inferenceResults?.find((e) => e?.inference_id === viewingInferenceResultId)?.tokenFocused === tokenIndex
+											? " inference-generation-display-tokens-token-active"
+											: ""
 									}
 								>
 									<span>{token}</span>
