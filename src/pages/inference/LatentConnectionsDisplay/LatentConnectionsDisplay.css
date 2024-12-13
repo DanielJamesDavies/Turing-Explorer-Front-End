@@ -1,7 +1,9 @@
 .inference-latent-connections-display-container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	margin-top: 48px;
+	min-height: 220px;
 }
 
 .inference-latent-connections-display-container {
@@ -20,22 +22,39 @@
 	font-size: 22px;
 }
 
+.inference-latent-connections-display-container:not(.inference-latent-connections-display-container-loading) .inference-latent-connections-display {
+	opacity: 0;
+	animation: fade-in 0.8s;
+	animation-fill-mode: forwards;
+	animation-delay: 0.4s;
+}
+
 /* Loading */
 
 .inference-latent-connections-display-loading-circle-container {
-	position: relative;
-	min-height: 250px;
+	position: absolute;
+	top: 110px;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 1;
+	animation: fade-out 0.4s;
+	animation-fill-mode: forwards;
+	pointer-events: none;
+}
+
+.inference-latent-connections-display-container-loading .inference-latent-connections-display-loading-circle-container {
 	opacity: 0;
-	animation: fade-in 0.8s;
+	animation: fade-in 0.4s;
 	animation-fill-mode: forwards;
 }
 
 .inference-latent-connections-display-loading-circle-container .loading-circle-container {
-	--colour: #0044ff99;
+	--colour: #0044ffbb;
 	--label-colour: linear-gradient(90deg, var(--colour-grey-60) 65%, var(--colour-blue) 88%, var(--colour-grey-60) 95%);
 }
 
 .inference-latent-connections-display-loading-circle-container .loading-circle-label {
+	margin-top: -12px;
 	animation-duration: 7s;
 }
 
@@ -51,6 +70,10 @@
 
 .inference-latent-connections-display-layer:hover {
 	z-index: 2;
+}
+
+.inference-latent-connections-display-layer:last-child {
+	margin-bottom: 94px;
 }
 
 .inference-latent-connections-display-layer-label {
