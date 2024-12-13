@@ -169,18 +169,44 @@
 	transform-origin: top left;
 	transform: rotate(var(--angle));
 	pointer-events: none;
-	opacity: calc(max(0.3, var(--intensity)) * 0.25);
+	opacity: calc(max(0.2, var(--intensity)) * 0.17);
 	transition: 0.2s;
 }
 
-.inference-latent-connections-display-latent-container:hover .inference-latent-connections-display-latent-connection,
 .inference-latent-connections-display-latent-connection-container-active .inference-latent-connections-display-latent-connection {
 	opacity: 1;
-	opacity: calc(max(0.3, var(--intensity)) * 0.4);
+	opacity: calc(max(0.4, var(--intensity)) * 0.6);
 }
 
 .inference-latent-connections-display-latent-connection-container-inactive .inference-latent-connections-display-latent-connection {
-	opacity: 0.04;
+	opacity: 0.05;
+}
+
+.inference-latent-connections-display-latent-connection-container-no-hover .inference-latent-connections-display-latent-connection-active {
+	--colour-background: #bac7da;
+	--colour-background-light: #0044ff;
+	opacity: 1;
+	background: linear-gradient(180deg, var(--colour-background), var(--colour-background));
+}
+
+.inference-latent-connections-display-container-is-animating-top-latent-connections
+	.inference-latent-connections-display-latent-connection-container-no-hover
+	.inference-latent-connections-display-latent-connection-active {
+	z-index: 3 !important;
+	background: linear-gradient(180deg, var(--colour-background) 85%, var(--colour-background-light) 88%, var(--colour-background) 90%);
+	background-size: 400% 400%;
+	animation: inference-latent-connections-display-latent-connection-gradient-flow 12s linear infinite;
+	transition: 0s !important;
+	animation-delay: calc(var(--layerIndex) * 0.7s);
+}
+
+@keyframes inference-latent-connections-display-latent-connection-gradient-flow {
+	0% {
+		background-position: 0% 150%;
+	}
+	25% {
+		background-position: 0% 0%;
+	}
 }
 
 .inference-latent-connections-display-latent-connection-frequency {
@@ -201,8 +227,10 @@
 	top: 10px;
 }
 
-.inference-latent-connections-display-latent-container:hover .inference-latent-connections-display-latent-connection-frequency-after,
-.inference-latent-connections-display-latent-connection-container-active .inference-latent-connections-display-latent-connection-frequency-before {
+.inference-latent-connections-display-latent-connection-container-active-before
+	.inference-latent-connections-display-latent-connection-frequency-before,
+.inference-latent-connections-display-latent-connection-container-active-after
+	.inference-latent-connections-display-latent-connection-frequency-after {
 	opacity: 1;
 	opacity: max(0.6, var(--intensity));
 }

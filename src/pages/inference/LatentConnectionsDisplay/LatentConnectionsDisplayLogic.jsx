@@ -1,5 +1,5 @@
 // Packages
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
@@ -63,6 +63,38 @@ export const LatentConnectionsDisplayLogic = () => {
 		});
 	};
 
+	const [isAnimatingTopLatentConnections, setIsAnimatingTopLatentConnections] = useState(false);
+	useEffect(() => {
+		setTimeout(() => setIsAnimatingTopLatentConnections(true), 4);
+		const interval = setInterval(() => {
+			setIsAnimatingTopLatentConnections(false);
+			setTimeout(() => {
+				setIsAnimatingTopLatentConnections(true);
+			}, 4);
+		}, 6000);
+		return () => clearInterval(interval);
+	}, [setIsAnimatingTopLatentConnections]);
+
+	const [topLatentConnectionFrequencyPercentThresholds, setTopLatentConnectionFrequencyPercentThresholds] = useState(Array(12)?.fill(0.5));
+	useEffect(() => {
+		if (inferenceResults && viewingInferenceResultId) {
+			if (inferenceResults?.find((e) => e?.inference_id === viewingInferenceResultId)?.latentConnections) {
+				const adjacentConnections = inferenceResults
+					?.find((e) => e?.inference_id === viewingInferenceResultId)
+					?.latentConnections?.filter((e) => e?.latents[1]?.layer == e?.latents[0]?.layer + 1);
+				const newTopLatentConnectionFrequencyPercentThresholds = Array(12)
+					.fill(0)
+					.map((_, layer) => {
+						const topConnections = adjacentConnections
+							?.filter((e) => e?.latents[0]?.layer === layer)
+							?.sort((a, b) => b?.frequency - a?.frequency);
+						return Math.min(topConnections?.slice(0, 3)?.at(-1)?.frequency / 160, 0.85);
+					});
+				setTopLatentConnectionFrequencyPercentThresholds(newTopLatentConnectionFrequencyPercentThresholds);
+			}
+		}
+	}, [setTopLatentConnectionFrequencyPercentThresholds, inferenceResults, viewingInferenceResultId]);
+
 	return {
 		inferenceResults,
 		viewingInferenceResultId,
@@ -76,5 +108,7 @@ export const LatentConnectionsDisplayLogic = () => {
 		onLatentMouseLeave,
 		getLatentPreview,
 		latentPreviews,
+		isAnimatingTopLatentConnections,
+		topLatentConnectionFrequencyPercentThresholds,
 	};
 };

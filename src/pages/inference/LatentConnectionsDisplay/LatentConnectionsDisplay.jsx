@@ -28,6 +28,8 @@ export const LatentConnectionsDisplay = () => {
 		onLatentMouseLeave,
 		latentPreviews,
 		getLatentPreview,
+		isAnimatingTopLatentConnections,
+		topLatentConnectionFrequencyPercentThresholds,
 	} = LatentConnectionsDisplayLogic();
 
 	if (
@@ -41,7 +43,8 @@ export const LatentConnectionsDisplay = () => {
 				"inference-latent-connections-display-container" +
 				(!inferenceResults?.find((e) => e?.inference_id === viewingInferenceResultId)?.latentConnections
 					? " inference-latent-connections-display-container-loading"
-					: "")
+					: "") +
+				(isAnimatingTopLatentConnections ? " inference-latent-connections-display-container-is-animating-top-latent-connections" : "")
 			}
 		>
 			<div className='inference-latent-connections-display-title'>Latent Connections</div>
@@ -60,6 +63,7 @@ export const LatentConnectionsDisplay = () => {
 										"inference-latent-connections-display-layer" +
 										(layerIndex > 9 ? " inference-latent-connections-display-layer-use-higher-preview" : "")
 									}
+									style={{ "--layerIndex": layerIndex % 6 }}
 								>
 									<div className='inference-latent-connections-display-layer-label'>
 										Layer {(layerIndex + 1).toString()?.length < 2 ? "0" : ""}
@@ -122,7 +126,12 @@ export const LatentConnectionsDisplay = () => {
 															?.map((e) => {
 																return {
 																	...e,
-																	connectedLatentPosition: inferenceResults
+																	connectedLatentPosition1: inferenceResults
+																		?.find((e) => e?.inference_id === viewingInferenceResultId)
+																		?.topLatents?.[layerIndex]?.findIndex(
+																			(e2) => e2?.latent === e?.latents[0]?.latent
+																		),
+																	connectedLatentPosition2: inferenceResults
 																		?.find((e) => e?.inference_id === viewingInferenceResultId)
 																		?.topLatents?.[layerIndex + 1]?.findIndex(
 																			(e2) => e2?.latent === e?.latents[1]?.latent
@@ -135,11 +144,19 @@ export const LatentConnectionsDisplay = () => {
 																	className={
 																		"inference-latent-connections-display-latent-connection-container" +
 																		(JSON.stringify(latentPositionMouseOver) ===
-																		JSON.stringify([layerIndex + 1, relationship?.connectedLatentPosition])
-																			? " inference-latent-connections-display-latent-connection-container-active"
+																			JSON.stringify([layerIndex, relationship?.connectedLatentPosition1]) ||
+																		JSON.stringify(latentPositionMouseOver) ===
+																			JSON.stringify([layerIndex + 1, relationship?.connectedLatentPosition2])
+																			? JSON.stringify(latentPositionMouseOver) ===
+																			  JSON.stringify([
+																					layerIndex + 1,
+																					relationship?.connectedLatentPosition2,
+																			  ])
+																				? " inference-latent-connections-display-latent-connection-container-active inference-latent-connections-display-latent-connection-container-active-before"
+																				: " inference-latent-connections-display-latent-connection-container-active inference-latent-connections-display-latent-connection-container-active-after"
 																			: latentPositionMouseOver !== false
 																			? " inference-latent-connections-display-latent-connection-container-inactive"
-																			: "")
+																			: " inference-latent-connections-display-latent-connection-container-no-hover")
 																	}
 																	style={{
 																		"--intensity": relationship?.frequency / 160,
@@ -147,13 +164,19 @@ export const LatentConnectionsDisplay = () => {
 																>
 																	<div
 																		key={index}
-																		className='inference-latent-connections-display-latent-connection'
+																		className={
+																			"inference-latent-connections-display-latent-connection" +
+																			(relationship?.frequency / 160 >=
+																			topLatentConnectionFrequencyPercentThresholds[layerIndex]
+																				? " inference-latent-connections-display-latent-connection-active"
+																				: "")
+																		}
 																		style={{
 																			"--angle":
 																				-1 *
 																					(Math.atan(
 																						(latentsLatentWidth *
-																							relationship?.connectedLatentPosition -
+																							relationship?.connectedLatentPosition2 -
 																							latentsLatentWidth * latentIndex) /
 																							(160 - 9 - 4)
 																					) *
@@ -161,7 +184,7 @@ export const LatentConnectionsDisplay = () => {
 																				"deg",
 																			"--length":
 																				Math.hypot(
-																					latentsLatentWidth * relationship?.connectedLatentPosition -
+																					latentsLatentWidth * relationship?.connectedLatentPosition2 -
 																						latentsLatentWidth * latentIndex,
 																					160 - 9 - 4
 																				) + "px",
@@ -171,7 +194,7 @@ export const LatentConnectionsDisplay = () => {
 																		className='inference-latent-connections-display-latent-connection-frequency inference-latent-connections-display-latent-connection-frequency-before'
 																		style={{
 																			"--left":
-																				(relationship?.connectedLatentPosition - latentIndex) *
+																				(relationship?.connectedLatentPosition2 - latentIndex) *
 																					(latentsLatentWidth / 4.5) +
 																				"px",
 																		}}
@@ -183,7 +206,7 @@ export const LatentConnectionsDisplay = () => {
 																		style={{
 																			"--left":
 																				latentsLatentWidth *
-																					(relationship?.connectedLatentPosition - latentIndex) *
+																					(relationship?.connectedLatentPosition2 - latentIndex) *
 																					0.75 +
 																				"px",
 																		}}
