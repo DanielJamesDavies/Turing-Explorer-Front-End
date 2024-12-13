@@ -183,7 +183,7 @@
 }
 
 .inference-latent-connections-display-latent-connection-container-no-hover .inference-latent-connections-display-latent-connection-active {
-	--colour-background: #bac7da;
+	--colour-background: #bac7dabb;
 	--colour-background-light: #0044ff;
 	opacity: 1;
 	background: linear-gradient(180deg, var(--colour-background), var(--colour-background));
@@ -195,16 +195,16 @@
 	z-index: 3 !important;
 	background: linear-gradient(180deg, var(--colour-background) 85%, var(--colour-background-light) 88%, var(--colour-background) 90%);
 	background-size: 400% 400%;
-	animation: inference-latent-connections-display-latent-connection-gradient-flow 12s linear infinite;
+	animation: inference-latent-connections-display-latent-connection-gradient-flow 4s linear 1;
 	transition: 0s !important;
-	animation-delay: calc(var(--layerIndex) * 0.7s);
+	animation-delay: calc(var(--layerIndex) * 0.45s);
 }
 
 @keyframes inference-latent-connections-display-latent-connection-gradient-flow {
 	0% {
 		background-position: 0% 150%;
 	}
-	25% {
+	50% {
 		background-position: 0% 0%;
 	}
 }

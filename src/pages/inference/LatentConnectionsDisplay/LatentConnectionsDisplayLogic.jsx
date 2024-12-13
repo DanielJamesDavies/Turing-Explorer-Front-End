@@ -71,7 +71,7 @@ export const LatentConnectionsDisplayLogic = () => {
 			setTimeout(() => {
 				setIsAnimatingTopLatentConnections(true);
 			}, 4);
-		}, 6000);
+		}, 8400);
 		return () => clearInterval(interval);
 	}, [setIsAnimatingTopLatentConnections]);
 

@@ -63,7 +63,7 @@ export const LatentConnectionsDisplay = () => {
 										"inference-latent-connections-display-layer" +
 										(layerIndex > 9 ? " inference-latent-connections-display-layer-use-higher-preview" : "")
 									}
-									style={{ "--layerIndex": layerIndex % 6 }}
+									style={{ "--layerIndex": layerIndex }}
 								>
 									<div className='inference-latent-connections-display-layer-label'>
 										Layer {(layerIndex + 1).toString()?.length < 2 ? "0" : ""}
