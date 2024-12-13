@@ -34,6 +34,7 @@ export const TopSequencesList = () => {
 		isHidingCommonOtherLatents,
 		toggleIsHidingCommonOtherLatents,
 		viewingLatentTopOtherLatentPreviews,
+		getLatentPreview,
 	} = TopSequencesListLogic();
 
 	return (
@@ -177,7 +178,17 @@ export const TopSequencesList = () => {
 												</div>
 												<div className='latent-top-sequences-item-other-latents-layer-sequences'>
 													{viewingLatentTopOtherLatentsLayer[index]?.slice(0, 16)?.map((otherLatent, index2) => (
-														<div key={index2} className='latent-top-sequences-item-other-latent-container'>
+														<div
+															key={index2}
+															className={
+																"latent-top-sequences-item-other-latent-container" +
+																(viewingLatentTopOtherLatentPreviews?.[
+																	viewingLatentTopOtherLatentsLayerIndex
+																]?.findIndex((e) => e?.latent === otherLatent?.latent) === -1
+																	? " latent-top-sequences-item-other-latent-container-loading"
+																	: "")
+															}
+														>
 															<div
 																className='latent-top-sequences-latents-latent-container'
 																onMouseDown={(e) => e?.preventDefault()}
@@ -186,6 +197,9 @@ export const TopSequencesList = () => {
 																}
 																onAuxClick={(e) =>
 																	goToLatent(e, viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
+																}
+																onMouseEnter={() =>
+																	getLatentPreview(viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
 																}
 															>
 																<div className='latent-top-sequences-latents-latent'>

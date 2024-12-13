@@ -107,6 +107,7 @@
 
 .latent-top-sequences-item-view-top-other-latents-btn span {
 	font-size: 13px;
+	white-space: pre;
 }
 
 .latent-top-sequences-item-tokens {
@@ -483,7 +484,9 @@
 	pointer-events: none;
 }
 
-.latent-top-sequences-item-other-latents-layer:hover .latent-top-sequences-item-other-latent-container:hover .latent-top-sequences-latent-preview {
+.latent-top-sequences-item-other-latents-layer:hover
+	.latent-top-sequences-item-other-latent-container:hover:not(.latent-top-sequences-item-other-latent-container-loading)
+	.latent-top-sequences-latent-preview {
 	opacity: 1;
 	pointer-events: none;
 }
@@ -545,4 +548,18 @@
 
 .latent-top-sequences-item-other-latents-label span {
 	font-size: 14px;
+}
+
+@media (max-width: 650px) {
+	.latent-top-sequences-item-other-latents-label {
+		bottom: 40px;
+		left: 40px;
+	}
+}
+
+@media (max-width: 550px) {
+	.latent-top-sequences-item-other-latents-label {
+		bottom: 40px;
+		left: 20px;
+	}
 }

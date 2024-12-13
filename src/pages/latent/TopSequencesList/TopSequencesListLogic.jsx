@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 
 // Context
 import { LatentContext } from "../LatentContext";
+import { APIContext } from "../../../context/APIContext";
 
 // Services
 
@@ -24,7 +25,9 @@ export const TopSequencesListLogic = () => {
 		viewingLatentTopSequencesList,
 		viewingLatentTopOtherLatents,
 		viewingLatentTopOtherLatentPreviews,
+		setViewingLatentTopOtherLatentPreviews,
 	} = useContext(LatentContext);
+	const { APIRequest } = useContext(APIContext);
 	const [isShowingAll, setIsShowingAll] = useState(false);
 	const [sequenceIsShowingOtherLatents, setSequenceIsShowingOtherLatents] = useState(-1);
 	const sequenceOtherLatentsTypes = [
@@ -63,6 +66,17 @@ export const TopSequencesListLogic = () => {
 		setIsHidingCommonOtherLatents((oldValue) => !oldValue);
 	};
 
+	const getLatentPreview = async (layer, latent) => {
+		if (viewingLatentTopOtherLatentPreviews[layer]?.findIndex((e) => e?.latent === latent) !== -1) return false;
+		const res = await APIRequest("/latent/preview?layer=" + layer + "&latent=" + latent);
+		setViewingLatentTopOtherLatentPreviews((oldValue) => {
+			let newValue = JSON.parse(JSON.stringify(oldValue));
+			newValue[layer] = newValue[layer]?.filter((e) => e?.latent !== latent);
+			newValue[layer].push({ latent, topSequences: res?.topSequences });
+			return newValue;
+		});
+	};
+
 	return {
 		viewingLayerIndex,
 		viewingLatentIndex,
@@ -81,5 +95,6 @@ export const TopSequencesListLogic = () => {
 		isHidingCommonOtherLatents,
 		toggleIsHidingCommonOtherLatents,
 		viewingLatentTopOtherLatentPreviews,
+		getLatentPreview,
 	};
 };
