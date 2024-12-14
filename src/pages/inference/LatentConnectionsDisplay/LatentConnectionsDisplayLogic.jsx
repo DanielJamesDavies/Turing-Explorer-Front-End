@@ -89,7 +89,7 @@ export const LatentConnectionsDisplayLogic = () => {
 						const topConnections = adjacentConnections
 							?.filter((e) => e?.latents[0]?.layer === layer)
 							?.sort((a, b) => b?.frequency - a?.frequency);
-						return Math.min(topConnections?.slice(0, 3)?.at(-1)?.frequency / 160, 0.85);
+						return Math.min(topConnections?.slice(0, 4)?.at(-1)?.frequency / 160, 0.85);
 					});
 				setTopLatentConnectionFrequencyPercentThresholds(newTopLatentConnectionFrequencyPercentThresholds);
 			}

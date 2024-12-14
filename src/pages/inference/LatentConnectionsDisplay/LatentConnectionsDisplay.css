@@ -191,7 +191,7 @@
 	transform-origin: top left;
 	transform: rotate(var(--angle));
 	pointer-events: none;
-	opacity: calc(max(0.2, var(--intensity)) * 0.17);
+	opacity: calc(max(0.2, var(--intensity)) * 0.2);
 	transition: 0.2s;
 }
 
