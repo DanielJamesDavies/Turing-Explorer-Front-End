@@ -1,6 +1,5 @@
 // Packages
-import { useEffect, useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 // Components
 import { NavigationBar } from "./components/navigation-bar/NavigationBar";
@@ -13,6 +12,7 @@ import { ResearchPage } from "./pages/research/ResearchPage";
 import { ResearchPaperPage } from "./pages/research-paper/ResearchPaperPage";
 import { AuthorPage } from "./pages/author/AuthorPage";
 import { NeuralNetBackground } from "./components/neural-net-background/NeuralNetBackground";
+import { AppLogic } from "./AppLogic";
 
 // Logic
 
@@ -25,21 +25,7 @@ import { NeuralNetBackground } from "./components/neural-net-background/NeuralNe
 // Assets
 
 function App() {
-	const location = useLocation();
-	const { pathname } = useLocation();
-	const [pageName, setPageName] = useState(window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [pathname]);
-
-	useEffect(() => {
-		let newPageName = "app-page-" + (window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.[0] || "home");
-		if (window.location?.pathname?.split("/")?.filter((e) => e?.length !== 0)?.length > 1) {
-			newPageName += " " + newPageName + "-subpage";
-		}
-		setPageName(newPageName);
-	}, [location]);
+	const { pageName } = AppLogic();
 
 	return (
 		<div className={"app " + pageName}>
