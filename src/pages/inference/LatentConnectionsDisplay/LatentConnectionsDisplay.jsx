@@ -87,13 +87,17 @@ export const LatentConnectionsDisplay = () => {
 													onMouseLeave={() => onLatentMouseLeave(layerIndex, latentIndex)}
 												>
 													<div className='inference-latent-connections-display-latent'>
-														<button
+														<a
+															href={"/latent?layer=" + (layerIndex + 1) + "&latent=" + (topLatent?.latent + 1)}
+															rel='noopener noreferrer'
+															onMouseDown={(e) => e?.preventDefault()}
 															onClick={(e) => goToLatent(e, layerIndex, topLatent?.latent)}
 															onAuxClick={(e) => goToLatent(e, layerIndex, topLatent?.latent)}
-															onMouseEnter={() => getLatentPreview(layerIndex, topLatent?.latent)}
 														>
-															<span>{topLatent?.latent + 1}</span>
-														</button>
+															<button onMouseEnter={() => getLatentPreview(layerIndex, topLatent?.latent)}>
+																<span>{topLatent?.latent + 1}</span>
+															</button>
+														</a>
 														<div className='inference-latent-connections-display-latent-preview'>
 															<div className='inference-latent-connections-display-latent-preview-location'>
 																<span>Layer {layerIndex + 1}</span>

@@ -565,6 +565,10 @@
 	}
 }
 
+.latent-top-sequences-latent-preview-top-sequence:nth-child(3) {
+	display: none;
+}
+
 .latent-top-sequences-item-other-latents-label {
 	position: absolute;
 	bottom: 50px;

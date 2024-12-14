@@ -29,6 +29,7 @@ export const LatentConnectionsDisplayLogic = () => {
 	const navigate = useNavigate();
 
 	const goToLatent = (e, newLayer, newLatent) => {
+		e?.preventDefault();
 		if (e?.button === 1)
 			return window.open(window?.location?.origin + "/latent?layer=" + (newLayer + 1) + "&latent=" + (newLatent + 1), "_blank");
 		navigate("/latent?layer=" + (newLayer + 1) + "&latent=" + (newLatent + 1));
