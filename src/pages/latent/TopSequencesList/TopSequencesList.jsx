@@ -71,12 +71,12 @@ export const TopSequencesList = () => {
 									>
 										{sequenceIsShowingOtherLatents === index ? (
 											<>
-												<i className='fa-solid fa-eye' />
+												<i className='fa-regular fa-circle' />
 												<span>Hide Other Latents</span>
 											</>
 										) : (
 											<>
-												<i className='fa-solid fa-eye-slash' />
+												<i className='fa-regular fa-circle' />
 												<span>View Other Latents</span>
 											</>
 										)}
@@ -114,36 +114,40 @@ export const TopSequencesList = () => {
 								}
 							>
 								<div className='latent-top-sequences-item-other-latents-collection-type-container'>
-									<div className='latent-top-sequences-item-other-latents-collection-type-title'>
-										Other Latents Collection Type:{" "}
+									<div>
+										<div className='latent-top-sequences-item-other-latents-collection-type-title'>
+											Other Latents Collection Type:{" "}
+										</div>
+										<button
+											className='latent-top-sequences-item-other-latents-collection-type-switch-btn'
+											onClick={decrementOtherLatentsType}
+										>
+											<i className='fa-solid fa-chevron-left' />
+										</button>
+										<span className='latent-top-sequences-item-other-latents-collection-type-value'>
+											{sequenceOtherLatentsTypes[sequenceOtherLatentsTypeIndex]?.name}
+										</span>
+										<button
+											className='latent-top-sequences-item-other-latents-collection-type-switch-btn'
+											onClick={incrementOtherLatentsType}
+										>
+											<i className='fa-solid fa-chevron-right' />
+										</button>
 									</div>
-									<button
-										className='latent-top-sequences-item-other-latents-collection-type-switch-btn'
-										onClick={decrementOtherLatentsType}
-									>
-										<i className='fa-solid fa-chevron-left' />
-									</button>
-									<span className='latent-top-sequences-item-other-latents-collection-type-value'>
-										{sequenceOtherLatentsTypes[sequenceOtherLatentsTypeIndex]?.name}
-									</span>
-									<button
-										className='latent-top-sequences-item-other-latents-collection-type-switch-btn'
-										onClick={incrementOtherLatentsType}
-									>
-										<i className='fa-solid fa-chevron-right' />
-									</button>
-									<span className='latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-label'>
-										Hide Common Other Latents
-									</span>
-									<button
-										className={
-											"latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents" +
-											(isHidingCommonOtherLatents
-												? " latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-active"
-												: "")
-										}
-										onClick={toggleIsHidingCommonOtherLatents}
-									></button>
+									<div>
+										<span className='latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-label'>
+											Hide Common Other Latents
+										</span>
+										<button
+											className={
+												"latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents" +
+												(isHidingCommonOtherLatents
+													? " latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-active"
+													: "")
+											}
+											onClick={toggleIsHidingCommonOtherLatents}
+										></button>
+									</div>
 								</div>
 								<div className='latent-top-sequences-item-other-latents-label'>
 									<i className='fa-solid fa-arrow-left-long'></i>
@@ -189,8 +193,14 @@ export const TopSequencesList = () => {
 																	: "")
 															}
 														>
-															<div
-																className='latent-top-sequences-latents-latent-container'
+															<a
+																href={
+																	"/latent?layer=" +
+																	(viewingLatentTopOtherLatentsLayerIndex + 1) +
+																	"&latent=" +
+																	(otherLatent?.latent + 1)
+																}
+																rel='noopener noreferrer'
 																onMouseDown={(e) => e?.preventDefault()}
 																onClick={(e) =>
 																	goToLatent(e, viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
@@ -198,55 +208,63 @@ export const TopSequencesList = () => {
 																onAuxClick={(e) =>
 																	goToLatent(e, viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
 																}
-																onMouseEnter={() =>
-																	getLatentPreview(viewingLatentTopOtherLatentsLayerIndex, otherLatent?.latent)
-																}
 															>
-																<div className='latent-top-sequences-latents-latent'>
-																	<button>
-																		<span>{otherLatent?.latent + 1}</span>
-																	</button>
-																	<div
-																		ref={(el) => {
-																			if (el) {
-																				if (
-																					el?.getBoundingClientRect()?.right >
-																					window?.innerWidth * 0.76
-																				) {
-																					el.style.left = "unset";
-																					el.style.right = "-24px";
-																				} else {
-																					el.style.left = "-24px";
-																					el.style.right = "unset";
+																<div
+																	className='latent-top-sequences-latents-latent-container'
+																	onMouseDown={(e) => e?.preventDefault()}
+																	onMouseEnter={() =>
+																		getLatentPreview(
+																			viewingLatentTopOtherLatentsLayerIndex,
+																			otherLatent?.latent
+																		)
+																	}
+																>
+																	<div className='latent-top-sequences-latents-latent'>
+																		<button>
+																			<span>{otherLatent?.latent + 1}</span>
+																		</button>
+																		<div
+																			ref={(el) => {
+																				if (el) {
+																					if (
+																						el?.getBoundingClientRect()?.right >
+																						window?.innerWidth * 0.76
+																					) {
+																						el.style.left = "unset";
+																						el.style.right = "-24px";
+																					} else {
+																						el.style.left = "-24px";
+																						el.style.right = "unset";
+																					}
 																				}
-																			}
-																		}}
-																		className='latent-top-sequences-latent-preview'
-																	>
-																		<div className='latent-top-sequences-latent-preview-location'>
-																			<span>Layer {viewingLatentTopOtherLatentsLayerIndex + 1}</span>
-																			<span>Latent {otherLatent?.latent + 1}</span>
-																		</div>
-																		<div className='latent-top-sequences-latent-preview-top-sequences-label'>
-																			Top Sequences
-																		</div>
-																		<div className='latent-top-sequences-latent-preview-top-sequences'>
-																			{viewingLatentTopOtherLatentPreviews?.[
-																				viewingLatentTopOtherLatentsLayerIndex
-																			]
-																				?.find((e) => e?.latent === otherLatent?.latent)
-																				?.topSequences?.map((topSequence, topSequenceIndex) => (
-																					<div
-																						key={topSequenceIndex}
-																						className='latent-top-sequences-latent-preview-top-sequence'
-																					>
-																						{topSequence}
-																					</div>
-																				))}
+																			}}
+																			className='latent-top-sequences-latent-preview'
+																		>
+																			<div className='latent-top-sequences-latent-preview-location'>
+																				<span>Layer {viewingLatentTopOtherLatentsLayerIndex + 1}</span>
+																				<span>Latent {otherLatent?.latent + 1}</span>
+																			</div>
+																			<div className='latent-top-sequences-latent-preview-top-sequences-label'>
+																				Top Sequences
+																			</div>
+																			<div className='latent-top-sequences-latent-preview-top-sequences'>
+																				{viewingLatentTopOtherLatentPreviews?.[
+																					viewingLatentTopOtherLatentsLayerIndex
+																				]
+																					?.find((e) => e?.latent === otherLatent?.latent)
+																					?.topSequences?.map((topSequence, topSequenceIndex) => (
+																						<div
+																							key={topSequenceIndex}
+																							className='latent-top-sequences-latent-preview-top-sequence'
+																						>
+																							{topSequence}
+																						</div>
+																					))}
+																			</div>
 																		</div>
 																	</div>
 																</div>
-															</div>
+															</a>
 														</div>
 													))}
 												</div>

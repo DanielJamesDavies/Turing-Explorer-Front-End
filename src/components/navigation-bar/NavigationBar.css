@@ -60,6 +60,8 @@
 	margin-top: -2px;
 	height: 38px;
 	filter: brightness(0);
+	user-select: none;
+	pointer-events: none;
 }
 
 .navigation-bar-buttons {

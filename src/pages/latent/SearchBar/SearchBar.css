@@ -5,7 +5,7 @@
 	align-items: center;
 	margin: 32px 0;
 	margin-bottom: 0;
-	padding: 0 24px;
+	padding: 0 16px;
 	box-sizing: border-box;
 	width: 100%;
 	transition: 0.2s;
@@ -129,6 +129,12 @@
 
 .latent-search-navigation-item input:focus::placeholder {
 	opacity: 0.45;
+}
+
+@media (max-width: 940px) {
+	.latent-search-navigation-item input {
+		font-size: 16px;
+	}
 }
 
 .latent-search-navigation-go-to-latent-btn {

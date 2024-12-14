@@ -2,5 +2,7 @@
 	position: relative;
 	padding-bottom: 256px;
 	margin: 0 auto;
-	max-width: 1350px;
+	width: 100%;
+	max-width: 1320px;
+	overflow-x: hidden;
 }

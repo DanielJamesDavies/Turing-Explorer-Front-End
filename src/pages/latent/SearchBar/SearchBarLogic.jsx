@@ -46,12 +46,28 @@ export const SearchBarLogic = () => {
 		setViewingLatentIndexInputValue(e.target.value);
 	};
 
-	const goToLatentPage = (e) => {
+	const [currLatentLayer, setCurrLatentLayer] = useState(viewingLayerIndex);
+	const [currLatentIndex, setCurrLatentIndex] = useState(viewingLatentIndex);
+
+	useEffect(() => {
 		let newLatentLayer = viewingLayerIndex;
 		let newLatentIndex = viewingLatentIndex;
 		if (!isNaN(parseInt(layerIndexInputValue))) newLatentLayer = parseInt(layerIndexInputValue) - 1;
 		if (!isNaN(parseInt(latentIndexInputValue))) newLatentIndex = parseInt(latentIndexInputValue) - 1;
 		if (newLatentLayer > layerCount || latentIndexInputValue > latentCount) return false;
+		setCurrLatentLayer(newLatentLayer);
+		setCurrLatentIndex(newLatentIndex);
+	}, [viewingLayerIndex, viewingLatentIndex, layerIndexInputValue, latentIndexInputValue]);
+
+	const goToLatentPage = (e) => {
+		e.preventDefault();
+		let newLatentLayer = viewingLayerIndex;
+		let newLatentIndex = viewingLatentIndex;
+		if (!isNaN(parseInt(layerIndexInputValue))) newLatentLayer = parseInt(layerIndexInputValue) - 1;
+		if (!isNaN(parseInt(latentIndexInputValue))) newLatentIndex = parseInt(latentIndexInputValue) - 1;
+		if (newLatentLayer > layerCount || latentIndexInputValue > latentCount) return false;
+		setCurrLatentLayer(newLatentLayer);
+		setCurrLatentIndex(newLatentIndex);
 		const path = "/latent?layer=" + (newLatentLayer + 1) + "&latent=" + (newLatentIndex + 1);
 		layerIndexInputRef?.current?.blur();
 		latentIndexInputRef?.current?.blur();
@@ -67,6 +83,8 @@ export const SearchBarLogic = () => {
 		latentIndexInputRef,
 		latentIndexInputValue,
 		changeLatentIndexInputValue,
+		currLatentLayer,
+		currLatentIndex,
 		goToLatentPage,
 	};
 };

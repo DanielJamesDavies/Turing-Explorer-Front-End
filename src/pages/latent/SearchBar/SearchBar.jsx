@@ -23,6 +23,8 @@ export const SearchBar = () => {
 		latentIndexInputRef,
 		latentIndexInputValue,
 		changeLatentIndexInputValue,
+		currLatentLayer,
+		currLatentIndex,
 		goToLatentPage,
 	} = SearchBarLogic();
 
@@ -50,14 +52,17 @@ export const SearchBar = () => {
 
 				{/* View Latent */}
 				<div className='latent-search-navigation-go-to-latent-btn-container'>
-					<button
-						className='latent-search-navigation-go-to-latent-btn button'
+					<a
+						href={"/latent?layer=" + (currLatentLayer + 1) + "&latent=" + (currLatentIndex + 1)}
+						rel='noopener noreferrer'
 						onMouseDown={(e) => e?.preventDefault()}
 						onClick={goToLatentPage}
 						onAuxClick={goToLatentPage}
 					>
-						View Latent
-					</button>
+						<button className='latent-search-navigation-go-to-latent-btn button' onMouseDown={(e) => e?.preventDefault()}>
+							View Latent
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 .latent-top-sequences-list-container {
 	margin-top: 8px;
-	padding: 0 32px;
+	padding: 0 16px;
 	box-sizing: border-box;
 }
 
@@ -286,11 +286,19 @@
 
 .latent-top-sequences-item-other-latents-collection-type-container {
 	display: flex;
-	gap: 8px;
+	gap: 16px 48px;
+	flex-wrap: wrap;
 	align-items: center;
 	margin-top: 6px;
 	margin-bottom: 24px;
+	width: 100%;
 	color: var(--colour-grey-75);
+}
+
+.latent-top-sequences-item-other-latents-collection-type-container > div {
+	display: flex;
+	gap: 8px;
+	align-items: center;
 }
 
 .latent-top-sequences-item-other-latents-collection-type-title {
@@ -309,6 +317,7 @@
 }
 
 .latent-top-sequences-item-other-latents-collection-type-switch-btn {
+	flex-shrink: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -421,7 +430,6 @@
 }
 
 .latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents-label {
-	margin-left: 32px;
 	margin-right: 12px;
 	font-size: 14px;
 	font-weight: 300;
@@ -429,6 +437,7 @@
 }
 
 .latent-top-sequences-item-other-latents-collection-type-toggle-hide-common-latents {
+	flex-shrink: 0;
 	position: relative;
 	border-radius: 32px;
 	width: 50px;
@@ -464,19 +473,34 @@
 
 .latent-top-sequences-latent-preview {
 	position: absolute;
-	z-index: 2;
+	z-index: 3;
 	top: 32px;
 	left: -24px;
 	padding: 12px;
 	border: 1px solid var(--colour-grey-85);
 	border-radius: 5px;
 	width: 450px;
+	max-width: calc(100dvw - 2 * 60px);
 	min-height: 160px;
 	background: var(--colour-white);
+	color: var(--colour-black);
 	opacity: 0;
 	pointer-events: none;
 	transition: 0.4s;
 	transition-delay: 0s;
+}
+
+@media (max-width: 600px) {
+	.latent-top-sequences-latent-preview {
+		position: fixed;
+		z-index: 100;
+		top: unset;
+		bottom: 24px;
+		left: 50% !important;
+		right: unset !important;
+		transform: translateX(-50%);
+		height: fit-content;
+	}
 }
 
 .latent-top-sequences-item-other-latents-layer .latent-top-sequences-latent-preview {
@@ -533,6 +557,12 @@
 .latent-top-sequences-latent-preview-top-sequence {
 	margin: 0 2px;
 	font-size: 14px;
+}
+
+@media (max-width: 500px) {
+	.latent-top-sequences-latent-preview-top-sequence {
+		font-size: 13px;
+	}
 }
 
 .latent-top-sequences-item-other-latents-label {

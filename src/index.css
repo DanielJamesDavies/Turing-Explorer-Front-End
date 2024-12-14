@@ -47,6 +47,10 @@ button:focus {
 	outline: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 .page {
 	padding-top: 60px;
 }

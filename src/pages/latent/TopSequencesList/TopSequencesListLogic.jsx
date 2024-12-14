@@ -47,6 +47,7 @@ export const TopSequencesListLogic = () => {
 	};
 
 	const goToLatent = (e, newLayerIndex, newLatentIndex) => {
+		e?.preventDefault();
 		if (e?.button === 1) {
 			return window.open(window.location?.origin + "/latent?layer=" + (newLayerIndex + 1) + "&latent=" + (newLatentIndex + 1), "_blank");
 		}

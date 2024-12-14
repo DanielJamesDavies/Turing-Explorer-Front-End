@@ -110,7 +110,7 @@
 	transition: 0.2s;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
 	.search-results-item-top-sequence-preview:nth-child(4) {
 		display: none;
 	}
