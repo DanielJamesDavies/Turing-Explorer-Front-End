@@ -108,8 +108,9 @@ export const HomePage = () => {
 						{ label: "Generated a 2B Token Synthetic Dataset", status: "done" },
 						{ label: "Built and Trained Turing-LLM-1.0-254M", status: "done" },
 						{ label: "Trained Sparse Autoencoders on LLM Activations", status: "done" },
-						{ label: "Developing & Evaluating Novel Interpretability Approaches", status: "doing" },
-						{ label: "Assembling a Tool to Explore Turing-LLM", status: "doing" },
+						{ label: "Assembled a Tool to Explore Turing-LLM Internals", status: "done" },
+						{ label: "Developed Novel Interpretability Approaches", status: "done" },
+						{ label: "Evaluating Novel Interpretability Approaches", status: "doing" },
 					]?.map((progressItem, index) => (
 						<div key={index} className='home-progress-item'>
 							{progressItem?.status === "done" ? (
