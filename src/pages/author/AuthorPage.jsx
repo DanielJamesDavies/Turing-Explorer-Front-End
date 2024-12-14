@@ -20,6 +20,7 @@ export const AuthorPage = () => {
 	}, []);
 
 	const navigate = (e, url) => {
+		e?.preventDefault();
 		if (e?.button === 1) return window.open(url, "_blank");
 		window.location.href = url;
 	};
@@ -36,9 +37,18 @@ export const AuthorPage = () => {
 						{ label: "Portfolio", url: "https://www.danieljdavies.com" },
 						{ label: "LinkedIn", url: "https://www.linkedin.com/in/daniel-james-davies/" },
 					]?.map((link, index) => (
-						<button className='button' key={index} onClick={(e) => navigate(e, link?.url)} onAuxClick={(e) => navigate(e, link?.url)}>
-							<span>{link?.label}</span>
-						</button>
+						<a
+							key={index}
+							href={link?.url}
+							rel='noopener noreferrer'
+							onMouseDown={(e) => e?.preventDefault()}
+							onClick={(e) => navigate(e, link?.url)}
+							onAuxClick={(e) => navigate(e, link?.url)}
+						>
+							<button className='button'>
+								<span>{link?.label}</span>
+							</button>
+						</a>
 					))}
 				</div>
 				<div className='author-subtitles'>

@@ -23,6 +23,7 @@ export const HomePage = () => {
 	}, []);
 
 	const navigateToPage = (e, path) => {
+		e?.preventDefault();
 		if (e?.button === 1) return window.open(window?.location?.origin + path, "_blank");
 		navigate(path);
 	};
@@ -50,22 +51,28 @@ export const HomePage = () => {
 					onKeyDown={onInferenceInputKeyDown}
 				></input>
 				<div className='home-primary-buttons'>
-					<button
-						className='button'
+					<a
+						href='/explore'
+						rel='noopener noreferrer'
 						onMouseDown={(e) => e?.preventDefault()}
 						onClick={(e) => navigateToPage(e, "/explore")}
 						onAuxClick={(e) => navigateToPage(e, "/explore")}
 					>
-						<span>Explore Latents</span>
-					</button>
-					<button
-						className='button'
+						<button className='button' onMouseDown={(e) => e?.preventDefault()}>
+							<span>Explore Latents</span>
+						</button>
+					</a>
+					<a
+						href='/research'
+						rel='noopener noreferrer'
 						onMouseDown={(e) => e?.preventDefault()}
 						onClick={(e) => navigateToPage(e, "/research")}
 						onAuxClick={(e) => navigateToPage(e, "/research")}
 					>
-						<span>Read Research Blog</span>
-					</button>
+						<button className='button' onMouseDown={(e) => e?.preventDefault()}>
+							<span>Read Research Blog</span>
+						</button>
+					</a>
 				</div>
 			</div>
 			<div className='home-section home-cards'>
