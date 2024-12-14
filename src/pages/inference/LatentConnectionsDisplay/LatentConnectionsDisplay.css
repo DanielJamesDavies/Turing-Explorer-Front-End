@@ -158,6 +158,11 @@
 	left: 50%;
 	transform: translateX(-50%);
 	font-size: 12px;
+	transition: 0.2s;
+}
+
+.inference-latent-connections-display-latent:hover button span {
+	color: var(--colour-blue);
 }
 
 .inference-latent-connections-display-latent-container:hover {
