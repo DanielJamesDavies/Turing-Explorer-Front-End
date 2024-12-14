@@ -7,7 +7,7 @@
 	margin: 0;
 	margin-top: -12px;
 	-webkit-text-fill-color: transparent;
-	background: linear-gradient(180deg, var(--colour-blue), #4cf, #04f 75%);
+	background: linear-gradient(180deg, var(--colour-blue), #2af, #04f 75%);
 	-webkit-background-clip: text;
 	color: var(--colour-white);
 	font-size: 2.1rem;
