@@ -87,7 +87,7 @@ export const HomePage = () => {
 					<div className='home-card-image'></div>
 					<div className='home-card-title'>Turing-LLM</div>
 					<div className='home-card-text'>
-						Build to simplify and enhance
+						Built to simplify and enhance
 						<br /> comprehension of how LLMs operate
 					</div>
 				</div>
